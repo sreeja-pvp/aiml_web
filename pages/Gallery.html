@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Highlights</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lightbox2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+    <style>
+       .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item {
+      margin-bottom: 30px;
+    }
+
+    /* Fix: Ensure close button is always visible */
+    .lightboxOverlay,
+    .lightbox {
+      z-index: 1050;
+    }
+
+    .lb-close {
+      background: url('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/images/close.png') no-repeat center center;
+      background-size: 30px 30px;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: block;
+      opacity: 1 !important;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                                Year</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                                Year</a></li>
+                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
+                                    </ul>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+    <section class="gallery py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Photo Gallery</h2>
+            <div class="row">
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel15.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel15.jpg" alt="Landscape 1" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel16.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel16.jpg" alt="Landscape 2" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel17.png" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel17.png" alt="Landscape 3" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI1.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI1.jpg" alt="Landscape 4" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI2.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI2.jpg" alt="Landscape 5" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI3.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI3.jpg" alt="Landscape 6" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI4.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI4.jpg" alt="Landscape 7" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI5.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI5.jpg" alt="Landscape 8" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/Gallery/GenAI6.jpg" data-lightbox="gallery">
+                        <img src="../images/Gallery/GenAI6.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+
+                 <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel10.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel10.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                 <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel9.png" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel9.png" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel8.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel8.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel7.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel7.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel6.png" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel6.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel5.png" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel5.png" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel4.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel4.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel3.png" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel3.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+                
+                <div class="col-md-4 gallery-item">
+                    <a href="../images/carousel/Carousel1.jpg" data-lightbox="gallery">
+                        <img src="../images/carousel/Carousel1.jpg" alt="Landscape 9" class="gallery-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--footer -->
+    <div class="footer">
+        Quick Links
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-2">
+                <div class="column-title">Menu</div>
+                <ul class="list-unstyled">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/Gallery.html">Gallery</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+                    <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+                </ul>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-2">
+                <div class="column-title">Academic</div>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+                    <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+                    <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+                    <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+                </ul>
+            </div>
+            <!-- Column 3 -->
+            <div class="col-md-2">
+                <div class="column-title">Governance</div>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+                    <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a>
+                    </li>
+                    <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+                    <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+                    <li><a href="../index.html">PVP Gallery</a></li>
+                </ul>
+            </div>
+            <!-- Column 4 -->
+            <div class="col-md-3">
+                <div class="column-title">Contact</div>
+                <address class="address">
+                    <p>P.V.P. Siddhartha Institute Of Technology</p>
+                    <p>Kanuru, Vijayawada-520 007</p>
+                    <p>Andhra Pradesh, India</p>
+                    <p>Tel: 0866-2581699, 0866-2583037</p>
+                    <p>0866-2585681, 0866-2585682</p>
+                    <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+                    <p>Fax: 0866-2581184</p>
+                </address>
+            </div>
+            <!-- Column 5 -->
+            <div class="col-md-3">
+                <div class="column-title">Location</div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+   
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+</body>
+
+</html>

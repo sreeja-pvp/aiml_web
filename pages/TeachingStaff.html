@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachingStaff</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+
+    <style>
+        body {
+            /* font-family: 'Poppins', sans-serif;*/
+            background-color: #f8f9fa;
+            /* padding-bottom: 14px;*/
+        }
+
+        #searchInput {
+            max-width: 300px;
+            /* Adjust as needed */
+
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgb(24, 68, 107);
+            object-fit: inherit;
+        }
+
+        .profile-info p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+
+        }
+
+        .profile-info i {
+            color: #0056b3;
+            margin-right: 8px;
+        }
+
+        .profile-link a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #0056b3;
+            transition: 0.3s;
+        }
+
+        .profile-link a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .profile-info a {
+            text-decoration: underline;
+            color: #0056b3;
+            font-weight: 600;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                                Year</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                                Year</a></li>
+                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
+                                    </ul>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_PVP20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+                             
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+                                
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+
+                            </ul>
+                        </li>
+                      <!-- Certifications -->
+                      <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                      <!-- Results Analysis-->
+                      <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+
+
+    <div class="container mt-5">
+        <div>
+            <h2 class="text-center mb-4">Teaching Staff</h2>
+        </div>
+        <!-- Search
+        <div class="mb-2 d-flex justify-content-center">
+            <div class="input-group" style="max-width: 300px;">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by name..." onkeyup="filterFaculty()">
+            </div>
+        </div>
+        </div>
+        <br>-->
+
+
+       
+
+    <div class="container mt-4">
+        
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-primary">
+                    <tr>
+                        <th>SNO</th>
+                        <th>NAME OF THE STAFF</th>
+                        <th>DESIGNATION</th>
+                        <th>OVERALL EXPERIENCE</th>
+                        <th>Contact No</th>
+                        <th>Email-ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Dr. B. Janakiramaiah</td>
+                        <td>Professor & Head</td>
+                        <td>22 Years</td>
+                        <td>+91 9440586340</td>
+                        <td>Janakiramaiah@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ms. P. Sujatha</td>
+                        <td>Assistant Professor</td>
+                        <td>5 Years 7 Months</td>
+                        <td>+91 8520881544</td>
+                        <td>psujatha@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mr. G. Venkata Krishna</td>
+                        <td>Assistant Professor</td>
+                        <td>20 Years</td>
+                        <td>+91 9000224632</td>
+                        <td>vkrishna@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Mr. K.S.S Narayana</td>
+                        <td>Assistant Professor</td>
+                        <td>26 Years</td>
+                        <td>+91 9440764235</td>
+                        <td>kssnarayana@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Mr. B. Kalyan Chakravarthy</td>
+                        <td>Assistant Professor</td>
+                        <td>15 Years 7 Months</td>
+                        <td>+91 8978125792</td>
+                        <td>kalyanchakravarthy@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Mrs. T. Deepa</td>
+                        <td>Assistant Professor</td>
+                        <td>12 Years</td>
+                        <td>+91 8977772577</td>
+                        <td>deepa@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Mrs. G. Gayatri</td>
+                        <td>Assistant Professor</td>
+                        <td>1 Year 10 Months</td>
+                        <td>+91 8770706429</td>
+                        <td>gamanigayatri@pvpsit.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Mrs. N. Susmitha</td>
+                        <td>Assistant Professor</td>
+                        <td>3 Years 4 Months</td>
+                        <td>+91 7550121079</td>
+                        <td>susmithan@pvpsiddhartha.ac.in</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Mr. Prashanth R Meduri</td>
+                        <td>Assistant Professor</td>
+                        <td>24 Years</td>
+                        <td>+91 9908911296</td>
+                        <td>prashanth.meduri@pvpsiddhartha.ac.in</td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>Ms.N.Mrinalini Rao</td>
+                        <td>Assistant Professor</td>
+                        <td>12 Years</td>
+                        <td>+91 9177106855</td>
+                        <td>mrinalinirao@pvpsiddhartha.ac.in</td>
+                    </tr>
+
+                    <tr>
+                        <td>11</td>
+                        <td>Mrs. P. Sai Geetha</td>
+                        <td>Assistant Professor</td>
+                        <td>7 Years</td>
+                        <td>+91 7032892479</td>
+                        <td>geethapadimukkala@pvpsiddhartha.ac.in</td>
+                    </tr>
+
+                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+    <div class="row justify-content-center">
+        <!-- Employee 1 -->
+        <div class="col-md-4 col-lg-3 mb-4 faculty-card">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM100001.jpg" alt="">
+                <h5 class="mt-3"><strong>Dr. B.Janakiramaiah</strong></h5>
+                <p class="text-decoration">Professor & Head</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM020670</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 08-06-2017</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: B.E(CSE),M.Tech(CSE),Ph.D(CSE)</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:9440586340">+91 9440586340</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:Janakiramaiah@pvpsiddhartha.ac.in">Janakiramaiah@pvpsiddhartha.ac.in</a>
+                    </p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM100001.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee 2 -->
+        <div class="col-md-4 col-lg-3 mb-4 faculty-card">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010003.jpg" alt="Ms. P. Sujatha">
+                <h5 class="mt-3"><strong>Ms. P. Sujatha</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060759</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 01-08-2023</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:8520881544">+91 8520881544</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:psujatha@pvpsiddhartha.ac.in">psujatha@pvpsiddhartha.ac.in</a></p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010003.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee 3 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010005.jpg" alt="Mr. G. Venkata Krishna">
+                <h5 class="mt-3"><strong>Mr. G. Venkata Krishna</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060761</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 17-08-2023</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:9000224632">+91 9000224632</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:pnagamani@pvpsiddhartha.ac.in">vkrishna@pvpsiddhartha.ac.in</a></p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010005.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee 4 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010006.jpg" alt="Mr. K.S.S Narayana">
+                <h5 class="mt-3"><strong>Mr. K.S.S Narayana</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060774</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 24-05-2024</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:9440764235">+91 9440764235</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:kssnarayana@pvpsiddhartha.ac.in">kssnarayana@pvpsiddhartha.ac.in</a></p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010006.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+      
+
+        <!-- Employee 5 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010008.jpg" alt="Mrs. T. Deepa">
+                <h5 class="mt-3"><strong>Mrs. T. Deepa</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060783</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 24-06-2024</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech(Ph.D)</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:8977772577">+91 8977772577</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:mounika@pvpsiddhartha.ac.in">deepa@pvpsiddhartha.ac.in</a></p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010008.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee 6 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010009.jpg" alt="Mrs. G. Gayatri">
+                <h5 class="mt-3"><strong>Mrs. G. Gayatri</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060785</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 15-07-2024</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech.</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:8770706429">+91 8770706429</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:gamanigayatri@pvpsit.ac.in">gamanigayatri@pvpsit.ac.in</a></p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010009.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee 9 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010010.jpg" alt="Mrs. N. Susmitha">
+                <h5 class="mt-3"><strong>Mrs. N. Susmitha</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060786</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 30-07-2024</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech.</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:7550121079">+91 7550121079</a></p>
+                    <p><i class="fas fa-envelope"></i> <a
+                            href="mailto:susmithan@pvpsiddhartha.ac.in">susmithan@pvpsiddhartha.ac.in</a>
+                    </p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010010.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+         <!--Employee  --> 
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM010011.jpg" alt="Mr. PRASHANTH MEDURI ">
+                <h5 class="mt-3"><strong>Mr.Prashanth Meduri </strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060796</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 02-05-2025</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech.</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:9908911296">+91 9908911296</a></p>
+                    <p style="font-size:13.5px;"><i class="fas fa-envelope"></i> <a
+                            href="mailto:prashanth.meduri@pvpsiddhartha.ac.in">prashanth.meduri@pvpsiddhartha.ac.in</a>
+                    </p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM010011.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+        <!-- Employee -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM060799.jpeg" alt="Mr.Ms.N.Mrinalini Rao ">
+                <h5 class="mt-3"><strong>Ms.N.Mrinalini Rao </strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060799</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 02-06-2025</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech.</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                     <p><i class="fas fa-phone"></i> Contact No: <a href="tel:9177106855">+91 9177106855</a></p>
+                    <p style="font-size:13.5px;"><i class="fas fa-envelope"></i> <a
+                            href="mailto:mrinalinirao@pvpsiddhartha.ac.in@pvpsiddhartha.ac.in">mrinalinirao@pvpsiddhartha.ac.in</a>
+                    </p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM060799.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        
+       <!-- Employee -->
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="profile-card">
+                <img class="profile-img" src="../images/people/CSM060800.jpeg" alt="Mrs. P. Sai Geetha">
+                <h5 class="mt-3"><strong>Mrs. P. Sai Geetha</strong></h5>
+                <p class="text-decoration">Assistant Professor</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-id-badge"></i> EMP ID: CSM060800</p>
+                    <p><i class="fas fa-calendar-alt"></i> Date of Joining: 03-06-2025</p>
+                    <p><i class="fas fa-graduation-cap"></i> Qualification: M.Tech (Ph.D)</p>
+                    <p><i class="fas fa-user-tie"></i> Nature of Association: Regular</p>
+                    <p><i class="fas fa-phone"></i> Contact No: <a href="tel:7032892479">+91 7032892479</a></p>
+                    <p style="font-size:13.5px;"><i class="fas fa-envelope"></i> <a
+                            href="mailto:"geethapadimukkala@pvpsiddhartha.ac.in">geethapadimukkala@pvpsiddhartha.ac.in</a>
+                    </p>
+                </div>
+
+                <div class="profile-link mt-3">
+                    <a href="../pdfs/staffProfile/CSM060800.pdf"><i class="fas fa-file-pdf"></i> View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+    </div>
+
+
+    <!--footer -->
+    <div class="footer">
+        Quick Links
+      </div>
+      <div class="container mt-4">
+        <div class="row">
+          <!-- Column 1 -->
+          <div class="col-md-2">
+            <div class="column-title">Menu</div>
+            <ul class="list-unstyled">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../pages/Gallery.html">Gallery</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+              <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="col-md-2">
+            <div class="column-title">Academic</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+              <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+              <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+              <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-md-2">
+            <div class="column-title">Governance</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+              <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
+              <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+              <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+              <li><a href="../index.html">PVP Gallery</a></li>
+            </ul>
+          </div>
+          <!-- Column 4 -->
+          <div class="col-md-3">
+            <div class="column-title">Contact</div>
+            <address class="address">
+              <p>P.V.P. Siddhartha Institute Of Technology</p>
+              <p>Kanuru, Vijayawada-520 007</p>
+              <p>Andhra Pradesh, India</p>
+              <p>Tel: 0866-2581699, 0866-2583037</p>
+              <p>0866-2585681, 0866-2585682</p>
+              <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+              <p>Fax: 0866-2581184</p>
+            </address>
+          </div>
+          <!-- Column 5 -->
+          <div class="col-md-3">
+            <div class="column-title">Location</div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+            </iframe>
+          </div>
+        </div>
+      </div>
+      
+</body>
+
+</html>

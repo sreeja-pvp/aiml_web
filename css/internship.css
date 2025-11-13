@@ -1,0 +1,105 @@
+
+/* Internships Section Styling */
+#internships {
+  max-width: max-content;
+ border: none;
+  /* Increased margin */
+  padding: 20px;
+  /* Slightly increased padding */
+  /* Reduced padding for a more compact layout */
+}
+
+/* Heading Container Styling */
+#internships .internships-heading {
+  text-align: center;
+  background-color: rgb(24, 68, 107);
+  /* Blue background for the heading */
+  color: white;
+  /* White text color */
+  padding:  15px;
+  /* Reduced padding around the heading */
+  border-radius: 8px;
+  /* Rounded corners for the background */
+  margin-bottom: 20px;
+  /* Reduced space between heading and cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for the heading */
+  font-family: 'Montserrat', sans-serif;
+  /* Stylish font */
+}
+
+#internships .internships-heading .card-title {
+  font-size: 24px;
+  /* Slightly smaller title size */
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+#internships .internships-heading .card-text {
+  font-size: 16px;
+  /* Slightly smaller font size for description */
+  margin-top: 5px;
+}
+
+/* Internship Cards Grid */
+#internships .row {
+  margin-top: 10px;
+  /* Reduced space between sections */
+}
+
+/* Individual Internship Cards Styling */
+#internships .internship-card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  /* Reduced padding inside cards */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 150px;
+  /* Reduced card height */
+  margin-bottom: 15px;
+  /* Reduced margin between cards */
+}
+
+/* Card Hover Effects */
+#internships .internship-card:hover {
+  transform: translateY(-5px);
+  /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Darker shadow */
+}
+
+/* Internship Title Styling */
+#internships .internship-title {
+  font-size: 16px;
+  /* Reduced font size */
+  font-weight: bold;
+  color: #1e2082;
+  margin-bottom: 5px;
+}
+
+/* Internship Details Styling */
+#internships .internship-details {
+  font-size: 14px;
+  /* Slightly smaller font size for better compactness */
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Button Link Styling */
+#internships .btn-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Button Link Hover Effect */
+#internships .btn-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+

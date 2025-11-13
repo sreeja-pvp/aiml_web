@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVPSIT | Computer Science Engineering (Artificial Intelligence & Machine Learning)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Metropolis:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Define Blue and Yellow variables for custom CSS (like <hr>) */
+        :root {
+            --primary-blue: #1E3A8A;
+            /* indigo-900 */
+            --accent-yellow: #FCD34D;
+            /* yellow-400 */
+        }
+
+        body {
+            font-family: 'Metropolis', sans-serif
+        }
+
+        /* Styling the Horizontal Rule Divider (Page Separator) */
+        hr {
+            border: none;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            /* Yellow */
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(30, 58, 138, 0.5);
+            /* Blue Shadow */
+        }
+
+        /* --- CSS for Infinite Scrolling Placement Banner --- */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+            /* Scrolls one copy of content width */
+        }
+
+        .scroll-container {
+            animation: scroll 30s linear infinite;
+            display: flex;
+            width: fit-content;
+            /* Ensure it's wide enough for two copies of content */
+        }
+
+        /* --- END Banner CSS --- */
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="collegeLogog.png" alt="PVPSIT Logo" class="h-20 w-auto">
+                <div>
+                    <span class="text-lg font-extrabold text-indigo-700 block leading-tight">Dept. of CSE (Artificial
+                        Intelligence and Machine Learning)</span>
+                    <div class="h-0.5 w-full my-0.5 bg-yellow-500"></div>
+                    <span class="text-lg font-extrabold text-indigo-700 block leading-tight">PVP Siddhartha Institute Of
+                        Technology</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex space-x-4 items-center text-sm font-medium">
+                <a href="#" class="text-yellow-600 hover:text-indigo-700 transition duration-300 text-base">Home</a>
+
+                <a href="#vision-mission"
+                    class="text-yellow-600  hover:text-indigo-800 transition duration-300 text-base">Vision/Mission</a>
+
+                <a href="#academics-corner"
+                    class="text-yellow-600  hover:text-indigo-800 transition duration-300 text-base">Academics</a>
+
+                <a href="#research-corner"
+                    class="text-yellow-600  hover:text-indigo-800 transition duration-300 text-base">Research</a>
+
+                <a href="#student-corner"
+                    class="text-yellow-600  hover:text-indigo-800 transition duration-300 text-base">Student</a>
+                
+                <a href="#faculty-achievements"
+                    class="text-yellow-600 hover:text-indigo-700 transition duration-300 text-base">Faculty</a>
+                <a href="/clubs" class="text-yellow-600 hover:text-indigo-700 transition duration-300 text-base">Clubs</a>
+                <a href="https://linkedin.com/pvpsit-aiml" target="_blank"
+                    class="text-blue-600 hover:text-indigo-600 transition duration-300 ml-4"
+                    aria-label="Department LinkedIn">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path id="mobile-menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-indigo-50 border-t border-indigo-200 shadow-lg py-4 px-4">
+            <div class="grid grid-cols-2 gap-4 text-center">
+
+                <a href="#" class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-home text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Home</p>
+                </a>
+
+                <a href="#academics-corner"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-graduation-cap text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Academics</p>
+                </a>
+
+                <a href="#research-corner"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-yellow-100 transition duration-200">
+                    <i class="fas fa-flask text-yellow-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Research</p>
+                </a>
+
+                <a href="#student-corner"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-user-graduate text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Student Corner</p>
+                </a>
+
+                <a href="/clubs"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-users text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Clubs</p>
+                </a>
+
+                <a href="#faculty-achievements"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-chalkboard-teacher text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Faculty</p>
+                </a>
+
+                <a href="/academic-calendar"
+                    class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-calendar-alt text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">Calendar</p>
+                </a>
+                <a href="/bos" class="block p-3 bg-white rounded-lg shadow hover:bg-indigo-100 transition duration-200">
+                    <i class="fas fa-gavel text-indigo-600 mb-1"></i>
+                    <p class="text-xs font-semibold text-gray-700">BOS</p>
+                </a>
+            </div>
+
+            <div class="mt-4 text-center">
+                <a href="https://linkedin.com/pvpsit-aiml" target="_blank"
+                    class="inline-block px-4 py-2 text-indigo-600 hover:text-indigo-800 transition duration-300 bg-white rounded-full shadow-md">
+                    <i class="fab fa-linkedin fa-lg mr-2"></i> Join us on LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- <section id="placement-banner" class="bg-indigo-700 py-3 overflow-hidden shadow-lg border-b-4 border-yellow-400">
+        <div class="scroll-container flex space-x-12 items-center">
+            <div class="flex space-x-12 items-center flex-shrink-0">
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-trophy text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Arjun Nair - <span class="text-yellow-400">TCS</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-briefcase text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Kavita Reddy - <span class="text-yellow-400">Wipro</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Deepa Varma - <span
+                            class="text-yellow-400">Infosys</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-chart-line text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Ravi Kumar - <span
+                            class="text-yellow-400">Capgemini</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-code text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Priya S. - <span class="text-yellow-400">Tech
+                            Mahindra</span></span>
+                </div>
+            </div>
+
+            <div class="flex space-x-12 items-center flex-shrink-0">
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-trophy text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Arjun Nair - <span class="text-yellow-400">TCS</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-briefcase text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Kavita Reddy - <span class="text-yellow-400">Wipro</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Deepa Varma - <span
+                            class="text-yellow-400">Infosys</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-chart-line text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Ravi Kumar - <span
+                            class="text-yellow-400">Capgemini</span></span>
+                </div>
+                <div class="flex items-center space-x-3 text-white">
+                    <i class="fas fa-code text-yellow-400 text-xl"></i>
+                    <span class="text-sm font-semibold">Priya S. - <span class="text-yellow-400">Tech
+                            Mahindra</span></span>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <main>
+        <section id="placement-hero" class="bg-indigo-800 py-24 md:py-32">
+            <div class="container mx-auto px-4 text-center text-white">
+                <p class="text-xl md:text-2xl font-bold text-yellow-400 mb-6 uppercase tracking-widest">
+                    A New Career Begins Here!
+                </p>
+
+                <div
+                    class="max-w-5xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-[1.01] hover:shadow-indigo-500/50">
+
+                    <div
+                        class="flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-10">
+                        <div class="flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?fit=crop&w=200&h=200&q=80"
+                                alt="Placed Student Image"
+                                class="w-48 h-48 rounded-full object-cover border-4 border-yellow-500 shadow-xl mx-auto md:mx-0">
+                        </div>
+
+                        <div class="text-center md:text-left text-gray-800">
+                            <p class="text-3xl md:text-4xl font-extrabold text-indigo-700 mb-2">
+                                <i class="fas fa-handshake text-yellow-500 mr-2"></i> Placed at
+                                <span class="text-indigo-900 block mt-1">TCS Digital</span>
+                            </p>
+
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-indigo-800 mt-4 mb-2">
+                                KAVITA REDDY
+                            </h2>
+
+                            <p class="text-xl font-medium text-gray-600 mb-4">
+                                Roll No: <span class="font-semibold text-indigo-600">21B91A6705</span> | Academic Year:
+                                <span class="font-semibold text-indigo-600">2024-2025</span>
+                            </p>
+
+                            <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500 mt-6">
+                                <p class="text-lg font-semibold text-gray-700">
+                                    <i class="fas fa-star text-yellow-600 mr-2"></i>
+                                    Congratulations on achieving this milestone! Your dedication to AI/ML has paid off.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <hr class="border-gray-200">
+
+        <section id="vision-mission" class="py-20 bg-yellow-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-800 mb-12">Department Vision & Mission</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 max-w-5xl mx-auto">
+                    <div class="p-8 bg-white rounded-xl shadow-xl border-l-4 border-indigo-600">
+                        <h3 class="text-3xl font-extrabold text-indigo-700 mb-4 flex items-center">
+                            <i class="fas fa-eye text-yellow-500 mr-3"></i> Vision
+                        </h3>
+                        <p class="text-lg text-gray-700 font-semibold">
+                            To provide rich ambience for Academic and Professional Excellence, Research,
+                            Employ - ability skills, Entrepreneurship, and Social responsibility.
+                        </p>
+                    </div>
+
+                    <div class="p-8 bg-white rounded-xl shadow-xl border-l-4 border-yellow-600">
+                        <h3 class="text-3xl font-extrabold text-indigo-700 mb-4 flex items-center">
+                            <i class="fas fa-rocket text-yellow-500 mr-3"></i> Mission
+                        </h3>
+                        <p class="text-lg text-gray-700 font-semibold">
+                            To empower the students with technical knowledge, Awareness of up-to-date technical trends,
+                            Inclination for research in the areas of human needs,
+                            Capacity building for Employment / Entrepreneurship, and Application of technology for
+                            societal needs.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300 my-10">
+
+                <h2 class="text-4xl font-bold text-center text-indigo-800 mb-12">Program Outcomes (POs) & Educational
+                    Objectives (PEOs)</h2>
+
+                <div class="max-w-7xl mx-auto">
+                    <h3
+                        class="text-2xl font-extrabold text-indigo-700 mb-6 bg-yellow-400 p-3 rounded-t-lg text-center shadow-lg">
+                        Program Outcomes (POs)
+                    </h3>
+                    <div class="bg-white p-8 rounded-b-lg shadow-xl border-t-4 border-indigo-600">
+                        <ul
+                            class="list-disc list-outside ml-6 text-base text-gray-700 space-y-3 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                            <li><b>PO1: Engineering knowledge</b> — Apply knowledge of mathematics, science, engineering
+                                fundamentals, and an engineering specialization to solve complex engineering problems.
+                            </li>
+                            <li><b>PO2: Problem analysis</b> — Identify, formulate, review research literature, and
+                                analyze complex engineering problems reaching substantiated conclusions.</li>
+                            <li><b>PO3: Design/development of solutions</b> — Design solutions for complex engineering
+                                problems and design system components or processes that meet specified needs.</li>
+                            <li><b>PO4: Conduct investigations of complex problems</b> — Use research-based knowledge
+                                and methods including design of experiments, analysis and interpretation of data, and
+                                synthesis of the information to provide valid conclusions.</li>
+                            <li><b>PO5: Modern tool usage</b> — Create, select, and apply appropriate techniques,
+                                resources, and modern engineering and IT tools, including prediction and modeling, to
+                                complex engineering activities.</li>
+                            <li><b>PO6: The engineer and society</b> — Apply reasoning informed by contextual knowledge
+                                to assess societal, health, safety, legal, and cultural issues and the consequent
+                                responsibilities relevant to professional engineering practice.</li>
+                            <li><b>PO7: Environment and sustainability</b> — Understand the impact of professional
+                                engineering solutions in societal and environmental contexts.</li>
+                            <li><b>PO8: Ethics</b> — Apply ethical principles and commit to professional ethics and
+                                responsibilities and norms of the engineering practice.</li>
+                            <li><b>PO9: Individual and teamwork</b> — Function effectively as an individual, and as a
+                                member or leader in diverse teams, and in multidisciplinary settings.</li>
+                            <li><b>PO10: Communication</b> — Communicate effectively on complex engineering activities
+                                with the engineering community and with society at large.</li>
+                            <li><b>PO11: Project management and finance</b> — Demonstrate knowledge and understanding of
+                                engineering and management principles and apply these to one’s own work, as a member and
+                                leader in a team, to manage projects and in multidisciplinary environments.</li>
+                            <li><b>PO12: Lifelong learning</b> — Recognize the need for, and have the preparation and
+                                ability to engage in independent and life-long learning in the broadest context of
+                                technological change.</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="mb-16 max-w-7xl mx-auto">
+                     <h3
+                        class="text-2xl font-extrabold text-indigo-700 mb-6 bg-yellow-400 p-3 rounded-t-lg text-center shadow-lg">
+                        PROGRAM EDUCTIONAL OUTCOMES (PEOs)
+                    </h3>
+                    <div class="bg-white p-8 rounded-b-lg shadow-xl border-t-4 border-yellow-600">
+                        <ol class=" list-outside ml-6 text-base text-gray-700 space-y-4">
+                            <li>
+                                <b>PEO-1</b>    —The graduates of the program will excel in the concepts of basic engineering and advanced concepts of computer science engineering.
+                            </li>
+                            <li>
+                                <b>PEO-2</b>    — The graduates of the program will be professional in computing industry or pursuing higher studies. </li>
+                            <li>
+                                <b>PEO-3</b>    — The graduates of the program will excel in team work, ethics, communication skills and contribute to the benefit to the society. </li>
+                        </ol>
+                    </div>
+
+                </div>
+                  <div class="mb-16 max-w-7xl mx-auto">
+                     <h3
+                        class="text-2xl font-extrabold text-indigo-700 mb-6 bg-yellow-400 p-3 rounded-t-lg text-center shadow-lg">
+                        PROGRAM SPECIFIC OUTCOMES (PSOs)
+                    </h3>
+                    <div class="bg-white p-8 rounded-b-lg shadow-xl border-t-4 border-yellow-600">
+                        <ol class=" list-outside ml-6 text-base text-gray-700 space-y-4">
+                            <li>
+                                <b>PSO-1</b>    — Apply the Knowledge of Computing Skills in building the Software Systems that meet the requirements of Industry and Society.
+                            </li>
+                            <li>
+                                <b>PESO-2</b>    — Apply the Knowledge of Data Engineering and Communication Technologies for Developing Applications in the Domain of Smart and Intelligent Computing.
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="border-gray-200">
+    <!--<section id="specializations" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">AI/ML Core Specializations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-indigo-600">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Artificial Intelligence (AI)</h3>
+                        <p class="text-gray-600 mb-4">Focus on algorithms, knowledge representation, and computational
+                            reasoning for complex problem-solving.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">View Syllabus &rarr;</a>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Machine & Deep Learning</h3>
+                        <p class="text-gray-600 mb-4">Hands-on experience with neural networks, NLP, computer vision,
+                            and predictive modeling techniques.</p>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-700 font-medium">View Lab Facilities
+                            &rarr;</a>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Data Science & Big Data</h3>
+                        <p class="text-gray-600 mb-4">Focus on collecting, cleaning, and analyzing massive datasets
+                            using tools like Hadoop and Spark.</p>
+                        <a href="#" class="text-yellow-600 hover:text-yellow-700 font-medium">Explore Career Paths
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+  <section class="bg-gradient-to-r from-indigo-100 via-white to-yellow-50 py-12 px-4 font-[Metropolis,sans-serif]">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold text-indigo-800 mb-10 tracking-wide">Facilities (Our Assets)</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-xl shadow-md hover:shadow-xl border border-yellow-200 transition-all duration-300 hover:-translate-y-1 p-5 flex flex-col items-center text-center">
+                <div class="w-14 h-14 mb-3 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-800 text-3xl">💻</div>
+                <h3 class="text-lg font-semibold text-yellow-800 mb-2">Application Development</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    Design and develop modern applications focused on <b>full-stack development methodologies</b>.
+                </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-indigo-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-indigo-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-indigo-200 rounded-full flex items-center justify-center text-indigo-800 text-3xl">⌨️</div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Programming Languages Lab</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Master programming paradigms and <b>enhance coding efficiency</b> through hands-on practice.</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-green-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-green-200 rounded-full flex items-center justify-center text-green-800 text-3xl">📊</div>
+                <h3 class="text-lg font-semibold text-green-800 mb-2">Data Visualization Tools</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">Transform data into <b>actionable insights</b> using industry-leading visualization platforms.</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="text-xs bg-green-200 text-green-800 font-medium px-2 py-0.5 rounded-full">Tableau</span>
+                    <span class="text-xs bg-green-200 text-green-800 font-medium px-2 py-0.5 rounded-full">Power BI</span>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-pink-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-pink-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-pink-200 rounded-full flex items-center justify-center text-pink-800 text-3xl">🧠</div>
+                <h3 class="text-lg font-semibold text-pink-800 mb-2">Deep Learning Lab</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">Focus on <b>neural networks</b> and advanced AI through real-world research and projects.</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="text-xs bg-pink-200 text-pink-800 font-medium px-2 py-0.5 rounded-full">TensorFlow</span>
+                    <span class="text-xs bg-pink-200 text-pink-800 font-medium px-2 py-0.5 rounded-full">PyTorch</span>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-blue-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-blue-200 rounded-full flex items-center justify-center text-blue-800 text-3xl">💬</div>
+                <h3 class="text-lg font-semibold text-blue-800 mb-2">NLP Lab</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">Explore natural language processing and build intelligent, <b>language-aware systems</b>.</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="text-xs bg-blue-200 text-blue-800 font-medium px-2 py-0.5 rounded-full">Transformers</span>
+                    <span class="text-xs bg-blue-200 text-blue-800 font-medium px-2 py-0.5 rounded-full">NLTK/SpaCy</span>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-purple-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-purple-200 rounded-full flex items-center justify-center text-purple-800 text-3xl">🗄️</div>
+                <h3 class="text-lg font-semibold text-purple-800 mb-2">Database Systems Lab</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">Learn comprehensive <b>database design and management</b> for both relational and non-relational data.</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="text-xs bg-purple-200 text-purple-800 font-medium px-2 py-0.5 rounded-full">SQL</span>
+                    <span class="text-xs bg-purple-200 text-purple-800 font-medium px-2 py-0.5 rounded-full">NoSQL (MongoDB)</span>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-orange-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-orange-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-orange-200 rounded-full flex items-center justify-center text-orange-800 text-3xl">🤝</div>
+                <h3 class="text-lg font-semibold text-orange-800 mb-2">Skill Development</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Collaborate on innovative team projects and strengthen <b>problem-solving skills</b> essential for industry roles.</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-rose-100 to-white rounded-xl p-5 shadow-md hover:shadow-xl border border-rose-200 transition-all duration-300 hover:-translate-y-1">
+                <div class="mx-auto mb-3 w-14 h-14 bg-rose-200 rounded-full flex items-center justify-center text-rose-800 text-3xl">🌐</div>
+                <h3 class="text-lg font-semibold text-rose-800 mb-2">Full Stack Web Development</h3>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">Build responsive and dynamic websites using <b>modern full-stack frameworks</b> and cloud deployment practices.</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="text-xs bg-rose-200 text-rose-800 font-medium px-2 py-0.5 rounded-full">React/Vue</span>
+                    <span class="text-xs bg-rose-200 text-rose-800 font-medium px-2 py-0.5 rounded-full">Node.js</span>
+                    <span class="text-xs bg-rose-200 text-rose-800 font-medium px-2 py-0.5 rounded-full">Cloud</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+        
+  <section id="faculty-scholarly-output" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <h2 class="text-4xl font-extrabold text-center text-indigo-800 mb-12">
+            Scholarly Output & Faculty Innovations
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <div class="bg-white p-8 rounded-xl shadow-xl border border-indigo-100 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-8 flex items-center">
+                        <i class="fas fa-file-alt mr-3 text-indigo-500"></i>
+                        Department Scholarly Statistics
+                    </h3>
+                    <div class="space-y-5">
+                        <div class="flex justify-between items-center border-b pb-3">
+                            <span class="text-gray-600 font-medium">Journal Publications (Total)</span>
+                            <span class="text-2xl font-extrabold text-indigo-900">450+</span> 
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-3">
+                            <span class="text-gray-600 font-medium">Conference Proceedings</span>
+                            <span class="text-2xl font-extrabold text-indigo-900">120+</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-3">
+                            <span class="text-gray-600 font-medium">Books Authored</span>
+                            <span class="text-2xl font-extrabold text-indigo-900">15</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-3">
+                            <span class="text-gray-600 font-medium">Book Chapters</span>
+                            <span class="text-2xl font-extrabold text-indigo-900">40+</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-medium">Patents Filed/Granted</span>
+                            <span class="text-2xl font-extrabold text-indigo-900">8</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+                    <a href="/research/department-output"
+                        class="bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg inline-block text-sm">
+                        Explore All Research Statistics &rarr;
+                    </a>
+                </div>
+            </div>
+
+           <div class="bg-white p-6 rounded-xl shadow-xl relative overflow-hidden border border-yellow-300 flex flex-col justify-between">
+    
+    <h3 class="text-2xl font-bold text-yellow-600 mb-6 flex items-center">
+        <i class="fas fa-medal mr-3 text-yellow-500"></i>
+        Featured Faculty Innovation
+    </h3>
+
+    <div id="carousel-track-wrapper" class="relative overflow-hidden h-72"> 
+        
+        <div id="carousel-track" class="absolute top-0 left-0 w-full transition-transform duration-500">
+            
+            <div class="carousel-card-item mb-4" data-index="0">
+                <div class="flex bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100">
+                    <div class="w-1/3 bg-indigo-50 flex items-center justify-center p-3">
+                        <img src="https://via.placeholder.com/150x200/6366f1/ffffff?text=Dr+SP" alt="Dr. S. Phani Praveen" class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="w-2/3 p-4 md:p-6 flex flex-col justify-center">
+                        <p class="text-sm font-bold text-yellow-600 uppercase mb-1">Hearty Congratulations!</p>
+                        <a href="/faculty/sphanipraveen" class="hover:text-yellow-700 transition duration-150 block">
+                            <h4 class="text-2xl font-extrabold text-indigo-700">Dr. S. Phani Praveen</h4>
+                            <span class="text-sm text-gray-600 block mb-2">Associate Professor</span>
+                        </a>
+                        <p class="text-gray-700 text-base">
+                            Recognized by **STANFORD University**, listed in the world's **TOP 2% Scientists** for 2025.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-card-item mb-4" data-index="1">
+                <div class="flex bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100">
+                    <div class="w-1/3 bg-yellow-100 flex items-center justify-center p-3">
+                        <img src="https://via.placeholder.com/150x200/fcd34d/6B46C1?text=Dr+RKS" alt="Dr. R. K. Sharma" class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="w-2/3 p-4 md:p-6 flex flex-col justify-center">
+                        <p class="text-sm font-bold text-yellow-600 uppercase mb-1">Patent Secured!</p>
+                        <a href="/faculty/rksharma" class="hover:text-yellow-700 transition duration-150 block">
+                            <h4 class="text-2xl font-extrabold text-indigo-700">Dr. R. K. Sharma</h4>
+                            <span class="text-sm text-gray-600 block mb-2">Professor</span>
+                        </a>
+                        <p class="text-gray-700 text-base">
+                            Secured Patent for his innovative, bias-reducing **"Ethical Data Pre-processing System."**
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-card-item mb-4" data-index="2">
+                <div class="flex bg-white rounded-lg shadow-2xl overflow-hidden border border-gray-100">
+                    <div class="w-1/3 bg-green-100 flex items-center justify-center p-3">
+                        <img src="https://via.placeholder.com/150x200/22c55e/ffffff?text=Dr+JA" alt="Dr. J. Anand" class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="w-2/3 p-4 md:p-6 flex flex-col justify-center">
+                        <p class="text-sm font-bold text-yellow-600 uppercase mb-1">Grant Success!</p>
+                        <a href="/faculty/janand" class="hover:text-yellow-700 transition duration-150 block">
+                            <h4 class="text-2xl font-extrabold text-indigo-700">Dr. J. Anand</h4>
+                            <span class="text-sm text-gray-600 block mb-2">Assoc. Professor</span>
+                        </a>
+                        <p class="text-gray-700 text-base">
+                            Received a **₹50 Lakh research grant** for "Predictive Maintenance using IoT and ML."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('carousel-track');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const cards = track.querySelectorAll('.carousel-card-item');
+        const cardHeight = cards.length > 0 ? cards[0].offsetHeight + 16 : 0; // Get height + mb-4 (16px)
+        const totalCards = cards.length;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            // Calculate the vertical offset (negative because we move upwards)
+            const offset = -currentIndex * cardHeight;
+            track.style.transform = `translateY(${offset}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < totalCards - 1) {
+                currentIndex++;
+            } else {
+                // Optional: Loop back to the first card
+                currentIndex = 0;
+            }
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                // Optional: Loop to the last card
+                currentIndex = totalCards - 1;
+            }
+            updateCarousel();
+        });
+
+        // Initial setup to ensure the first card is aligned correctly
+        updateCarousel();
+    });
+</script>
+            
+        </div>
+    </div>
+    
+    <div class="flex justify-between mt-6 pt-4 border-t border-gray-100">
+        <button id="prev-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition"><i class="fas fa-chevron-up mr-1"></i> Previous</button>
+        <button id="next-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition">Next <i class="fas fa-chevron-down ml-1"></i></button>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</section>
+<hr class="border-gray-200">
+
+      <section id="academics-corner" class="py-20 bg-yellow-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-indigo-800 mb-5">Academics</h2>
+        <h4 class="text-lg font-bold text-center text-indigo-800 mb-12">Curriculum & Policy Resources</h4>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+            <div
+                class="p-6 bg-white rounded-xl shadow-md transition duration-300 border-b-4 border-indigo-600 hover:bg-indigo-50 text-center flex flex-col justify-between">
+                <i class="fas fa-book-open text-4xl text-indigo-600 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Syllabus Documents</h3>
+                <p class="text-sm text-gray-600 mb-4">View the curriculum based on regulation year.</p>
+                <div class="flex justify-center space-x-3 mt-auto">
+                    <a href="/academics/syllabus/pvp23"
+                        class="px-3 py-1 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700 transition">PVP23</a>
+                    <a href="/academics/syllabus/pvp20"
+                        class="px-3 py-1 text-sm font-medium text-indigo-600 border border-indigo-600 rounded hover:bg-indigo-100 transition">PVP20</a>
+                </div>
+            </div>
+
+            <div
+                class="p-6 bg-white rounded-xl shadow-md transition duration-300 border-b-4 border-yellow-600 hover:bg-yellow-50 text-center flex flex-col justify-between">
+                <i class="fas fa-gavel text-4xl text-yellow-600 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Regulations</h3>
+                <p class="text-sm text-gray-600 mb-4">Check academic rules and grading policies.</p>
+                <div class="flex justify-center space-x-3 mt-auto">
+                    <a href="/academics/regulations/pvp23"
+                        class="px-3 py-1 text-sm font-medium text-white bg-yellow-600 rounded hover:bg-yellow-700 transition">PVP23</a>
+                    <a href="/academics/regulations/pvp20"
+                        class="px-3 py-1 text-sm font-medium text-yellow-600 border border-yellow-600 rounded hover:bg-yellow-100 transition">PVP20</a>
+                </div>
+            </div>
+
+            <a href="/academics/calendar"
+                class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-yellow-600 hover:bg-yellow-50 text-center">
+                <i class="fas fa-calendar-alt text-4xl text-yellow-600 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Academic Calendar</h3>
+                <p class="text-sm text-gray-600 mt-2">Key Dates & Deadlines for the current session.</p>
+            </a>
+
+            <a href="/academics/timetables"
+                class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-sky-500 hover:bg-sky-50 text-center">
+                <i class="fas fa-clock text-4xl text-sky-500 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Time Tables</h3>
+                <p class="text-sm text-gray-600 mt-2">Check class schedules and faculty allocation.</p>
+            </a>
+
+            <div
+                class="p-6 bg-white rounded-xl shadow-md transition duration-300 border-b-4 border-red-600 hover:bg-red-50 text-center flex flex-col justify-between">
+                <i class="fas fa-file-invoice text-4xl text-red-600 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Exam Documents</h3>
+                <p class="text-sm text-gray-600 mb-4">Notifications, registration forms, and results history.</p>
+                <div class="flex justify-center space-x-3 mt-auto">
+                    <a href="/academics/exams/notifications"
+                        class="px-3 py-1 text-sm font-medium text-white bg-red-600 rounded hover:bg-red-700 transition">Notices</a>
+                    <a href="/academics/exams/results"
+                        class="px-3 py-1 text-sm font-medium text-red-600 border border-red-600 rounded hover:bg-red-100 transition">Results</a>
+                </div>
+            </div>
+
+            <a href="/academics/bos"
+                class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-50 text-center">
+                <i class="fas fa-user-tie text-4xl text-indigo-500 mb-3"></i>
+                <h3 class="text-xl font-semibold text-gray-800">BOS Documents</h3>
+                <p class="text-sm text-gray-600 mt-2">Board of Studies Meeting Minutes & Approvals.</p>
+            </a>
+
+        </div>
+    </div>
+</section>
+        <hr class="border-gray-200">
+
+        <section id="research-corner" class="py-20 bg-indigo-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-800 mb-12">Scholarly Output and Innovations</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+
+                    <a href="/research/journals"
+                        class="block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-yellow-600 hover:bg-yellow-100 text-center">
+                        <i class="fas fa-newspaper text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Journal Publications</h3>
+                        <p class="text-sm text-gray-600">Scopus/UGC Indexed Papers</p>
+                    </a>
+
+                    <a href="/research/conferences"
+                        class="block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-indigo-600 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-users-viewfinder text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Conference Proceedings</h3>
+                        <p class="text-sm text-gray-600">National & International</p>
+                    </a>
+
+                    <a href="/research/book-chapters"
+                        class="block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-yellow-600 hover:bg-yellow-100 text-center">
+                        <i class="fas fa-file-invoice text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Book Chapters</h3>
+                        <p class="text-sm text-gray-600">Contributions to Edited Books</p>
+                    </a>
+
+                    <a href="/research/books"
+                        class="block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-indigo-600 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-book-bookmark text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Authored Books</h3>
+                        <p class="text-sm text-gray-600">Faculty Authored Textbooks</p>
+                    </a>
+
+                    <a href="/research/patents"
+                        class="block p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-b-4 border-yellow-600 hover:bg-yellow-100 text-center">
+                        <i class="fas fa-scroll text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Patents</h3>
+                        <p class="text-sm text-gray-600">Granted and Published Innovations</p>
+                    </a>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="/research/projects"
+                        class="bg-indigo-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg inline-block">
+                        View Research Projects & Grants &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-200">
+
+        <section class="py-20 bg-yellow-50">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+
+                    <img src="https://images.unsplash.com/photo-1634560048386-827471239c4a?fit=crop&w=600&q=80"
+                        alt="Students in AI Lab" class="rounded-xl shadow-2xl object-cover w-full h-80">
+                </div>
+                <div class="md:w-1/2">
+                    <span class="text-indigo-600 font-semibold uppercase tracking-wider mb-2 block">Why PVPSIT
+                        AI/ML?</span>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Industry-Ready Curriculum and Research Focus</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        The PVPSIT CSE (AI/ML) department provides an immersive learning environment. Our faculty are
+                        experts focused on cutting-edge research in robotics, computer vision, and autonomous systems.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            **100%** Focus on Industry 4.0 Skills
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Dedicated AI & Robotics Lab
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Strong **TCS & Wipro** Industry Ties
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="events-section" class="py-20 bg-yellow-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Upcoming Departmental Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-white rounded-xl shadow-lg border-l-4 border-yellow-500 overflow-hidden">
+                        <img class="w-full h-40 object-cover"
+                            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?fit=crop&w=400&h=200&q=80"
+                            alt="AI/ML Hackathon">
+                        <div class="p-6">
+                            <p class="text-sm font-semibold text-yellow-600 mb-2">NOV 15 - NOV 17</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">AI/ML HACKATHON '25</h3>
+                            <p class="text-gray-600 mb-4">A 48-hour challenge focusing on real-world AI applications and
+                                data set analysis.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <svg class="w-4 h-4 mr-1 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.75 3a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 015.75 3zm6.5 0a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5a.75.75 0 01.75-.75zm-6.5 7a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5a.75.75 0 01.75-.75zm6.5 0a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5a.75.75 0 01.75-.75z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>CSE Block Labs</span>
+                            </div>
+                            <a href="#"
+                                class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">Register Now
+                                &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border-l-4 border-indigo-500 overflow-hidden">
+                        <img class="w-full h-40 object-cover"
+                            src="https://images.unsplash.com/photo-1581093452292-6663f721a9a8?fit=crop&w=400&h=200&q=80"
+                            alt="Robotics Seminar">
+                        <div class="p-6">
+                            <p class="text-sm font-semibold text-indigo-600 mb-2">NOV 25</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Future of Robotics & AI</h3>
+                            <p class="text-gray-600 mb-4">A keynote session by Dr. A. P. Singh on integrating AI into
+                                physical systems.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <svg class="w-4 h-4 mr-1 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M6 2a2 2 0 00-2 2v1h12V4a2 2 0 00-2-2H6zM4 7h12v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7z">
+                                    </path>
+                                </svg>
+                                <span>Auditorium, 10:00 AM</span>
+                            </div>
+                            <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">View
+                                Details &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border-l-4 border-yellow-500 overflow-hidden">
+                        <img class="w-full h-40 object-cover"
+                            src="https://images.unsplash.com/photo-1550259979-ab19b48997a9?fit=crop&w=400&h=200&q=80"
+                            alt="Python Workshop">
+                        <div class="p-6">
+                            <p class="text-sm font-semibold text-yellow-600 mb-2">DEC 01 - DEC 03</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Advanced Python for ML</h3>
+                            <p class="text-gray-600 mb-4">A hands-on workshop covering PyTorch, TensorFlow, and advanced
+                                ML libraries.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <svg class="w-4 h-4 mr-1 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm0 2h8v12H6V4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span>AI/ML Research Lab</span>
+                            </div>
+                            <a href="#"
+                                class="mt-4 inline-block text-indigo-600 hover:text-indigo-800 font-medium">Enroll Now
+                                &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     
+        <hr class="border-gray-200">
+
+        <section id="student-corner" class="py-20 bg-indigo-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-800 mb-12">Essential Student Resources</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+                    <a href="/students/timetables"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-clock text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Time Tables</h3>
+                        <p class="text-sm text-gray-600">Current Semester Schedules</p>
+                    </a>
+
+                    <a href="/students/questionpapers"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-file-invoice text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Question Papers</h3>
+                        <p class="text-sm text-gray-600">Previous Exam Archives</p>
+                    </a>
+
+                    <a href="/students/mentoring"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-handshake text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Mentoring List</h3>
+                        <p class="text-sm text-gray-600">Faculty Mentor Allocations</p>
+                    </a>
+
+                    <a href="/students/achievements"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-trophy text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Achievements</h3>
+                        <p class="text-sm text-gray-600">Awards, Hackathons, Projects</p>
+                    </a>
+
+                    <a href="/students/research"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-indigo-500 hover:bg-indigo-100 text-center">
+                        <i class="fas fa-scroll text-4xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Research & Pubs</h3>
+                        <p class="text-sm text-gray-600">Student Paper Submissions</p>
+                    </a>
+
+                    <a href="/students/resultanalysis"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-yellow-500 hover:bg-yellow-100 text-center">
+                        <i class="fas fa-chart-line text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Result Analysis</h3>
+                        <p class="text-sm text-gray-600">Semester Pass Rate Statistics</p>
+                    </a>
+
+                    <a href="/students/internships"
+                        class="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 border-b-4 border-yellow-500 hover:bg-yellow-100 text-center">
+                        <i class="fas fa-briefcase text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Internships</h3>
+                        <p class="text-sm text-gray-600">Opportunities & Guidelines</p>
+                    </a>
+
+                    <div class="hidden lg:block"></div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-200">
+
+        <section id="testimonials-section" class="py-20 bg-amber-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">What Our AI/ML Students Say</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-indigo-50 p-8 rounded-xl shadow-xl border-b-4 border-indigo-500">
+                        <blockquote class="text-lg italic text-gray-700 mb-6 relative">
+                            <span class="text-4xl font-serif absolute -top-4 -left-3 text-indigo-300">“</span>
+                            The exposure to **Deep Learning** frameworks is excellent. I'm currently working on a
+                            **sentiment analysis** project that I presented at a national conference—the faculty support
+                            is amazing.
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img class="w-12 h-12 rounded-full object-cover ring-2 ring-indigo-500"
+                                src="https://images.unsplash.com/photo-1544725176-5c2f0f8d0a8b?w=100&h=100&fit=crop&q=80"
+                                alt="Student 1">
+                            <div>
+                                <p class="font-bold text-gray-900">Arjun Nair</p>
+                                <p class="text-sm text-indigo-600">Final Year, CSE (AI/ML)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 p-8 rounded-xl shadow-xl border-b-4 border-yellow-500">
+                        <blockquote class="text-lg italic text-gray-700 mb-6 relative">
+                            <span class="text-4xl font-serif absolute -top-4 -left-3 text-yellow-300">“</span>
+                            The curriculum prepared me perfectly for my role at **TCS Digital**. My work in
+                            **reinforcement learning** during my final year was directly applicable to my first project.
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img class="w-12 h-12 rounded-full object-cover ring-2 ring-yellow-500"
+                                src="https://images.unsplash.com/photo-1506794778202-dfa799539529?w=100&h=100&fit=crop&q=80"
+                                alt="Alumnus 2">
+                            <div>
+                                <p class="font-bold text-gray-900">Kavita Reddy</p>
+                                <p class="text-sm text-yellow-600">Alumnus, CSE (Placed at TCS)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 p-8 rounded-xl shadow-xl border-b-4 border-yellow-500">
+                        <blockquote class="text-lg italic text-gray-700 mb-6 relative">
+                            <span class="text-4xl font-serif absolute -top-4 -left-3 text-yellow-300">“</span>
+                            The specialized **AI Lab** is fantastic. We use industry-standard GPUs for training models.
+                            This hands-on experience is what sets PVPSIT's AI/ML course apart.
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img class="w-12 h-12 rounded-full object-cover ring-2 ring-yellow-500"
+                                src="https://images.unsplash.com/photo-1524250572051-28d8ed279147?w=100&h=100&fit=crop&q=80"
+                                alt="Student 3">
+                            <div>
+                                <p class="font-bold text-gray-900">Deepa Varma</p>
+                                <p class="text-sm text-yellow-600">Third Year, CSE (AI/ML)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-indigo-900 text-white mt-10">
+        <div class="container mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-yellow-400">PVPSIT CSE (AI/ML)</h4>
+                <p class="text-indigo-200 text-sm">
+                    A specialized department under P V P Siddhartha Institute of Technology. Focused on future AI
+                    technologies.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-indigo-200 hover:text-white transition duration-300">Admission Info</a>
+                    </li>
+                    <li><a href="#faculty-achievements"
+                            class="text-indigo-200 hover:text-white transition duration-300">Faculty</a></li>
+                    <li><a href="#research-corner"
+                            class="text-indigo-200 hover:text-white transition duration-300">Research &rarr;</a></li>
+                    <li><a href="/clubs" class="text-indigo-200 hover:text-white transition duration-300">Clubs
+                            &rarr;</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Academics & Analytics</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#academics-corner"
+                            class="text-indigo-200 hover:text-white transition duration-300">Academics Corner &rarr;</a>
+                    </li>
+                    <li><a href="#student-corner"
+                            class="text-indigo-200 hover:text-white transition duration-300">Student Corner &rarr;</a>
+                    </li>
+                    <li><a href="#" class="text-indigo-200 hover:text-white transition duration-300">Placements</a></li>
+                    <li><a href="/result-analysis"
+                            class="text-indigo-200 hover:text-white transition duration-300">Result Analysis</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact PVPSIT</h4>
+                <p class="text-indigo-200 text-sm mb-2">Kanuru, Vijayawada, AP, 520007</p>
+                <p class="text-indigo-200 text-sm mb-2">Email: cse.aiml@pvpsit.ac.in</p>
+                <p class="text-indigo-200 text-sm">Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="bg-indigo-950 py-4">
+            <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+                &copy; 2025 PVPSIT CSE (AI/ML) Department. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconPath = document.getElementById('mobile-menu-icon');
+
+            button.addEventListener('click', () => {
+                // Toggle the 'hidden' class to show/hide the menu
+                menu.classList.toggle('hidden');
+
+                // Change the hamburger icon to a close icon
+                if (menu.classList.contains('hidden')) {
+                    // Menu is hidden (show hamburger)
+                    iconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+                } else {
+                    // Menu is visible (show close 'X' icon)
+                    iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                }
+            });
+
+            // Close menu on link click (for better UX)
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only close if it's not an internal anchor link within the mobile menu
+                    if (link.getAttribute('href').startsWith('#')) {
+                        menu.classList.add('hidden');
+                        iconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BOS Members</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/index.css">
+
+  <link rel="stylesheet" href="../css/quickLinks.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container-fluid {
+      flex: 1;
+    }
+
+    .left-panel {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-right: 1px solid #dee2e6;
+      min-height: 100%;
+    }
+
+    .btn-custom {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .right-panel {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 1000px;
+      overflow-x: auto;
+    }
+
+    .footer {
+      background-color: #3672ad;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+
+    <!-- Image Section -->
+    <section id="images">
+      <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+      <nav class="navbar navbar-expand-lg custom-nav">
+        <div class="container-fluid">
+          <!-- Navbar Brand -->
+          <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+              <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+              <!-- Academics -->
+              <li class="nav-item ml-3 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Academics
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                      <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                    </ul>
+                  </li>
+
+
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                      <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                          Year</a></li>
+                      <li><a class="dropdown-item" href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                          Year</a></li>
+                      <li><a class="dropdown-item" href="#">IV Year</a></li>
+                    </ul>
+                  </li>
+                  <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                  <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                </ul>
+              </li>
+
+              <!-- Faculty -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Faculty
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                  <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                  <li><a class="dropdown-item" href="#">Achievements</a></li>
+                </ul>
+              </li>
+
+              <!-- Research -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Research
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                      <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                      <li><a class="dropdown-item" href="#">Books</a></li>
+                      <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Projects</a></li>
+                  <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                </ul>
+              </li>
+
+              <!-- Students -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Students
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                  <li class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="QuestionPapers_pvp23.html">PVP23</a></li>
+                      <li><a class="dropdown-item" href="QuestionPapers_PVP20.html">PVP20</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                  <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                  <li><a class="dropdown-item" href="#">Publications</a></li>
+                  <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                </ul>
+              </li>
+
+              <!-- Internships -->
+              <li class="nav-item ml-3 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Internships
+                </a>
+                <ul class="dropdown-menu">
+
+                  <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+
+                  <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+
+                </ul>
+              </li>
+              <!-- Certifications -->
+              <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+              <!-- Results Analysis-->
+              <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+              <!-- Media -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Media
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Facebook</a></li>
+                  <li><a class="dropdown-item" href="#">Instagram</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+              <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <!-- BOS-->
+    <div class="container-fluid my-4">
+      <div class="row">
+        <!-- Left panel 
+      <div class="col-md-2 left-panel d-flex flex-column">
+        <h4>Academic Years</h4>
+        <button class="btn btn-secondary btn-custom" onclick="showData('2024-2025')">2024-2025</button>
+        <button class="btn btn-secondary btn-custom" onclick="showData('2023-2024')">2023-2024</button>
+      </div>-->
+
+        <!-- Right panel -->
+        <div class="col-md-10 right-panel">
+          <!-- Flex row with heading on left and filter on right -->
+          <div class="d-flex justify-content-between align-items-center mb-4 col-md-8">
+            <h4 id="yearTitle" class="mb-0">BOS Members for 2024-2025</h4>
+       
+            <!-- Filter aligned to right -->
+            <div class="d-flex  align-items-center col-md-4" >
+              <label for="yearSelect" class="form-label me-2 mb-0">Academic Year:</label>
+              <select id="yearSelect" class="form-select" style="width: auto;" onchange="showData(this.value)">
+                <option value="2024-2025" selected>2024-2025</option>
+                <option value="2023-2024">2023-2024</option>
+              </select>
+            </div> </div>
+          <br>
+
+          <div class="table-container">
+            <table class="table table-bordered  " id="dataTable">
+              <thead class="table-secondary">
+                <tr>
+                  <th>SNo</th>
+                  <th>Designation</th>
+                  <th>Name & Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data loads here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      const data = {
+        "2024-2025": [
+          ["1", "Chairman", "<b>Dr B. Janakiramaiah</b>", "Professor & HOD CSE(AI&ML),CSE(Data Science)", "Ph: 9440586340", "janakiramaiah@pvpsiddhartha.ac.in"],
+          ["2", "Academic Council Nominee", "<b>Dr P. Radha Krishna</b>", "Professor", "Dept. of CSE, NITW, Warangal-506004", "Ph: 9704988816", "prkrishna@nitw.ac.in"],
+          ["3", "Academic Council Nominee", "<b>Dr Naresh Manwani</b>", "Assistant Professor", "IIIT Hyderabad", "Ph: +91-40-66531309", "naresh.manwani@iiit.ac.in"],
+          ["4", "University Nominee", "<b>Dr.  D Haritha</b>", "Professor", "Dept. of CSE, UCEK, JNTUK, Kakinada"],
+          ["5", "Member,Representative from Industry ", "<b>Mr Prathap Kolla</b>", "Senior Consultant", "TCS, Hyderabad", "Ph: 8885067957", "prathap.kolla@tcs.com"],
+          ["6", "Member,Representative from Industry ", "<b>Mr Akash Sinha</b>", "Head, Learning & Development", "L4G, Hyderabad", "Ph: 8008465105", "akash.sinha@L4G.in"],
+          ["7", "Member,Representative from Industry", "<b>Mr Sai Satish</b>", "CEO", "Indian Servers", "Ph: 9618222220", "info@indianservers.com"],
+          ["8", "Alumni Representative", "<b>Mr Aditya Sriram</b>", "Manager", "DELL EMC, Bengaluru", "Ph: 9900049548", "Aditya.cr381@gmail.com"],
+          ["9", "Internal Member", "<b>Ms P. Nagamani</b>"],
+          ["10", "Internal Member", "<b>Ms P. Sujatha</b>"],
+          ["11", "Internal Member", "<b>Mr M. Winson</b>"],
+          ["12", "Internal Member", "<b>Mr G. Venkata Krishna</b>"],
+          ["13", "Internal Member", "<b>Ms S. Sreeja</b>"],
+          ["14", "Internal Member", "<b>Ms Ch. Mounika</b>"],
+          ["15", "Internal Member", "<b>Mr K. S. S. Narayana</b>"],
+          ["16", "Internal Member", "<b>Mrs G. Pavani</b>"],
+          ["17", "Internal Member", "<b>Mr B. Kalyana Chakravarthy</b>"],
+          ["18", "Internal Member", "<b>Ms M. Sri Lakshmi Vani</b>"],
+          ["19", "Internal Member", "<b>Ms T. Deepa</b>"]
+        ],
+        "2023-2024": [
+          ["1", "Chairman", "<b>Dr B. Janakiramaiah</b>", "Professor & HOD CSE(AI&ML)", "Ph: 9440586340", "janakiramaiah@pvpsiddhartha.ac.in"],
+          ["2", "Academic Council Nominee", "<b>Dr P. Radha Krishna</b>", "Professor", "Dept. of CSE, NITW, Warangal-506004", "Ph: 9704988816", "prkrishna@nitw.ac.in"],
+          ["3", "University Nominee", "<b>Dr MHM Krishna Prasad</b>", "JNTUK", "Ph: 8842300824"],
+          ["4", "Member,Representative from Industry</b> ", "<b>Mr Prathap Kolla</b>", "Senior Consultant", "TCS, Hyderabad", "Ph: 8885067957", "prathap.kolla@tcs.com"],
+          ["5", "Member,Representative from Industry</b>", "<b>Dr Suneel Kumar Vuppala</b>", "Director-Data Science", "Ericsson Global Accelerator (GAIA),Bangalore", "Ph:9980014534", "sunil.vuppala@gmail.com"],
+          ["6", "Alumni", "<b>Mr Aditya Sriram</b>", "DELL EMC", "Aditya.cr381@gmail.com"],
+          ["7", "Internal Member", "<b>Dr B Raj Kumar</b>"],
+          ["8", "Internal Member", "<b>Ms P Hema Venkata Raman</b>"],
+          ["9", "Internal Member", "<b>Mr Ch Naresh</b>"],
+          ["10", "Internal Member", "<b>Ms R. Padmaja</b>"],
+          ["11", "Internal Member", "<b>Ms P. Nagamani</b>"],
+          ["12", "Internal Member", "<b>Ms N. Anusha</b>"]
+        ]
+      };
+
+      function showData(year) {
+        const tableBody = document.querySelector("#dataTable tbody");
+        const title = document.getElementById("yearTitle");
+        tableBody.innerHTML = "";
+        title.innerText = `BOS Members for ${year}`;
+
+        data[year].forEach(member => {
+          const [sno, designation, ...details] = member;
+          const contact = details.filter(Boolean).join('<br>');
+          const row = `<tr>
+                      <td>${sno}</td>
+                      <td>${designation}</td>
+                      <td>${contact}</td>
+                    </tr>`;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      // Default display
+      window.onload = function () {
+        showData('2024-2025');
+      };
+    </script>
+
+  </main>
+  <!--footer -->
+  <div class="footer">
+    Quick Links
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-md-2">
+        <div class="column-title">Menu</div>
+        <ul class="list-unstyled">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../pages/Gallery.html">Gallery</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+          <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+        </ul>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-md-2">
+        <div class="column-title">Academic</div>
+        <ul class="list-unstyled">
+          <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+          <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+          <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+          <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+        </ul>
+      </div>
+      <!-- Column 3 -->
+      <div class="col-md-2">
+        <div class="column-title">Governance</div>
+        <ul class="list-unstyled">
+          <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+          <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
+          <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+          <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+          <li><a href="../index.html">PVP Gallery</a></li>
+        </ul>
+      </div>
+      <!-- Column 4 -->
+      <div class="col-md-3">
+        <div class="column-title">Contact</div>
+        <address class="address">
+          <p>P.V.P. Siddhartha Institute Of Technology</p>
+          <p>Kanuru, Vijayawada-520 007</p>
+          <p>Andhra Pradesh, India</p>
+          <p>Tel: 0866-2581699, 0866-2583037</p>
+          <p>0866-2585681, 0866-2585682</p>
+          <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+          <p>Fax: 0866-2581184</p>
+        </address>
+      </div>
+      <!-- Column 5 -->
+      <div class="col-md-3">
+        <div class="column-title">Location</div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </iframe>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

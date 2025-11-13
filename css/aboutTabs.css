@@ -1,0 +1,143 @@
+/* General Styling */
+#aboutNav {
+    margin-left: 20px; /* Adjust as needed */
+    margin-top : 20px;
+     font-family: "Helvetica";;
+    color: black; /* Default font color */
+   
+}
+
+/* Ensuring all text inside #aboutNav is black by default */
+#aboutNav,
+#aboutNav * {
+    color: black !important; /* Override any inherited colors */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+#aboutNav #about {
+    font-size: 18px; /* Increase font size */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Tab Navigation Styling */
+#aboutNav .nav-tabs {
+    border-bottom: 2px solid #ccc;
+    margin-left: 20px;
+}
+
+#aboutNav .nav-tabs .nav-link {
+    color: black;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 2px solid #ccc;
+    padding: 10px 15px;
+}
+
+/* Hover Effect - White Text */
+#aboutNav .nav-tabs .nav-link:hover {
+    background-color:  rgb(9, 47, 81);
+    color: white !important;
+}
+
+/* Active Tab */
+#aboutNav .nav-tabs .nav-link.active {
+    background-color:  rgb(9, 47, 81);
+    color: white !important;
+    
+}
+
+/* Disabled Tabs */
+#aboutNav .nav-tabs .nav-link.disabled {
+    color: #060606;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Tab Content Styling */
+#aboutNav .tab-content {
+    padding: 20px;
+    background: #f5f7f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 20px; /* Ensuring margin-left is applied */
+}
+
+/* Default text inside tab content */
+#aboutNav .tab-content p {
+    text-align: justify;
+    margin-bottom: 15px;
+    color: black; /* Default black */
+}
+
+
+
+/* Headings and Titles */
+#aboutNav #style_vision_mision,
+#aboutNav #style_po_peo_pso {
+    font-size: 20px;
+    font-weight: 600;
+    color:  rgb(9, 47, 81);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    
+    width: max-content;
+}
+
+/* List & Text Alignment */
+#aboutNav ol li,
+#aboutNav ul li,
+#aboutNav .peo,
+#aboutNav .pso 
+#aboutNav #about{
+    margin-bottom: 10px;
+    text-align: justify;
+    color: black; /* Default black */
+}
+
+/* Hover effect for list items */
+#aboutNav ol li:hover,
+#aboutNav ul li:hover {
+    color: white !important;
+    background-color: #7e7e89;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+/* Section Headings */
+#aboutNav #p_head {
+    color:  rgb(9, 47, 81);
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 0px;
+    font-family: "Helvetica";
+}
+
+/* Read More Button */
+#aboutNav #readMoreButton {
+    background: none;
+    border: none;
+    color: rgb(9, 47, 81);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+    display: block;
+    margin-top: 10px;
+    margin-left: 0px; /* Set left margin */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for Read More button */
+#aboutNav #readMoreButton:hover {
+    color: white !important;
+    background-color:  rgb(9, 47, 81);
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Read More Content */
+#aboutNav #moreContent {
+    display: none; /* Initially hidden */
+    margin-left: 0px; /* Apply margin */
+}

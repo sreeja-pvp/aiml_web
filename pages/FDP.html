@@ -1,0 +1,1172 @@
+<html>
+
+<head>
+    <title>Faculty Certifications/FDP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+    <style>
+        #fdp table {
+            border-color: bl;
+        }
+
+        #fdp thead {
+            background-color: rgb(24, 68, 107) !important;
+            color: white;
+        }
+
+        #fdp thead th {
+            background-color: rgb(24, 68, 107) !important;
+            color: white !important;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #fdp td {
+            font-size: 16px;
+            text-align: center;
+
+        }
+
+        #fdp .section-title {
+
+            font-weight: bold;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+
+        }
+
+        #fdp .section-title {
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+
+
+        #fdp a {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+
+        #fdp a:hover {
+            color: #0a58ca;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                                Year</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                                Year</a></li>
+                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
+                                    </ul>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23/a></li>
+
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+                        <!-- Media -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- FDP-->
+    <div class="m-4" id="fdp" class="2024-2025">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4><b>Faculty Development Programs</b></h4>
+            <!-- Filter Dropdown on the Right -->
+            <div style="width: 250px;">
+                <label for="yearFilter" class="form-label fw-bold">Filter by Academic Year:</label>
+                <select id="yearFilter" class="form-select" onchange="filterByYear()">
+                    <option value="all">Show All</option>
+                    <option value="2024">2024-2025</option>
+                    <option value="2025">2025-2026</option>
+                </select>
+            </div>
+        </div>
+        <h4><b>AY:2024-2025 (FDPs-52,Worshops-3,Winter School-1)</b></h4>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table align-middle">
+                    <tr>
+                        <th>S.N0</th>
+                        <th>Name of Faculty who attended the program</th>
+                        <th>Title of the program</th>
+                        <th>Venue of the program</th>
+                        <th>FDP/STTP/STC<br>/WORKSHOP/TRAINING<br>/SEMINAR</th>
+                        <th>No.of days/Week</th>
+                        <th>Duration (from – to) (DD-MM-YYYY)</th>
+                        <th>Resource Person name</th>
+                        <th>Resource Person Designation</th>
+                        <th>Resource Person Organisation</td>
+                    </tr>
+                  <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>T. Deepa</td>
+                        <td>Advancing Outcome based education in Curriculum Design, Pedagogy, And Assessment Strategies
+                        </td>
+                        <td>VIT AP University, Amaravathi, Andhra Pradesh</td>
+                        <td>FDP</td>
+                        <td>Five Days</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>G. Gayathri</td>
+                        <td>Advancing Outcome based education in Curriculum Design, Pedagogy, And Assessment Strategies
+                        </td>
+                        <td>VIT AP University, Amaravathi, Andhra Pradesh</td>
+                        <td>FDP</td>
+                        <td>Five Days</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>P. Sujatha</td>
+                        <td>Advancing Outcome based education in Curriculum Design, Pedagogy, And Assessment Strategies
+                        </td>
+                        <td>VIT AP University, Amaravathi, Andhra Pradesh</td>
+                        <td>FDP</td>
+                        <td>Five Days</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>K S S Narayana</td>
+                        <td>Advancing Outcome based education in Curriculum Design, Pedagogy, And Assessment Strategies
+                        </td>
+                        <td>VIT AP University, Amaravathi, Andhra Pradesh</td>
+                        <td>FDP</td>
+                        <td>Five Days</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>N. Susmitha</td>
+                        <td>Advancing Outcome-Based Education in Curriculum Design, Pedagogy, and Assessment Strategies
+                        </td>
+                        <td>VIT-AP</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>G Venkata Krishna</td>
+                        <td>Advancing Outcome-Based Education in Curriculum Design, Pedagogy and Assessment Strategies
+                        </td>
+                        <td>VIT AP, Amaravathi</td>
+                        <td>FDP</td>
+                        <td>Five</td>
+                        <td>13-05-2025 <br>to<br>17-05-2025</td>
+                        <td>Prof(Dr) Sabu Thomas, Prof. (Dr.) Anil G Variath</td>
+                        <td>Former Vice Chancellor, Professor and Dean</td>
+                        <td>Mahatma Gandhi University, Amritha International School of Law, Amritha University,
+                            Coimbatore,
+                            Former Registrar, MNLU Mumbai</td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>N. Susmitha</td>
+                        <td>Advancing Hydrogen Energy Frontiers: Artificial Intelligence, E-Mobility, Sustainable Green
+                            Technologies</td>
+                        <td>NIT Patna</td>
+                        <td>FDP</td>
+                        <td>10</td>
+                        <td>07-04-2025 <br>to<br>17-04-2025</td>
+                        <td>Dr. Ankur Chaurasia</td>
+                        <td>Associate Professor</td>
+                        <td>NIT Patna</td>
+                    </tr>
+
+                    <tr>
+                        <td>8</td>
+                        <td>N. Susmitha</td>
+                        <td>Generative AI and Prompt Engineering</td>
+                        <td>ExcelR and New Horizon College of Engineering</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>21-04-2025 <br>to<br>25-04-2025</td>
+                        <td>Saurabh Daubd</td>
+                        <td>Industry Executive</td>
+                        <td>ExcelR</td>
+                    </tr>
+
+                    <tr>
+                        <td>9</td>
+                        <td>N. Susmitha</td>
+                        <td>AI and Cloud based Tools for Research</td>
+                        <td>National Institute of Technical Teachers Training & Research (NITTTR), Chandigarh</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>24-03-2025 <br>to<br>28-03-2025</td>
+                        <td>Dr. Jagriti Saini</td>
+                        <td>Founder, Eternal RESTEM</td>
+                        <td>Eternal RESTEM</td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>T. Deepa</td>
+                        <td>Biometrics Security in the Generative AI Era</td>
+                        <td>The Electronics and ICT Academies at PDPM IIITDM Jabalpur, MNIT Jaipur, IIT Roorkee, NIT
+                            Patna
+                            and IIT Guwahati</td>
+                        <td>FDP</td>
+                        <td>12</td>
+                        <td>01-03-2025 <br>to<br>12-03-2025</td>
+                        <td>Prof. Surya Prakash, IIT Indore, Prof. Pritee Khanna, IIITDM Jabalpur</td>
+                        <td>Professor</td>
+                        <td>IIT Indore, IIITDM Jabalpur</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Mr K S S Narayana</td>
+                        <td>AI in Cyber Security</td>
+                        <td>Ramco Institute of Technology</td>
+                        <td>FDP(International)</td>
+                        <td>Five Days</td>
+                        <td>17-02-2025 <br>to<br> 21-02-2025</td>
+                        <td>Mr Kishore Hariram</td>
+                        <td>Cyber Security Tester</td>
+                        <td>Fidelity Investments, Ireland</td>
+                    </tr>
+
+                    <tr>
+                        <td>12</td>
+                        <td>P. Sujatha</td>
+                        <td>Computer Vision and Speech Processing.</td>
+                        <td>Department of Artificial Intelligence and Machine Learning, Chaitanya Bharathi Institute of
+                            Technology (Autonomous), Gandipet, Hyderabad-500075, Telangana, India, in Technical
+                            Association
+                            with ACM Hyderabad Deccan Chapter</td>
+                        <td>Winter School</td>
+                        <td>Two Week</td>
+                        <td>09-12-2024 <br>to<br> 21-12-2024</td>
+                        <td>Dr. Surya Prakash</td>
+                        <td>Professor</td>
+                        <td>IIT Indore</td>
+                    </tr>
+
+                    <tr>
+                        <td>13</td>
+                        <td>K.S.S Narayana</td>
+                        <td>AI Applications in Banking and Health care industry</td>
+                        <td>KLETU-Karnataka, CBIT-Hyderabad in collaboration with ExcelR Edtech Pvt. Ltd</td>
+                        <td>FDP</td>
+                        <td>6</td>
+                        <td>12-12-2024 <br>to<br> 18-12-2024</td>
+                        <td>ExcelR Edtech Pvt. Ltd</td>
+                        <td>Industry Experts</td>
+                        <td>ExcelR Edtech Pvt. Ltd</td>
+                    </tr>
+
+                    <tr>
+                        <td>14</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Generative AI: Transforming Innovation in Technology and Education</td>
+                        <td>NMIMS, Indore in association with MPCST</td>
+                        <td>FDP(National)</td>
+                        <td>5</td>
+                        <td>09-12-2024 <br>to<br> 13-12-2024</td>
+                        <td>1. Dr. D. Gautam<br>2. Dr. N. Asthana<br>3. Dr. Anita Chalka<br>4. Prof. G. Paliwal</td>
+                        <td>Professors</td>
+                        <td>(School Of Technology Management & Engineering, NMIMS Indore)</td>
+                    </tr>
+
+                    <tr>
+                        <td>15</td>
+                        <td>B. Kalyan Chakravarthy</td>
+                        <td>Unlocking Innovations with Blockchain and Generative AI</td>
+                        <td>VVIT, GUNTUR</td>
+                        <td>FDP</td>
+                        <td>6</td>
+                        <td>02-12-2024 <br>to<br> 07-12-2024</td>
+                        <td>Mr. O. Aravind, Ms. Priyanka Kamath</td>
+                        <td>Professors</td>
+                        <td>Various Organizations</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>N. Susmitha</td>
+                        <td>Recent Advancements in AI & IOT - Industry Perspective</td>
+                        <td>Periyar Maniammai Institute of Science & Technology, Vallam, Thanjavur with Panatic
+                            Solutions
+                        </td>
+                        <td>FDP(National)</td>
+                        <td>ONE WEEK</td>
+                        <td>25-11-2024 <br>to<br> 30-11-2024</td>
+                        <td>Dr. Ankita Sairi</td>
+                        <td>Professor</td>
+                        <td>Ganga Institute of Technology & Management, Jhajjar</td>
+                    </tr>
+
+                    <tr>
+                        <td>17</td>
+                        <td>K.S.S Narayana</td>
+                        <td>Recent Advancements in AI & IOT - Industry Perspective</td>
+                        <td>Periyar Maniammai Institute of Science & Technology, Vallam, Thanjavur with Panatic
+                            Solutions
+                        </td>
+                        <td>FDP(National)</td>
+                        <td>ONE WEEK</td>
+                        <td>25-11-2024 <br>to<br> 30-11-2024</td>
+                        <td>Dr. Ankita Sairi</td>
+                        <td>Professor</td>
+                        <td>Ganga Institute of Technology & Management, Jhajjar</td>
+                    </tr>
+
+                    <tr>
+                        <td>18</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Recent Advancements in AI & IOT - Industry Perspective</td>
+                        <td>Periyar Maniammai Institute of Science & Technology, Vallam, Thanjavur with Panatic
+                            Solutions
+                        </td>
+                        <td>FDP(National)</td>
+                        <td>ONE WEEK</td>
+                        <td>25-11-2024 <br>to<br> 30-11-2024</td>
+                        <td>Dr. Ankita Sairi</td>
+                        <td>Professor</td>
+                        <td>Ganga Institute of Technology & Management, Jhajjar</td>
+                    </tr>
+
+                    <tr>
+                        <td>19</td>
+                        <td>P. Sujatha</td>
+                        <td>Mathematical Foundations for Computational Intelligence</td>
+                        <td>Madanapalle Institute of Technology & Science (Online)</td>
+                        <td>FDP(online)</td>
+                        <td>ONE WEEK</td>
+                        <td>25-11-2024 <br>to<br> 30-11-2024</td>
+                        <td>Dr. Omprakash, IIT Patna</td>
+                        <td>Professor</td>
+                        <td>IIT Patna</td>
+                    </tr>
+
+                    <tr>
+                        <td>20</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Machine Learning Techniques for Deep Fake Detection</td>
+                        <td>E and ICT Academy, IIT Roorkee</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>19-11-2024 <br>to<br> 23-11-2024</td>
+                        <td>Prof. Sanjeev Manhas (IIT Roorkee), Prof. Vrijendra Singh (IIIT-Allahabad), Dr. Ayan Seal
+                            (IIIT
+                            Jabalpur)</td>
+                        <td>Professors</td>
+                        <td>IIT Roorkee, IIIT-Allahabad, IIIT Jabalpur</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>T. Deepa</td>
+                        <td>Machine Learning Techniques for Deep Fake Detection</td>
+                        <td>E and ICT Academy, IIT Roorkee</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>19-11-2024 <br>to<br> 23-11-2024</td>
+                        <td>Prof. Sanjeev Manhas IIT Roorkee<br>Prof. Vrijendra Singh IIIT-Allahabad<br>Dr. Ayan Seal
+                            IIIT
+                            Jabalpur</td>
+                        <td>Professors</td>
+                        <td>IIT Roorkee, IIIT-Allahabad, IIIT Jabalpur</td>
+                    </tr>
+
+                    <tr>
+                        <td>22</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Cloud Architect</td>
+                        <td>VEC SHAMSHABAD, AVEC, SALEM, JSS S&T University, Mysore, GMRIT, Vizianagaram in
+                            collaboration
+                            with ExcelR Edtech Pvt. Ltd</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>18-11-2024 <br>to<br> 22-11-2024</td>
+                        <td>1. Chandana Polisetty<br>2. Bala</td>
+                        <td>Professors</td>
+                        <td>Vizianagaram, Vardhaman Engineering College, Hyderabad</td>
+                    </tr>
+
+                    <tr>
+                        <td>23</td>
+                        <td>K. S. S Narayana</td>
+                        <td>Cloud Architect</td>
+                        <td>VEC SHAMSHABAD, AVEC, SALEM, JSS S&T University, Mysore, GMRIT, Vizianagaram in
+                            collaboration
+                            with ExcelR Edtech Pvt. Ltd</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>18-11-2024 <br>to<br> 22-11-2024</td>
+                        <td>1. Chandana Polisetty<br>2. Bala</td>
+                        <td>Professors</td>
+                        <td>Vizianagaram, Vardhaman Engineering College, Hyderabad</td>
+                    </tr>
+
+                    <tr>
+                        <td>24</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Applications of AI in Science, Technology & Engineering</td>
+                        <td>Anurag University</td>
+                        <td>International Workshop</td>
+                        <td>6</td>
+                        <td>11-11-2024 <br>to<br> 16-11-2024</td>
+                        <td>Experts from foreign University, Research Organization, Academia</td>
+                        <td>Professor</td>
+                        <td>Foreign University</td>
+                    </tr>
+
+                    <tr>
+                        <td>25</td>
+                        <td>P. Sujatha</td>
+                        <td>Applications of AI in Science, Technology & Engineering</td>
+                        <td>Anurag University</td>
+                        <td>International Workshop</td>
+                        <td>6</td>
+                        <td>11-11-2024 <br>to<br> 16-11-2024</td>
+                        <td>Experts from foreign University, Research Organization, Academia</td>
+                        <td>Professor</td>
+                        <td>Foreign University</td>
+                    </tr>
+
+                    <tr>
+                        <td>26</td>
+                        <td>N. Susmitha</td>
+                        <td>Applications of AI in Science, Technology & Engineering</td>
+                        <td>Anurag University</td>
+                        <td>International Workshop</td>
+                        <td>6</td>
+                        <td>11-11-2024 <br>to<br> 16-11-2024</td>
+                        <td>Experts from foreign University, Research Organization, Academia</td>
+                        <td>Professor</td>
+                        <td>Foreign University</td>
+                    </tr>
+
+                    <tr>
+                        <td>27</td>
+                        <td>G. Gayathri</td>
+                        <td>Deep Learning with Generative AI for Computer Vision</td>
+                        <td>Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and
+                            Manufacturing, Jabalpur, E and ICT Academy</td>
+                        <td>FDP (Online)</td>
+                        <td>40 hours</td>
+                        <td>08-11-2024 <br>to<br> 19-11-2024</td>
+                        <td>
+                            1. Prof. Aparajita Ojha, PDPM IIITDM Jabalpur<br>
+                            2. Dr. Prashant Patil, IIT Guwahati<br>
+                            3. Dr. Mohan Karnati, NIT Raipur<br>
+                            4. Dr. Shi Ram Dubey, IIIT Allahabad
+                        </td>
+                        <td>Professors</td>
+                        <td>PDPM IIITDM Jabalpur, IIT Guwahati, NIT Raipur, IIIT Allahabad</td>
+                    </tr>
+
+                    <tr>
+                        <td>28</td>
+                        <td>N. Susmitha</td>
+                        <td>Deep Learning with Generative AI for Computer Vision</td>
+                        <td>Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and
+                            Manufacturing, Jabalpur, E and ICT Academy</td>
+                        <td>FDP (Online)</td>
+                        <td>40 hours</td>
+                        <td>08-11-2024 <br>to<br> 19-11-2024</td>
+                        <td>
+                            1. Prof. Aparajita Ojha, PDPM IIITDM Jabalpur<br>
+                            2. Dr. Prashant Patil, IIT Guwahati<br>
+                            3. Dr. Mohan Karnati, NIT Raipur<br>
+                            4. Dr. Shi Ram Dubey, IIIT Allahabad
+                        </td>
+                        <td>Professors</td>
+                        <td>PDPM IIITDM Jabalpur, IIT Guwahati, NIT Raipur, IIIT Allahabad</td>
+                    </tr>
+
+                    <tr>
+                        <td>29</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Deep Learning with Generative AI for Computer Vision</td>
+                        <td>Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and
+                            Manufacturing, Jabalpur, E and ICT Academy</td>
+                        <td>FDP (Online)</td>
+                        <td>40 hours</td>
+                        <td>08-11-2024 <br>to<br> 19-11-2024</td>
+                        <td>
+                            1. Prof. Aparajita Ojha, PDPM IIITDM Jabalpur<br>
+                            2. Dr. Prashant Patil, IIT Guwahati<br>
+                            3. Dr. Mohan Karnati, NIT Raipur<br>
+                            4. Dr. Shi Ram Dubey, IIIT Allahabad
+                        </td>
+                        <td>Professors</td>
+                        <td>PDPM IIITDM Jabalpur, IIT Guwahati, NIT Raipur, IIIT Allahabad</td>
+                    </tr>
+
+                    <tr>
+                        <td>30</td>
+                        <td>N. Susmitha</td>
+                        <td>Data Ingestions and NoSQL (Cassandra and Mango DB)</td>
+                        <td>VRSEC</td>
+                        <td>FDP</td>
+                        <td>3</td>
+                        <td>02-11-2024 <br>to<br> 05-11-2024</td>
+                        <td>Mr. Veer Anjaneya Raju</td>
+                        <td>Technical Trainer</td>
+                        <td>CEO - Tekcrux</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>N. Susmitha</td>
+                        <td>Data Science and Machine Learning Applications for Engineering and Sciences</td>
+                        <td>Sri Vishnu Engineering College for Women, Bhimavaram</td>
+                        <td>FDP (Online)</td>
+                        <td>One Week</td>
+                        <td>21-10-2024 <br>to<br> 27-10-2024</td>
+                        <td>Dr. Poonkuzhali, Professor, Rajalakshmi Engineering College, Chennai</td>
+                        <td>Professor</td>
+                        <td>Rajalakshmi Engineering College</td>
+                    </tr>
+
+                    <tr>
+                        <td>32</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Data Science and Machine Learning Applications for Engineering and Sciences</td>
+                        <td>Sri Vishnu Engineering College for Women, Bhimavaram</td>
+                        <td>FDP (Online)</td>
+                        <td>One Week</td>
+                        <td>21-10-2024 <br>to<br> 27-10-2024</td>
+                        <td>Dr. Poonkuzhali, Professor, Rajalakshmi Engineering College, Chennai</td>
+                        <td>Professor</td>
+                        <td>Rajalakshmi Engineering College</td>
+                    </tr>
+
+                    <tr>
+                        <td>33</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Data Science and Machine Learning Applications for Engineering and Sciences</td>
+                        <td>Sri Vishnu Engineering College for Women, Bhimavaram</td>
+                        <td>FDP (Online)</td>
+                        <td>One Week</td>
+                        <td>21-10-2024 <br>to<br> 27-10-2024</td>
+                        <td>Dr. Poonkuzhali, Professor, Rajalakshmi Engineering College, Chennai</td>
+                        <td>Professor</td>
+                        <td>Rajalakshmi Engineering College</td>
+                    </tr>
+
+                    <tr>
+                        <td>34</td>
+                        <td>N. Susmitha</td>
+                        <td>Advancements in Computing Technologies and Internet of Things</td>
+                        <td>SCOPE, VIT Chennai</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>21-10-2024 <br>to<br> 25-10-2024</td>
+                        <td>
+                            Dr. Xavier Fernando, Professor, Toronto Metropolitan University, Canada<br>
+                            Dr. Anusooya G., Professor, VIT, Chennai
+                        </td>
+                        <td>Professor</td>
+                        <td>Toronto Metropolitan University, Canada; VIT, Chennai</td>
+                    </tr>
+
+                    <tr>
+                        <td>35</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Recent Trends in Deep Learning and its Applications</td>
+                        <td>SRMAP</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>14-10-2024 <br>to<br> 18-10-2024</td>
+                        <td>Dr. U.S.N. Raju, Associate Professor, NIT Warangal</td>
+                        <td>Professors</td>
+                        <td>NIT Warangal</td>
+                    </tr>
+
+                    <tr>
+                        <td>36</td>
+                        <td>T. Deepa</td>
+                        <td>Artificial Intelligence in Practice</td>
+                        <td>MMTTC, Indian Institute of Science Education and Research, Bhopal</td>
+                        <td>FDP (Online)</td>
+                        <td>8</td>
+                        <td>27-09-2024 <br>to<br> 04-10-2024</td>
+                        <td>
+                            Dr. Tanmay Basu, IISER Bhopal<br>
+                            Dr. Anirban Dasgupta, IIT Guwahati<br>
+                            Dr. Vaibhav Kumar, IISER Bhopal
+                        </td>
+                        <td>Professors</td>
+                        <td>IISER Bhopal, IIT Guwahati</td>
+                    </tr>
+
+                    <tr>
+                        <td>37</td>
+                        <td>G. Gayathri</td>
+                        <td>Artificial Intelligence in Practice</td>
+                        <td>MMTTC, Indian Institute of Science Education and Research, Bhopal</td>
+                        <td>FDP (Online)</td>
+                        <td>8</td>
+                        <td>27-09-2024 <br>to<br> 04-10-2024</td>
+                        <td>
+                            Dr. Tanmay Basu, IISER Bhopal<br>
+                            Dr. Anirban Dasgupta, IIT Guwahati<br>
+                            Dr. Vaibhav Kumar, IISER Bhopal
+                        </td>
+                        <td>Professors</td>
+                        <td>IISER Bhopal, IIT Guwahati</td>
+                    </tr>
+
+                    <tr>
+                        <td>38</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Artificial Intelligence in Practice</td>
+                        <td>MMTTC, Indian Institute of Science Education and Research, Bhopal</td>
+                        <td>FDP (Online)</td>
+                        <td>8</td>
+                        <td>27-09-2024 <br>to<br> 04-10-2024</td>
+                        <td>
+                            Dr. Tanmay Basu, IISER Bhopal<br>
+                            Dr. Anirban Dasgupta, IIT Guwahati<br>
+                            Dr. Vaibhav Kumar, IISER Bhopal
+                        </td>
+                        <td>Professors</td>
+                        <td>IISER Bhopal, IIT Guwahati</td>
+                    </tr>
+
+                    <tr>
+                        <td>39</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>IoT and Embedded Systems</td>
+                        <td>NITTTR, Chandigarh; PVPSIT</td>
+                        <td>FDP</td>
+                        <td>5 (One Week)</td>
+                        <td>23-09-2024 <br>to<br> 27-09-2024</td>
+                        <td>Dr. Kanika Sharma, NITTTR, Chandigarh</td>
+                        <td>Professor</td>
+                        <td>NITTTR, Chandigarh</td>
+                    </tr>
+
+                    <tr>
+                        <td>40</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>IoT and Embedded Systems</td>
+                        <td>NITTTR, Chandigarh; PVPSIT</td>
+                        <td>FDP</td>
+                        <td>5 (One Week)</td>
+                        <td>23-09-2024 <br>to<br> 27-09-2024</td>
+                        <td>Dr. Kanika Sharma, NITTTR, Chandigarh</td>
+                        <td>Professor</td>
+                        <td>NITTTR, Chandigarh</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>T. Deepa</td>
+                        <td>IoT and Embedded Systems</td>
+                        <td>NITTTR, Chandigarh</td>
+                        <td>FDP</td>
+                        <td>5 (ONE WEEK)</td>
+                        <td>23-09-2024 <br>to<br> 27-09-2024</td>
+                        <td>Dr. Kanika Sharma, NITTTR, Chandigarh</td>
+                        <td>Professor</td>
+                        <td>NITTTR, Chandigarh</td>
+                    </tr>
+
+                    <tr>
+                        <td>42</td>
+                        <td>T. Deepa</td>
+                        <td>Gen-AI and Prompt Engineering Using Microsoft Co-Pilot</td>
+                        <td>BNMIT-Karnataka, DY-PATILATU, in collaboration with ExcelREdTech</td>
+                        <td>FDP (INTERNATIONAL)</td>
+                        <td>5</td>
+                        <td>16-09-2024 <br>to<br> 20-09-2024</td>
+                        <td>Amit Saha</td>
+                        <td>Professor</td>
+                        <td>BNM Institute of Technology</td>
+                    </tr>
+
+                    <tr>
+                        <td>43</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>Gen-AI and Prompt Engineering Using Microsoft Co-Pilot</td>
+                        <td>BNMIT-Karnataka, DY-PATILATU, in collaboration with ExcelREdTech</td>
+                        <td>FDP (INTERNATIONAL)</td>
+                        <td>5</td>
+                        <td>16-09-2024 <br>to<br> 20-09-2024</td>
+                        <td>Amit Saha</td>
+                        <td>Professor</td>
+                        <td>BNM Institute of Technology</td>
+                    </tr>
+
+                    <tr>
+                        <td>44</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Exploring Artificial Intelligence: Trending Technologies</td>
+                        <td>DMI College of Engineering, Chennai</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>09-09-2024 <br>to<br> 13-09-2024</td>
+                        <td>Dr. E. Sujatha</td>
+                        <td>Professor</td>
+                        <td>Saveetha Engineering College, Chennai</td>
+                    </tr>
+
+                    <tr>
+                        <td>45</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Contemporary Research Trends, Innovations in Materials and Technology</td>
+                        <td>Jeppiaar Institute of Technology</td>
+                        <td>FDP</td>
+                        <td>6</td>
+                        <td>26-08-2024 <br>to<br> 31-08-2024</td>
+                        <td>Dr. Selvamani</td>
+                        <td>Professor</td>
+                        <td>Jeppiaar Institute of Technology</td>
+                    </tr>
+
+                    <tr>
+                        <td>46</td>
+                        <td>G. Venkata Krishna</td>
+                        <td>NEP 2020 Orientation & Sensitization Programme</td>
+                        <td>Malaviya Machine Teacher Training Center, Bangalore University, SIchar</td>
+                        <td>FDP</td>
+                        <td>9</td>
+                        <td>19-08-2024 <br>to<br> 27-08-2024</td>
+                        <td>Prof. C. S. Karigar</td>
+                        <td>Professor</td>
+                        <td>Bangalore University</td>
+                    </tr>
+
+                    <tr>
+                        <td>47</td>
+                        <td>T. Deepa</td>
+                        <td>NEP 2020 Orientation & Sensitization Programme</td>
+                        <td>Malaviya Machine Teacher Training Center, Bangalore University, SIchar</td>
+                        <td>FDP</td>
+                        <td>9</td>
+                        <td>19-08-2024 <br>to<br> 27-08-2024</td>
+                        <td>Prof. C. S. Karigar</td>
+                        <td>Professor</td>
+                        <td>Bangalore University</td>
+                    </tr>
+
+                    <tr>
+                        <td>48</td>
+                        <td>N. Susmitha</td>
+                        <td>Fullstack Data Science Generative AI</td>
+                        <td>Madanapalle Institute of Technology & Science (Online)</td>
+                        <td>FDP (INTERNATIONAL) ONLINE</td>
+                        <td>9</td>
+                        <td>19-08-2024 <br>to<br> 23-08-2024</td>
+                        <td>Mr. Abhishek Subramanian</td>
+                        <td>Senior Data Engineer</td>
+                        <td>Databricks</td>
+                    </tr>
+
+                    <tr>
+                        <td>49</td>
+                        <td>P. Sujatha</td>
+                        <td>Fullstack Data Science Generative AI</td>
+                        <td>Madanapalle Institute of Technology & Science (Online)</td>
+                        <td>FDP (INTERNATIONAL) ONLINE</td>
+                        <td>9</td>
+                        <td>19-08-2024 <br>to<br> 23-08-2024</td>
+                        <td>Mr. Abhishek Subramanian</td>
+                        <td>Senior Data Engineer</td>
+                        <td>Databricks</td>
+                    </tr>
+
+                    <tr>
+                        <td>50</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Machine Learning and Artificial Intelligence</td>
+                        <td>Pimpri Chinchwad College of Engineering & others (multiple locations)</td>
+                        <td>FDP</td>
+                        <td>8</td>
+                        <td>12-08-2024 <br>to<br> 19-08-2024</td>
+                        <td>Dr. Amit Saha</td>
+                        <td>Professor</td>
+                        <td>Pimpri Chinchwad College of Engineering, Pune</td>
+                    </tr>
+
+                    <tr>
+                        <td>51</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>AI's Impact on Software, Robotics, Electrical, Electronics & Mechanical Fields</td>
+                        <td>Dhaanish Ahmed College of Engineering, Chennai</td>
+                        <td>FDP</td>
+                        <td>6</td>
+                        <td>05-08-2024 <br>to<br> 10-08-2024</td>
+                        <td>Dr. Varunkumar</td>
+                        <td>Industry Experts</td>
+                        <td>Georgia Institute of Technology, USA</td>
+                    </tr>
+
+                    <tr>
+                        <td>52</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Exploring Machine Learning Cyber Security: Tools and Trends</td>
+                        <td>Sri Venkateswara College of Engineering</td>
+                        <td>FDP</td>
+                        <td>5</td>
+                        <td>05-08-2024 <br>to<br> 09-08-2024</td>
+                        <td>Dr. Vidyanandham</td>
+                        <td>Professor</td>
+                        <td>Sri Venkateswara College of Engineering</td>
+                    </tr>
+
+                    <tr>
+                        <td>53</td>
+                        <td>P. Sujatha</td>
+                        <td>NEP 2020 Orientation & Sensitization Programme</td>
+                        <td>Malaviya Machine Teacher Training Center, Assam University, SIchar</td>
+                        <td>FDP</td>
+                        <td>12</td>
+                        <td>01-08-2024 <br>to<br> 12-08-2024</td>
+                        <td>Professors from Assam University</td>
+                        <td>Professors</td>
+                        <td>Assam University</td>
+                    </tr>
+
+                    <tr>
+                        <td>54</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>NEP 2020 Orientation & Sensitization Programme</td>
+                        <td>Experts from Andhra University</td>
+                        <td>FDP</td>
+                        <td>9</td>
+                        <td>22-07-2024 <br>to<br> 30-07-2024</td>
+                        <td>Experts from Andhra University</td>
+                        <td>Professors</td>
+                        <td>Andhra University</td>
+                    </tr>
+
+                    <tr>
+                        <td>55</td>
+                        <td>K. S. S. Narayana</td>
+                        <td>Exploring Computational Intelligence</td>
+                        <td>VIT-AP University, Amaravati</td>
+                        <td>FDP (National)</td>
+                        <td>5</td>
+                        <td>16-07-2024 <br>to<br> 20-07-2024</td>
+                        <td>
+                            Mr. Rohan Vijapur, Engineering Lead, Treflo<br>
+                            Mr. Nishanth Jayaram, Senior Technology Consultant
+                        </td>
+                        <td>Engineering Lead, Senior Tech Consultant</td>
+                        <td>Bangalore</td>
+                    </tr>
+
+                    <tr>
+                        <td>56</td>
+                        <td>B. Kalyan Chakravarthy</td>
+                        <td>NEP 2020 Orientation & Sensitization Programme</td>
+                        <td>Experts from Andhra University</td>
+                        <td>FDP</td>
+                        <td>9</td>
+                        <td>01-07-2024 <br>to<br> 09-07-2024</td>
+                        <td>Experts from Andhra University</td>
+                        <td>Professors</td>
+                        <td>Andhra University</td>
+                    </tr>
+                </tbody>
+
+                
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function getAcademicYear(dateStr) {
+            const match = dateStr.match(/(\d{2})-(\d{2})-(\d{4})/);
+            if (!match) return '';
+            const year = parseInt(match[3]);
+            const month = parseInt(match[2]);
+            return (month >= 6) ? year : year - 1;
+        }
+
+        function filterByYear() {
+            const selectedYear = document.getElementById("yearFilter").value;
+            const rows = document.querySelectorAll("#fdp tbody tr");
+
+            rows.forEach(row => {
+                const cell = row.cells[6];
+                if (!cell) return;
+                const dateText = cell.innerText.trim();
+                const match = dateText.match(/(\d{2})-(\d{2})-(\d{4})/);
+                if (!match) {
+                    row.style.display = 'none';
+                    return;
+                }
+                const rowYear = getAcademicYear(match[0]);
+                row.style.display = (selectedYear === "all" || parseInt(selectedYear) === rowYear) ? "" : "none";
+            });
+        }
+    </script>
+
+    <!--footer -->
+    <div class="footer">
+        Quick Links
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-2">
+                <div class="column-title">Menu</div>
+                <ul class="list-unstyled">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/Gallery.html">Gallery</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+                    <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+                </ul>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-2">
+                <div class="column-title">Academic</div>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+                    <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+                    <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+                    <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+                </ul>
+            </div>
+            <!-- Column 3 -->
+            <div class="col-md-2">
+                <div class="column-title">Governance</div>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+                    <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a>
+                    </li>
+                    <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+                    <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+                    <li><a href="../index.html">PVP Gallery</a></li>
+                </ul>
+            </div>
+            <!-- Column 4 -->
+            <div class="col-md-3">
+                <div class="column-title">Contact</div>
+                <address class="address">
+                    <p>P.V.P. Siddhartha Institute Of Technology</p>
+                    <p>Kanuru, Vijayawada-520 007</p>
+                    <p>Andhra Pradesh, India</p>
+                    <p>Tel: 0866-2581699, 0866-2583037</p>
+                    <p>0866-2585681, 0866-2585682</p>
+                    <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+                    <p>Fax: 0866-2581184</p>
+                </address>
+            </div>
+            <!-- Column 5 -->
+            <div class="col-md-3">
+                <div class="column-title">Location</div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

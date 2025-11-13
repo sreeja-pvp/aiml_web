@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Club PVPSIT</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <!-- NEW: tsParticles Library for Particle Background -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ai-blue': '#0ea5e9',
+                        'ai-dark-blue': '#0284c7',
+                        'ai-light-blue': '#38bdf8',
+                        'ai-purple': '#8b5cf6',
+                        'ai-dark-purple': '#7c3aed',
+                        'ai-cyan': '#06b6d4',
+                        'ai-green': '#10b981',
+                        'ai-orange': '#f97316',
+                        'ai-pink': '#ec4899',
+                        'ai-yellow': '#eab308',
+                        'ai-gray': '#1e293b',
+                        'ai-light-gray': '#334155',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'spin-slow': 'spin 12s linear infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 15px #0ea5e9, 0 0 20px #8b5cf6' },
+                            'to': { boxShadow: '0 0 30px #8b5cf6, 0 0 40px #ec4899' },
+                        },
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #0ea5e9, #8b5cf6); border-radius: 4px; }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .carousel-item {
+            scroll-snap-align: center;
+        }
+
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        .modal.hidden .modal-content {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-transparent antialiased">
+
+<div id="tsparticles"></div>
+    
+<!-- Mobile Menu -->
+<div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 p-6">
+    <div class="flex justify-between items-center mb-8">
+        <h3 class="text-xl font-bold text-ai-gray">Navigation</h3>
+        <button id="close-menu" class="text-ai-gray hover:text-ai-blue transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+    <nav class="flex flex-col space-y-6">
+        <a href="#home" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">About</a>
+        <a href="#events" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">Events</a>
+        <a href="#team" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">Team</a>
+        <a href="#gallery" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">Gallery</a>
+        <a href="#contact" class="mobile-nav-link text-lg text-ai-gray hover:text-ai-blue font-medium transition-colors">Contact</a>
+        <a href="https://chat.whatsapp.com/HOslMowPEoJ1H1AAVeYHly?mode=ems_copy_c" target="_blank" rel="noopener noreferrer" class="block text-center bg-gradient-to-r from-ai-blue to-ai-purple text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+            Join Us
+        </a>
+    </nav>
+</div>
+
+<img src="./images/head.jpg" alt="PVPSIT" width="100%" height="auto">
+
+<!-- COMPONENT: Navigation Header -->
+<header id="header" class="bg-white/90 backdrop-blur-xl shadow-lg border-b border-slate-200/50 sticky top-0 z-30 transition-all duration-500">
+    <div class="absolute inset-0 bg-gradient-to-r from-ai-blue/5 via-transparent to-ai-purple/5 opacity-50"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex justify-between items-center h-20">
+            <a href="#home" class="flex items-center space-x-4 group transition-all duration-300 hover:scale-105">
+                <div class="w-12 h-12 bg-gradient-to-br from-ai-blue via-ai-purple to-ai-cyan rounded-2xl flex items-center justify-center animate-glow shadow-xl ring-4 ring-white/20 group-hover:ring-ai-blue/30 transition-all duration-500 group-hover:rotate-12">
+                    <i class="fa-solid fa-robot text-white text-xl drop-shadow-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-ai-gray group-hover:text-ai-blue transition-colors duration-300">AI Club</h1>
+                    <p class="text-sm text-slate-500 font-medium group-hover:text-ai-purple transition-colors duration-300">PVPSIT</p>
+                </div>
+                <div class="w-2 h-2 bg-gradient-to-r from-ai-blue to-ai-purple rounded-full animate-pulse"></div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">Home</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#about" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">About</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#events" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">Events</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#team" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">Team</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#gallery" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">Gallery</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#contact" class="relative text-ai-gray hover:text-ai-blue font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <span class="relative z-10">Contact</span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+                </a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="https://chat.whatsapp.com/HOslMowPEoJ1H1AAVeYHly?mode=ems_copy_c" target="_blank" rel="noopener noreferrer" class="hidden sm:block bg-gradient-to-r from-ai-blue via-ai-purple to-ai-cyan text-white px-6 py-2.5 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 ring-2 ring-transparent hover:ring-ai-blue/50 relative overflow-hidden group">
+                    <span class="absolute inset-0 bg-gradient-to-r from-ai-cyan/20 to-ai-pink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span class="relative z-10 flex items-center space-x-2">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Join Us</span>
+                    </span>
+                </a>
+                <button id="menu-toggle" class="md:hidden text-ai-gray hover:text-ai-blue transition-all duration-300 p-2 rounded-lg hover:bg-ai-blue/10 group">
+                    <i class="fa-solid fa-bars text-xl group-hover:rotate-180 transition-transform duration-300"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- COMPONENT: Hero Section -->
+<section id="home" class="relative min-h-[70vh] md:h-[300px] flex items-center bg-gradient-to-br from-ai-blue/80 via-ai-purple/80 to-ai-dark-blue/80 overflow-hidden">
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover opacity-20" src="./images/hero.png" alt="Futuristic AI neural network visualization">
+    </div>
+    <div data-parallax-speed="0.3" class="parallax-el absolute top-10 left-10 w-32 h-32 bg-ai-cyan rounded-full mix-blend-screen filter blur-xl opacity-30 animate-float"></div>
+    <div data-parallax-speed="0.5" class="parallax-el absolute top-20 right-20 w-24 h-24 bg-ai-purple rounded-full mix-blend-screen filter blur-xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+        <div class="animate-on-scroll is-visible">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in">
+                <span class="inline-block hover:transform hover:scale-105 transition-transform duration-300">Exploring AI</span>
+                <span class="bg-gradient-to-r from-ai-yellow to-white bg-clip-text text-transparent inline-block hover:transform hover:scale-105 transition-transform duration-300">Frontiers</span>
+                <span class="inline-block hover:transform hover:scale-105 transition-transform duration-300">Together</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Join PVPSIT's premier AI community where innovation meets collaboration. Dive deep into machine learning, data science, and the future of artificial intelligence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about" class="bg-ai-yellow text-ai-gray px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transform hover:-translate-y-1 transition-all shadow-xl">
+                    Learn More
+                </a>
+                <a href="#events" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-ai-blue transform hover:-translate-y-1 transition-all">
+                    View Events
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
+</section>
+
+<!-- COMPONENT: Quick Introduction -->
+<section class="py-24 bg-white/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-6">Welcome to the Future</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                The AI Club at PVPSIT is a dynamic community dedicated to exploring artificial intelligence and machine learning. 
+                We foster innovation, collaboration, and hands-on learning through workshops, projects, and cutting-edge research opportunities.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-blue via-ai-light-blue to-ai-cyan p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-blue/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-12 -mb-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-lightbulb text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-yellow-200 transition-colors">Innovation Hub</h3>
+                    <p class="text-blue-100 leading-relaxed">Explore cutting-edge AI technologies and develop groundbreaking solutions to real-world problems.</p>
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-purple via-purple-600 to-ai-dark-purple p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-purple/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden" style="transition-delay: 150ms;">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-12 -mb-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-users text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-pink-200 transition-colors">Collaborative Learning</h3>
+                    <p class="text-purple-100 leading-relaxed">Work alongside passionate peers and experienced mentors in a supportive learning environment.</p>
+                </div>
+            </div>
+            
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-yellow via-yellow-500 to-ai-orange p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-yellow/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden" style="transition-delay: 300ms;">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-12 -mb-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-rocket text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-200 transition-colors">Career Growth</h3>
+                    <p class="text-yellow-100 leading-relaxed">Build industry-relevant skills and connect with professionals to accelerate your AI career journey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPONENT: About Section -->
+<section id="about" class="py-20 bg-slate-100/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-ai-gray mb-6">About Our Club</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our mission, vision, and the passionate community driving AI innovation at PVPSIT</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-blue via-ai-light-blue to-ai-cyan p-6 md:p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-blue/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-bullseye text-3xl md:text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 group-hover:text-blue-200 transition-colors">Our Mission</h3>
+                    <p class="text-lg text-blue-100 leading-relaxed">
+                        To cultivate a dynamic and collaborative community of students dedicated to exploring the frontiers of
+                        Artificial Intelligence and Machine Learning. We strive to bridge the gap between theoretical knowledge
+                        and practical application through hands-on projects, workshops, and innovative research initiatives.
+                    </p>
+                </div>
+            </div>
+
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-purple via-purple-600 to-ai-dark-purple p-6 md:p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-purple/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden" style="transition-delay: 150ms;">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-eye text-3xl md:text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 group-hover:text-purple-200 transition-colors">Our Vision</h3>
+                    <p class="text-lg text-purple-100 leading-relaxed">
+                        To become a leading student-run organization recognized for its contributions to applied AI and its role
+                        in fostering the next generation of AI pioneers, researchers, and innovators. We envision a future where
+                        our members lead breakthrough discoveries and ethical AI development worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-3xl p-6 md:p-12 shadow-xl border-2 border-slate-200/50 hover:border-ai-blue/30 transition-all duration-500 hover:shadow-2xl animate-on-scroll hover:scale-[1.02]">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                <div class="w-44 md:w-48 h-44 md:h-48 rounded-3xl overflow-hidden flex-shrink-0 shadow-lg border-2 border-white ring-4 ring-slate-100 hover:scale-105 transition-transform">
+                    <img src="./images/FACULTY.jpg" alt="Faculty Advisor" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h3 class="text-2xl md:text-3xl font-bold text-ai-gray mb-4 hover:text-ai-blue transition-colors">Faculty Advisor's Message</h3>
+                    <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+                        "It is with great excitement that we launch the AI Club at PVPSIT. This initiative marks a significant step towards building a vibrant community for aspiring AI enthusiasts. I am confident that this club will become a hub of innovation, where students can explore, learn, and collaborate on the technologies that are shaping our future. I encourage all curious minds to join us in building this community from the ground up and to embark on this exciting journey together."
+                    </p>
+                    <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4">
+                        <div class="text-center md:text-left">
+                            <p class="font-bold text-ai-gray text-base md:text-lg">Mr. K.S.S Narayana</p>
+                            <p class="text-gray-600 text-sm md:text-base">Assistant Professor, Computer Science Engineering (Artificial Intelligence & Machine Learning) Department</p>
+                            <p class="text-ai-purple font-medium text-sm md:text-base">Faculty Advisor, AI Club PVPSIT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPONENT: Events Section -->
+<section id="events" class="py-24 bg-gray-50/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-4">Upcoming Events</h2>
+            <p class="text-lg text-slate-500 max-w-3xl mx-auto">Don't miss these exciting, hands-on learning experiences designed to advance your AI expertise.</p>
+        </div>
+        
+        <!-- Premium Events Container -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+
+            <!-- Card 1: Ai Games Creation Challenge -->
+            <div class="animate-on-scroll group bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 overflow-hidden border border-slate-200/60 hover:border-ai-blue/40 relative lg:mt-12" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+                <!-- Premium glow effect -->
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-ai-blue/20 to-ai-purple/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></div>
+
+                <!-- Decorative elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-ai-blue/10 to-ai-purple/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-ai-yellow/5 to-ai-orange/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+
+                <div class="relative z-10 h-64 md:h-72 overflow-hidden">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="./images/Act1.jpg" alt="Detective-themed data analysis workshop">
+                    <!-- Premium overlay with multiple gradients -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 via-60% to-transparent group-hover:from-black/90 group-hover:via-black/60 transition-all duration-700"></div>
+                    <!-- Additional shine effect -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                    <!-- Enhanced date badge -->
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-ai-yellow via-yellow-400 to-yellow-500 text-ai-gray px-5 py-3 rounded-2xl text-sm font-bold flex items-center gap-2 shadow-xl group-hover:scale-110 group-hover:rotate-2 transition-all duration-500">
+                        <i class="fas fa-calendar-alt text-xs"></i>
+                        <span>Oct 24, 2025</span>
+                        <div class="w-2 h-2 bg-ai-gray rounded-full animate-pulse"></div>
+                    </div>
+
+                    <!-- Premium category tag -->
+                    <div class="absolute bottom-6 left-6">
+                        <div class="bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md border border-white/20 text-white text-sm font-bold flex items-center gap-2 px-4 py-2 rounded-2xl shadow-xl">
+                            <div class="w-2 h-2 bg-ai-green rounded-full animate-pulse"></div>
+                            <i class="fas fa-users"></i>
+                            <span>Team Workshop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative z-10 p-8 md:p-10">
+
+                    <!-- Premium title with special effects -->
+                    <div class="mb-4">
+                        <h3 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-ai-gray via-slate-700 to-ai-gray bg-clip-text text-transparent group-hover:from-ai-blue group-hover:to-ai-purple transition-all duration-700 mb-2">
+                            <span class="relative">
+                                Ai Games Creation Challenge
+                                <!-- Decorative underline -->
+                                <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-ai-blue to-ai-purple group-hover:w-full transition-all duration-700"></div>
+                            </span>
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <div class="w-1 h-1 bg-ai-purple rounded-full"></div>
+                            <span class="text-xs font-semibold text-ai-purple uppercase tracking-wide">AI Innovation Event</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 mb-8 text-sm md:text-base leading-relaxed">A fun, beginner-friendly workshop where participants create their own AI-powered games. Teams will brainstorm game ideas, design characters, and implement basic AI mechanics using user-friendly tools.</p>
+
+                    <!-- Enhanced stats cards -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-4 group-hover:shadow-lg transition-shadow">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-ai-blue to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-clock text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-ai-gray text-sm">Duration</p>
+                                    <p class="font-semibold text-ai-blue">3-4 Hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-2xl p-4 group-hover:shadow-lg transition-shadow">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-ai-green to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-gift text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-ai-gray text-sm">Rewards</p>
+                                    <p class="font-semibold text-ai-green">Prizes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium tech stack -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-ai-gray mb-3 text-sm">Technologies Covered:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 px-3 py-1.5 rounded-full text-xs font-semibold">Python</span>
+                            <span class="bg-gradient-to-r from-purple-100 to-purple-200 text-purple-700 px-3 py-1.5 rounded-full text-xs font-semibold">Pandas</span>
+                            <span class="bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-3 py-1.5 rounded-full text-xs font-semibold">Colab</span>
+                        </div>
+                    </div>
+
+                    <!-- Premium button -->
+                    <button data-modal-target="ai-games-modal" class="w-full bg-gradient-to-r from-ai-blue via-ai-purple to-ai-purple text-white px-8 py-4 rounded-2xl font-bold hover:from-ai-dark-blue hover:via-ai-dark-purple hover:to-ai-dark-purple hover:scale-105 hover:shadow-xl transition-all duration-500 group flex items-center justify-center gap-3">
+                        <span>Discover More</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Build-a-Bot Challenge -->
+            <div class="animate-on-scroll group bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 overflow-hidden border border-slate-200/60 hover:border-ai-purple/40 relative lg:mt-12" style="transition-delay: 300ms; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+                <!-- Premium glow effect -->
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-ai-purple/20 to-ai-pink/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></div>
+
+                <!-- Decorative elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-ai-purple/10 to-ai-pink/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-ai-yellow/5 to-ai-orange/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+
+                <div class="relative z-10 h-64 md:h-72 overflow-hidden">
+                     <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="./images/Act2.png" alt="Chatbot development challenge">
+                    <!-- Premium overlay with multiple gradients -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 via-60% to-transparent group-hover:from-black/90 group-hover:via-black/60 transition-all duration-700"></div>
+                    <!-- Additional shine effect -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                    <!-- Enhanced date badge -->
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-ai-yellow via-yellow-400 to-yellow-500 text-ai-gray px-5 py-3 rounded-2xl text-sm font-bold flex items-center gap-2 shadow-xl group-hover:scale-110 group-hover:rotate-2 transition-all duration-500">
+                        <i class="fas fa-calendar-alt text-xs"></i>
+                        <span>Not Decided</span>
+                        <div class="w-2 h-2 bg-ai-gray rounded-full animate-pulse"></div>
+                    </div>
+
+                    <!-- Premium category tag -->
+                    <div class="absolute bottom-6 left-6">
+                        <div class="bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md border border-white/20 text-white text-sm font-bold flex items-center gap-2 px-4 py-2 rounded-2xl shadow-xl">
+                            <div class="w-2 h-2 bg-ai-pink rounded-full animate-pulse"></div>
+                            <i class="fas fa-trophy"></i>
+                            <span>Competition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative z-10 p-8 md:p-10">
+
+                    <!-- Premium title with special effects -->
+                    <div class="mb-4">
+                        <h3 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-ai-gray via-slate-700 to-ai-gray bg-clip-text text-transparent group-hover:from-ai-purple group-hover:to-ai-pink transition-all duration-700 mb-2">
+                            <span class="relative">
+                                Build-a-Bot Challenge
+                                <!-- Decorative underline -->
+                                <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-ai-purple to-ai-pink group-hover:w-full transition-all duration-700"></div>
+                            </span>
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <div class="w-1 h-1 bg-ai-purple rounded-full"></div>
+                            <span class="text-xs font-semibold text-ai-purple uppercase tracking-wide">NLP Competition</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 mb-8 text-sm md:text-base leading-relaxed">A comprehensive session focused on building a functional Question-Answering chatbot from scratch. This multi-phase challenge includes remote development time and culminates in a live showcase with expert judging.</p>
+
+                    <!-- Enhanced stats cards -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-2xl p-4 group-hover:shadow-lg transition-shadow">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-ai-purple to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-calendar text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-ai-gray text-sm">Duration</p>
+                                    <p class="font-semibold text-ai-purple">20 Days</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-50 to-pink-100 border border-pink-200 rounded-2xl p-4 group-hover:shadow-lg transition-shadow">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-ai-pink to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-gift text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-ai-gray text-sm">Rewards</p>
+                                    <p class="font-semibold text-ai-pink">Prizes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium tech stack -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-ai-gray mb-3 text-sm">Technologies Covered:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700 px-3 py-1.5 rounded-full text-xs font-semibold">Python</span>
+                            <span class="bg-gradient-to-r from-purple-100 to-purple-200 text-purple-700 px-3 py-1.5 rounded-full text-xs font-semibold">NLP</span>
+                            <span class="bg-gradient-to-r from-pink-100 to-pink-200 text-pink-700 px-3 py-1.5 rounded-full text-xs font-semibold">Gemini API</span>
+                        </div>
+                    </div>
+
+                    <!-- Premium button -->
+                    <button data-modal-target="build-a-bot-modal" class="w-full bg-gradient-to-r from-ai-purple via-ai-pink to-ai-pink text-white px-8 py-4 rounded-2xl font-bold hover:from-ai-dark-purple hover:via-pink-600 hover:to-pink-600 hover:scale-105 hover:shadow-xl transition-all duration-500 group flex items-center justify-center gap-3">
+                        <span>Discover More</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- MODALS -->
+<!-- AI Games Creation Challenge Modal -->
+<div id="ai-games-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md hidden">
+    <div class="modal-content bg-white/95 backdrop-blur-2xl rounded-3xl shadow-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform border border-white/20 relative">
+        <!-- Premium background gradients -->
+        <div class="absolute inset-0 bg-gradient-to-br from-ai-blue/5 via-transparent to-ai-purple/5 rounded-3xl"></div>
+        <div class="absolute -top-1 -left-1 w-32 h-32 bg-gradient-to-br from-ai-blue/10 to-ai-purple/10 rounded-full blur-2xl"></div>
+
+        <div class="relative p-6 md:p-10">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai-blue to-ai-purple rounded-2xl flex items-center justify-center shadow-xl">
+                        <i class="fas fa-gamepad text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-ai-gray via-slate-700 to-ai-gray bg-clip-text text-transparent mb-2">
+                            Ai Games Creation Challenge
+                        </h2>
+                        <div class="h-1 w-24 bg-gradient-to-r from-ai-yellow to-ai-orange rounded-full"></div>
+                    </div>
+                </div>
+                <button data-modal-close="ai-games-modal" class="text-gray-400 hover:text-ai-blue transition-all duration-300 p-3 rounded-full hover:bg-ai-blue/10 group">
+                    <i class="fas fa-times text-xl group-hover:rotate-90 transition-transform duration-300"></i>
+                </button>
+            </div>
+
+            <!-- Premium intro section -->
+            <div class="bg-gradient-to-r from-ai-blue/10 to-ai-purple/10 p-6 rounded-2xl border border-ai-blue/20 mb-8">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-ai-yellow to-ai-orange rounded-xl flex items-center justify-center text-white">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <p class="font-semibold text-lg text-ai-gray">Let’s innovate, compete & create something impactful!</p>
+                </div>
+            </div>
+
+            <!-- Enhanced stats cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center mb-8">
+                <div class="bg-gradient-to-br from-ai-purple/10 to-ai-cyan/10 border-2 border-ai-purple/20 rounded-2xl p-6 hover:border-ai-purple/40 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg">
+                    <div class="text-3xl text-ai-purple mb-2">📅</div>
+                    <span class="font-bold text-ai-gray block text-lg">Duration</span>
+                    <span class="text-sm font-medium text-slate-600">3-4 Hours</span>
+                </div>
+                <div class="bg-gradient-to-br from-ai-cyan/10 to-ai-blue/10 border-2 border-ai-cyan/20 rounded-2xl p-6 hover:border-ai-cyan/40 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg">
+                    <div class="text-3xl text-ai-cyan mb-2">🎯</div>
+                    <span class="font-bold text-ai-gray block text-lg">Team Size</span>
+                    <span class="text-sm font-medium text-slate-600">2 Members</span>
+                </div>
+            </div>
+
+            <!-- Premium content sections -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Eligibility & Details -->
+                <div class="space-y-6">
+                    <!-- Eligibility Section -->
+                    <div class="bg-gradient-to-r from-ai-green/10 to-ai-blue/10 border border-ai-green/20 rounded-2xl p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ai-green to-ai-blue rounded-xl flex items-center justify-center">
+                                <i class="fas fa-user-graduate text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-ai-gray text-xl">Eligibility</h3>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">Open to II,III,IV Year Students of CSE, CSM, CSD, IT, ECE, EEE, MEC, & CIVIL at PVPSIT.</p>
+                    </div>
+
+                    <!-- Event Details Section -->
+                    <div class="bg-gradient-to-r from-ai-purple/10 to-ai-pink/10 border border-ai-purple/20 rounded-2xl p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ai-yellow to-ai-orange rounded-xl flex items-center justify-center">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-ai-gray text-xl">Awards & Rewards</h3>
+                        </div>
+                        <ul class="space-y-4 text-slate-600">
+                            <li class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-certificate text-white text-xs"></i>
+                                </div>
+                                <span class="font-medium">Certificates for all participating teams</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-coins text-white text-xs"></i>
+                                </div>
+                                <span class="font-medium">Prize money for the winning team from each academic year</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-gift text-white text-xs"></i>
+                                </div>
+                                <span class="font-medium">Exclusive mementos for all winning teams</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Awards Section -->
+                <div class="bg-gradient-to-r from-ai-yellow/10 to-ai-orange/10 border border-ai-yellow/20 rounded-2xl p-6">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-ai-purple to-ai-pink rounded-xl flex items-center justify-center">
+                            <i class="fas fa-cogs text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-ai-gray text-xl">Event Details</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <div class="w-1.5 h-1.5 bg-ai-blue rounded-full mt-2 flex-shrink-0"></div>
+                            <span>Problem statements will be assigned based on the team's academic year.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <div class="w-1.5 h-1.5 bg-ai-blue rounded-full mt-2 flex-shrink-0"></div>
+                            <span>Complexity Will be increased year by year.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <div class="w-1.5 h-1.5 bg-ai-purple rounded-full mt-2 flex-shrink-0"></div>
+                            <span><span class="font-semibold text-ai-purple">2nd Years:</span> On-the-spot challenge to build an beginner-level AI Bot Game.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <div class="w-1.5 h-1.5 bg-ai-pink rounded-full mt-2 flex-shrink-0"></div>
+                            <span><span class="font-semibold text-ai-pink">3rd Years:</span> On-the-spot challenge to build an intermediate-level AI Bot Game.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <div class="w-1.5 h-1.5 bg-ai-cyan rounded-full mt-2 flex-shrink-0"></div>
+                            <span><span class="font-semibold text-ai-cyan">4th Years:</span> On-the-spot challenge to build an advanced-level AI Bot Game.</span>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <!-- Premium CTA section -->
+            <div class="bg-gradient-to-r from-ai-blue/5 via-ai-purple/5 to-ai-pink/5 rounded-2xl p-8 border-2 border-dashed border-ai-blue/30">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-ai-gray mb-4">Ready to Innovate?</h3>
+                    <p class="text-slate-600 mb-8">Join thousands of innovators at PVPSIT and showcase your AI skills!</p>
+                    <a href="https://forms.gle/sWecxHxtmN7ZhJhQ7" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-ai-green to-green-600 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-green-700 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl relative group">
+                        <span class="relative z-10 flex items-center space-x-3">
+                            <i class="fas fa-rocket"></i>
+                            <span>Register Now</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Build-a-Bot Challenge Modal -->
+<div id="build-a-bot-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md hidden">
+    <div class="modal-content bg-white/95 backdrop-blur-2xl rounded-3xl shadow-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto transform border border-white/20 relative">
+        <!-- Premium background gradients -->
+        <div class="absolute inset-0 bg-gradient-to-br from-ai-purple/5 via-transparent to-ai-pink/5 rounded-3xl"></div>
+        <div class="absolute -top-1 -right-1 w-32 h-32 bg-gradient-to-br from-ai-purple/10 to-ai-pink/10 rounded-full blur-2xl"></div>
+
+        <div class="relative p-6 md:p-10">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-gradient-to-br from-ai-purple to-ai-pink rounded-2xl flex items-center justify-center shadow-xl">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-ai-gray via-slate-700 to-ai-gray bg-clip-text text-transparent mb-2">
+                            Build-a-Bot Challenge
+                        </h2>
+                        <div class="h-1 w-24 bg-gradient-to-r from-ai-purple to-ai-pink rounded-full"></div>
+                    </div>
+                </div>
+                <button data-modal-close="build-a-bot-modal" class="text-gray-400 hover:text-ai-purple transition-all duration-300 p-3 rounded-full hover:bg-ai-purple/10 group">
+                    <i class="fas fa-times text-xl group-hover:rotate-90 transition-transform duration-300"></i>
+                </button>
+            </div>
+
+            <!-- Premium intro section -->
+            <div class="bg-gradient-to-r from-ai-purple/10 to-ai-pink/10 p-6 rounded-2xl border border-ai-purple/20 mb-8">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-ai-purple to-ai-pink rounded-xl flex items-center justify-center text-white">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <p class="font-semibold text-lg text-ai-gray">Create a functional Question-Answering chatbot from scratch!</p>
+                </div>
+            </div>
+
+            <!-- Enhanced stats cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center mb-8">
+                <div class="bg-gradient-to-br from-ai-purple/10 to-ai-cyan/10 border-2 border-ai-purple/20 rounded-2xl p-6 hover:border-ai-purple/40 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg">
+                    <div class="text-3xl text-ai-purple mb-2">📅</div>
+                    <span class="font-bold text-ai-gray block text-lg">Duration</span>
+                    <span class="text-sm font-medium text-slate-600">20-Day Challenge</span>
+                </div>
+                <div class="bg-gradient-to-br from-ai-cyan/10 to-ai-blue/10 border-2 border-ai-cyan/20 rounded-2xl p-6 hover:border-ai-cyan/40 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg">
+                    <div class="text-3xl text-ai-cyan mb-2">🎯</div>
+                    <span class="font-bold text-ai-gray block text-lg">Format</span>
+                    <span class="text-sm font-medium text-slate-600">Remote Development + Live Showcase</span>
+                </div>
+            </div>
+
+            <!-- Premium content sections for Build-a-Bot -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Event Details Section -->
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-ai-cyan/10 to-ai-blue/10 border border-ai-cyan/20 rounded-2xl p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ai-cyan to-ai-blue rounded-xl flex items-center justify-center">
+                                <i class="fas fa-cogs text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-ai-gray text-xl">Competition Details</h3>
+                        </div>
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-start space-x-2">
+                                <div class="w-1.5 h-1.5 bg-ai-purple rounded-full mt-2 flex-shrink-0"></div>
+                                <span>This is a multi-phase competition focused on Natural Language Processing.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <div class="w-1.5 h-1.5 bg-ai-pink rounded-full mt-2 flex-shrink-0"></div>
+                                <span>Participants will have 20 days to develop their chatbot for the Problem Statement.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <div class="w-1.5 h-1.5 bg-ai-cyan rounded-full mt-2 flex-shrink-0"></div>
+                                <span>The challenge culminates in a live demonstration and showcase event.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <div class="w-1.5 h-1.5 bg-ai-blue rounded-full mt-2 flex-shrink-0"></div>
+                                <span>Projects will be evaluated by a panel of expert judges.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Awards & Tech Stack Section -->
+                <div class="space-y-6">
+                    <!-- Awards Section -->
+                    <div class="bg-gradient-to-r from-ai-yellow/10 to-ai-orange/10 border border-ai-yellow/20 rounded-2xl p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ai-yellow to-ai-orange rounded-xl flex items-center justify-center">
+                                <i class="fas fa-award text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-ai-gray text-xl">Awards & Recognition</h3>
+                        </div>
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-gradient-to-r from-ai-green to-ai-blue rounded-full flex items-center justify-center">
+                                    <i class="fas fa-certificate text-white text-xs"></i>
+                                </div>
+                                <span>Certificates for all participants</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <div class="w-4 h-4 bg-gradient-to-r from-ai-purple to-ai-pink rounded-full flex items-center justify-center">
+                                    <i class="fas fa-coins text-white text-xs"></i>
+                                </div>
+                                <span>Significant prize money for top-performing teams</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tech Stack Section -->
+                    <div class="bg-gradient-to-r from-ai-gray/10 to-ai-light-gray/10 border border-ai-gray/20 rounded-2xl p-6">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-ai-gray to-ai-light-gray rounded-xl flex items-center justify-center">
+                                <i class="fas fa-tools text-white"></i>
+                            </div>
+                            <h3 class="font-bold text-ai-gray text-xl">Technology Focus</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gradient-to-r from-ai-purple to-ai-pink text-white px-3 py-1.5 rounded-full text-sm font-semibold">NLP</span>
+                            <span class="bg-gradient-to-r from-ai-blue to-ai-cyan text-white px-3 py-1.5 rounded-full text-sm font-semibold">Python</span>
+                            <span class="bg-gradient-to-r from-ai-orange to-ai-red text-white px-3 py-1.5 rounded-full text-sm font-semibold">AI APIs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium CTA section -->
+            <div class="bg-gradient-to-r from-ai-purple/5 via-ai-pink/5 to-ai-cyan/5 rounded-2xl p-8 border-2 border-dashed border-ai-purple/30">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-ai-gray mb-4">Ready to Build the Future?</h3>
+                    <p class="text-slate-600 mb-8">Transform your ideas into intelligent chatbots and redefine AI interactions!</p>
+                    <!-- inactive and placeholder link -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-ai-purple to-ai-pink text-white px-10 py-4 rounded-2xl font-bold text-lg hover:from-ai-dark-purple hover:via-pink-600 hover:to-pink-600 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl relative group">
+                        <span class="relative z-10 flex items-center space-x-3">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Join Challenge</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COMPONENT: What We Do -->
+<section id="what-we-do" class="py-24 bg-slate-200/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-4">What We Do</h2>
+            <p class="text-lg text-slate-500">Comprehensive AI & Data Science experiences</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-blue via-ai-light-blue to-ai-cyan p-6 md:p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-blue/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-brain text-3xl md:text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 group-hover:text-blue-200 transition-colors">Machine Learning</h3>
+                    <p class="text-blue-100 mb-6 text-sm md:text-base leading-relaxed">Master supervised, unsupervised, and reinforcement learning algorithms through hands-on projects and real-world applications.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Neural Networks</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Deep Learning</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Computer Vision</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-purple via-purple-600 to-ai-dark-purple p-6 md:p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-purple/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden" style="transition-delay: 150ms;">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-chart-bar text-3xl md:text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 group-hover:text-purple-200 transition-colors">Data Science</h3>
+                    <p class="text-purple-100 mb-6 text-sm md:text-base leading-relaxed">Extract insights from data using statistical analysis, visualization, and predictive modeling techniques.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Data Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Statistical Modeling</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="animate-on-scroll group bg-gradient-to-br from-ai-cyan via-cyan-600 to-ai-green p-6 md:p-8 rounded-3xl text-white transform hover:-translate-y-3 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-ai-cyan/50 hover:scale-105 border-2 border-transparent hover:border-white/30 relative overflow-hidden" style="transition-delay: 300ms;">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-20 h-20 bg-white/5 rounded-full -ml-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <i class="fa-solid fa-robot text-3xl md:text-4xl drop-shadow-lg"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 group-hover:text-cyan-200 transition-colors">AI Applications</h3>
+                    <p class="text-cyan-100 mb-6 text-sm md:text-base leading-relaxed">Build practical AI solutions including chatbots, recommendation systems, and intelligent automation.</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> NLP & Chatbots</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> Recommendation Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle mr-2 text-white/60 text-xs"></i> AI Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-4">Technologies We Master</h2>
+            <p class="text-lg text-slate-500 font-mono">From fundamentals to cutting-edge frameworks</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-blue hover:-translate-y-2 transition-all duration-300">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="Python Icon"/>
+                <h4 class="font-bold text-ai-gray">Python</h4>
+            </div>
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-orange hover:-translate-y-2 transition-all duration-300" style="transition-delay: 50ms;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="TensorFlow Icon"/>
+                <h4 class="font-bold text-ai-gray">TensorFlow</h4>
+            </div>
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-dark-purple hover:-translate-y-2 transition-all duration-300" style="transition-delay: 100ms;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="PyTorch Icon"/>
+                <h4 class="font-bold text-ai-gray">PyTorch</h4>
+            </div>
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-green hover:-translate-y-2 transition-all duration-300" style="transition-delay: 150ms;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="Pandas Icon"/>
+                <h4 class="font-bold text-ai-gray">Pandas</h4>
+            </div>
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-cyan hover:-translate-y-2 transition-all duration-300" style="transition-delay: 200ms;">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="Scikit-learn Icon"/>
+                <h4 class="font-bold text-ai-gray">Scikit-learn</h4>
+            </div>
+            <div class="animate-on-scroll group p-6 text-center bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:border-ai-pink hover:-translate-y-2 transition-all duration-300" style="transition-delay: 250ms;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" class="h-16 mx-auto mb-4 grayscale group-hover:grayscale-0 transition-all" alt="NumPy Icon"/>
+                <h4 class="font-bold text-ai-gray">NumPy</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPONENT: Team Section -->
+<section id="team" class="py-24 bg-slate-100/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-4">Meet Our Team</h2>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">Passionate leaders driving AI & Data Science innovation and fostering a vibrant learning community.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+            <!-- Team Member 1: Club Lead -->
+            <div class="animate-on-scroll group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-slate-200 hover:border-ai-blue/30 relative hover:scale-105">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-ai-blue/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative min-h-80 p-6 flex flex-col justify-between overflow-hidden">
+                    <img src="./images/Din.jpg" alt="Surapaneni Dinesh Babu" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500"></div>
+                    <div class="relative flex justify-end z-10">
+                        <div class="w-14 h-14 bg-gradient-to-br from-ai-yellow to-yellow-500 rounded-full flex items-center justify-center text-ai-gray text-xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                    </div>
+                    <div class="relative text-white z-10">
+                        <h4 class="text-xl font-bold mb-1 group-hover:text-ai-yellow transition-colors">Surapaneni Dinesh Babu</h4>
+                        <p class="font-semibold text-ai-yellow text-sm">Coordinator</p>
+                    </div>
+                </div>
+                <div class="p-6 relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-gradient-to-r from-blue-100 to-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-mono font-bold">22501A4460</span>
+                        <span class="text-slate-500 text-sm font-bold">CSD</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-6 h-16 leading-relaxed">Leading strategic initiatives and operational excellence for the AI Club community.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.linkedin.com/in/dinesh-babu-surapaneni/" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-blue hover:to-ai-dark-blue hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Dineshbabu290904" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-gray hover:to-slate-800 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:22501A4460@gmail.com" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-pink hover:to-pink-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 2: Events Lead -->
+            <div class="animate-on-scroll group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-slate-200 hover:border-ai-orange/30 relative hover:scale-105" style="transition-delay: 150ms;">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-ai-orange/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative min-h-80 p-6 flex flex-col justify-between overflow-hidden">
+                    <img src="./images/siv.jpg" alt="Kanaparthi Sesha Sai Sivani" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500"></div>
+                    <div class="relative flex justify-end z-10">
+                        <div class="w-14 h-14 bg-gradient-to-br from-ai-orange to-orange-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="relative text-white z-10">
+                        <h4 class="text-xl font-bold mb-1 group-hover:text-ai-orange transition-colors">Kanaparthi Sesha Sai Sivani</h4>
+                        <p class="font-semibold text-ai-orange text-sm">Coordinator</p>
+                    </div>
+                </div>
+                <div class="p-6 relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-gradient-to-r from-green-100 to-green-50 text-green-700 px-4 py-1.5 rounded-full text-xs font-mono font-bold">22501A4423</span>
+                        <span class="text-slate-500 text-sm font-bold">CSD</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-6 h-16 leading-relaxed">Hosting engaging events and ensuring smooth communication across all club activities.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.linkedin.com/in/sivani2/" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-blue hover:to-ai-dark-blue hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Sivani2" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-gray hover:to-slate-800 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:22501A4423@gmail.com" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-pink hover:to-pink-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Member 3: Community Lead -->
+            <div class="animate-on-scroll group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-slate-200 hover:border-ai-pink/30 relative hover:scale-105" style="transition-delay: 300ms;">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-ai-pink/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative min-h-80 p-6 flex flex-col justify-between overflow-hidden">
+                    <img src="./images/Mon.jpg" alt="Mudigonda Manogna" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500"></div>
+                    <div class="relative flex justify-end z-10">
+                        <div class="w-14 h-14 bg-gradient-to-br from-ai-pink to-pink-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="relative text-white z-10">
+                        <h4 class="text-xl font-bold mb-1 group-hover:text-ai-pink transition-colors">Mudigonda Manogna</h4>
+                        <p class="font-semibold text-ai-pink text-sm">Coordinator</p>
+                    </div>
+                </div>
+                <div class="p-6 relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-gradient-to-r from-purple-100 to-purple-50 text-purple-700 px-4 py-1.5 rounded-full text-xs font-mono font-bold">22501A4236</span>
+                        <span class="text-slate-500 text-sm font-bold">CSM</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-6 h-16 leading-relaxed">Building vibrant community connections and fostering collaborative learning environments.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.linkedin.com/in/manogna-mudigonda-62514123a/" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-blue hover:to-ai-dark-blue hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/MudigondaManogna" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-gray hover:to-slate-800 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:22501A4236@gmail.com" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-pink hover:to-pink-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 4: Content Lead -->
+            <div class="animate-on-scroll group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border-2 border-slate-200 hover:border-ai-cyan/30 relative hover:scale-105" style="transition-delay: 450ms;">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-ai-cyan/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="relative min-h-80 p-6 flex flex-col justify-between overflow-hidden">
+                    <img src="./images/Sur.jpg" alt="Y. Sree Surya" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500"></div>
+                    <div class="relative flex justify-end z-10">
+                        <div class="w-14 h-14 bg-gradient-to-br from-ai-cyan to-cyan-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                    </div>
+                    <div class="relative text-white z-10">
+                        <h4 class="text-xl font-bold mb-1 group-hover:text-ai-cyan transition-colors">Y. Sree Surya</h4>
+                        <p class="font-semibold text-ai-cyan text-sm">Coordinator</p>
+                    </div>
+                </div>
+                <div class="p-6 relative z-10">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-700 px-4 py-1.5 rounded-full text-xs font-mono font-bold">22501A4265</span>
+                        <span class="text-slate-500 text-sm font-bold">CSM</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-6 h-16 leading-relaxed">Creating engaging content and educational materials for our AI learning community.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.linkedin.com/in/yarlagadda-sree-surya-1a7b52312/" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-blue hover:to-ai-dark-blue hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Surya-2906" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-gray hover:to-slate-800 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:22501A4265@gmail.com" class="w-11 h-11 bg-gradient-to-br from-slate-100 to-slate-50 rounded-xl flex items-center justify-center text-slate-500 hover:bg-gradient-to-br hover:from-ai-pink hover:to-pink-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-110"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPONENT: Animated Carousel Gallery -->
+<section id="gallery" class="py-24 bg-white/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-6">Gallery</h2>
+            <p class="text-xl text-gray-600">Capturing moments of innovation, learning, and community</p>
+        </div>
+        
+        <div class="relative animate-on-scroll">
+            <div id="carousel-container" class="carousel-container flex overflow-x-auto scroll-smooth pb-4 -mx-4 px-4">
+                <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+                    <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="./images/samp1.png" alt="AI workshop">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h4 class="text-white font-bold text-lg">Machine Learning Workshop</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+                     <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="./images//samp2.png" alt="Hackathon event">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h4 class="text-white font-bold text-lg">AI Innovation Hackathon</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+                     <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="./images/samp3.png" alt="Guest speaker">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h4 class="text-white font-bold text-lg">Industry Expert Lecture</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+                     <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="./images/samp4.png" alt="Robotics demonstration">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h4 class="text-white font-bold text-lg">Robotics & AI Integration</h4>
+                        </div>
+                    </div>
+                </div>
+                 <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+                     <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-lg">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="./images/samp5.png" alt="Data visualization workshop">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h4 class="text-white font-bold text-lg">Data Visualization Masterclass</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="prev-btn" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/80 backdrop-blur-sm text-ai-gray rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-ai-blue hover:text-white transition-all duration-300 border border-transparent hover:border-white">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-btn" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/80 backdrop-blur-sm text-ai-gray rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-white transition">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- COMPONENT: Contact Section -->
+<section id="contact" class="py-24 bg-gray-100/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <h2 class="text-4xl font-bold text-ai-gray mb-4">Get In Touch</h2>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">Have questions or ready to join our AI community? We'd love to hear from you!</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+            <div class="animate-on-scroll">
+                <div class="mb-8">
+                    <h3 class="text-3xl font-bold text-ai-gray mb-4">Join the AI Revolution</h3>
+                    <p class="text-lg text-gray-600">Whether you're a beginner curious about AI or an experienced developer, our club welcomes all levels of expertise. Fill out the registration form to become part of our innovative community.</p>
+                </div>
+                
+                <div class="space-y-6 mb-10">
+                    <div class="flex items-center space-x-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ai-blue to-ai-purple rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope text-white"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-ai-gray">Email Us</h4>
+                            <p class="text-gray-600 text-sm">aiclubpvpsit@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ai-purple to-ai-pink rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-map-marker-alt text-white"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-ai-gray">Location</h4>
+                            <p class="text-gray-600 text-sm">PVPSIT Campus, <br>Computer Science and Engineering (Data Science, AI&ML) Department</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
+                        <div class="w-12 h-12 bg-gradient-to-r from-ai-yellow to-ai-orange rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-clock text-white"></i></div>
+                        <div>
+                            <h4 class="font-semibold text-ai-gray">Meeting Times</h4>
+                            <p class="text-gray-600 text-sm">Everyday, 4:30 PM - 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-ai-gray mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/company/pvpsit-aiml-datascience/?viewAsMember=true" class="w-12 h-12 bg-white shadow-md rounded-xl flex items-center justify-center text-[#0077b5] hover:bg-[#0077b5] hover:text-white transition-all transform hover:scale-110">
+                            <i class="fa-brands fa-linkedin-in text-xl"></i>
+                        </a>
+                        <!-- <a href="#" class="w-12 h-12 bg-white shadow-md rounded-xl flex items-center justify-center text-[#E4405F] hover:bg-[#E4405F] hover:text-white transition-all transform hover:scale-110">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </a> -->
+                        <a href="https://github.com/pvpsitclubs/" class="w-12 h-12 bg-white shadow-md rounded-xl flex items-center justify-center text-[#333] hover:bg-[#333] hover:text-white transition-all transform hover:scale-110">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/HOslMowPEoJ1H1AAVeYHly?mode=ems_copy_c" target="_blank" class="w-12 h-12 bg-white shadow-md rounded-xl flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all transform hover:scale-110">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 animate-fade-in-up" style="transition-delay: 150ms;">
+                <div class="flex items-center mb-6">
+                    <svg class="w-8 h-8 text-ai-blue mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-ai-gray">Contact Form</h3>
+                </div>
+                <form id="contactForm" class="space-y-6">
+                    <div class="relative">
+                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required
+                            class="w-full px-4 py-3 pl-12 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ai-blue focus:border-ai-blue transition-all duration-300 bg-gray-50 hover:bg-white">
+                        <svg class="absolute left-4 top-10 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="relative">
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required
+                            class="w-full px-4 py-3 pl-12 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ai-blue focus:border-ai-blue transition-all duration-300 bg-gray-50 hover:bg-white">
+                        <svg class="absolute left-4 top-10 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="relative">
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required
+                            class="w-full px-4 py-3 pr-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-ai-blue focus:border-ai-blue transition-all duration-300 bg-gray-50 hover:bg-white resize-none"></textarea>
+                        <svg class="absolute right-4 bottom-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-ai-blue via-ai-purple to-ai-indigo text-white font-bold py-4 px-6 rounded-xl hover:shadow-lg hover:scale-105 transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-ai-blue/20">
+                        Send Message
+                    </button>
+                </form>
+                <p class="mt-4 text-xs text-gray-500 text-center">We'll respond within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPONENT: Footer -->
+<footer class="bg-ai-gray text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div>
+                <div class="flex items-center space-x-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-ai-blue to-ai-purple rounded-xl flex items-center justify-center animate-glow"><i class="fa-solid fa-robot text-white text-xl"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">AI Club</h3>
+                        <p class="text-slate-400 font-mono">PVPSIT</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 mb-6 leading-relaxed">Exploring AI frontiers through innovation, collaboration, and hands-on learning.</p>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-slate-400 hover:text-white transition-colors font-medium">Home</a></li>
+                    <li><a href="#about" class="text-slate-400 hover:text-white transition-colors font-medium">About</a></li>
+                    <li><a href="#events" class="text-slate-400 hover:text-white transition-colors font-medium">Events</a></li>
+                    <li><a href="#team" class="text-slate-400 hover:text-white transition-colors font-medium">Team</a></li>
+                    <li><a href="#gallery" class="text-slate-400 hover:text-white transition-colors font-medium">Gallery</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Activities</h4>
+                <ul class="space-y-3">
+                    <li><a href="#events" class="text-slate-400 hover:text-white transition-colors font-medium">AI Games Creation Challenge</a></li>
+                    <li><a href="#events" class="text-slate-400 hover:text-white transition-colors font-medium">Build-a-Bot Challenge</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-envelope text-ai-blue mt-1"></i><span class="text-slate-400 font-mono text-sm">aiclubpvpsit@gmail.com</span></li>
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-map-marker-alt text-ai-purple mt-1"></i><span class="text-slate-400 text-sm">PVPSIT Campus, CSD,CSM Dept.</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-slate-700 pt-8 text-center">
+            <p class="text-slate-400 text-sm">© 2025 AI Club PVPSIT. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript for Interactivity -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Mobile Menu Logic ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        const openMobileMenu = () => {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.remove('hidden');
+        };
+        const closeMobileMenu = () => {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.add('hidden');
+        };
+        
+        menuToggle.addEventListener('click', openMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('shadow-lg', window.scrollY > 50);
+        });
+        
+        // --- Scroll-triggered Animations ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+
+        // --- Carousel Logic ---
+        const carouselContainer = document.getElementById('carousel-container');
+        if (carouselContainer) {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const scrollAmount = () => carouselContainer.querySelector('.carousel-item').offsetWidth;
+            
+            nextBtn.addEventListener('click', () => {
+                carouselContainer.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            });
+            prevBtn.addEventListener('click', () => {
+                carouselContainer.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            });
+        }
+        
+        // --- NEW: MODAL LOGIC ---
+        const openModalButtons = document.querySelectorAll('[data-modal-target]');
+        const closeModalButtons = document.querySelectorAll('[data-modal-close]');
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal-target');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('hidden');
+                }
+            });
+        });
+
+        const closeModal = (modal) => {
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        };
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal-close');
+                const modal = document.getElementById(modalId);
+                closeModal(modal);
+            });
+        });
+
+        // Close modal when clicking the overlay
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal(modal);
+                }
+            });
+        });
+
+        // --- Contact Form Logic ---
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let subject = "Contact from AI Club PVPSIT";
+            let body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+
+            window.open(
+                `https://mail.google.com/mail/?view=cm&fs=1&to=aiclubpvpsit@gmail.com&su=${encodeURIComponent(subject)}&body=${body}`,
+                '_blank'
+            );
+        });
+        // --- Particle Background Logic ---
+        const darkParticlesConfig = {
+            background: { color: { value: '#0ea5e9' } },
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', out_mode: 'out' }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        };
+        tsParticles.load({ id: "tsparticles", options: darkParticlesConfig });
+    });
+</script>
+
+</body>
+</html>

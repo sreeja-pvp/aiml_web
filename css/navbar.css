@@ -1,0 +1,77 @@
+body {
+  font-family: "Helvetica";
+  margin: 0;
+}
+
+ .navbar {
+  background-color:rgb(24, 68, 107);
+}
+
+.navbar-nav {
+  gap: 8px;
+}
+
+.nav-link {
+  color: rgb(231, 212, 212) !important;
+  font-family: "Helvetica";
+  
+}
+
+.nav-link:hover{
+  text-decoration: none;
+}
+
+.navbar-brand {
+  color: rgb(224, 204, 204) !important;
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #f8f9fa;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  display: none;
+}
+
+.dropdown-submenu:hover.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-item:hover {
+  background-color: rgb(24, 68, 107); /*!important;*/
+  color: white;
+  text-decoration: none;
+}
+/* Increase space between navbar links */
+.navbar-nav .nav-item {
+  margin-right: 10px;
+  /* Adjust this value to increase or decrease the spacing */
+}
+
+/* Ensure consistent padding for better alignment */
+.navbar-nav .nav-link {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    margin-right: 10px; /* Reduced space for mobile screens */
+  }
+}
+.navbar-toggler {  
+  padding: 5px 10px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+

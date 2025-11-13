@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+
+    <style>
+        #journals thead {
+            background-color: rgb(24, 68, 107) !important;
+            color: white;
+        }
+
+        #journals thead th {
+            background-color: rgb(24, 68, 107) !important;
+            color: white !important;
+            font-size: 16px;
+        }
+
+        #journals td {
+            font-size: 16px;
+
+        }
+
+        #journals .section-title {
+
+            font-weight: bold;
+           
+            
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+
+        }
+
+        #journals .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            
+        }
+
+
+
+        #journals a {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+
+        #journals a:hover {
+            color: #0a58ca;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                                Year</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                                Year</a></li>
+                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
+                                    </ul>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html"> PVP23 </a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+                            
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+
+    <!-- Journals -->
+
+    <div class="container mt-4" id="journals">
+
+
+        <div class="table-responsive">
+            <h4 class="section-title">Journals: 1 (SCOPUS: 1) 2024-2025</h4>
+            <table class="table table-bordered  ">
+
+                <thead class="table-dark align-middle">
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Authors</th>
+                        <th>Article Title</th>
+                        <th>Journal Name</th>
+                        <th>ISSN No.</th>
+                        <th>Volume</th>
+                        <th>Issue No.</th>
+                        <th>Page No.s</th>
+                        <th>Month & Year</th>
+                        <th>Indexing</th>
+                        <th>DOI</th>
+
+                        <th>SCOPUS Faculty Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>M. Kiran Mayee, R. Deepthi Crestose Rebekah, <b>Deepa.T</b>, G. Divya Zion and Lokesh. K
+                        </td>
+                        <td>Detection of Depression in Social Media Posts
+                            using Emotional Intensity Analysis
+                        </td>
+                        <td>Engineering, Technology & Applied Science Research</td>
+                        <td>1792-8036</td>
+                        <td>14</td>
+                        <td>5</td>
+                        <td>16207-16211</td>
+                        <td>OCT-2024</td>
+                        <td>SCOPUS</td>
+                        <td><a href="https://doi.org/10.48084/etasr.7461" target="_blank">DOI Link</a></td>
+
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=58443763100"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+                    <!--<tr>
+                        <td>2</td>
+                        <td>Kottnana Janakiram, Guntupalli Ganga Prasad ,<b>Mugada Sri Lakshmi Vani</b></td>
+                        <td>Machine Learning Techniques for  Robust Security in Wireless   Sensor Networks
+                        </td>
+                        <td>International Journal for Research
+                            in Applied Science & Engineering
+                            Technology (IJRASET)
+                        </td>
+                        <td>2321-9653</td>
+                        <td>12</td>
+                        <td>XII</td>
+                        <td>1959-1964</td>
+                        <td>Dec-24</td>
+                        <td>UGE CARE</td>
+                        <td><a href="https://doi.org/10.22214/ijraset.2024.66134" target="_blank">DOI
+                                Link</a></td>
+                       
+                        <td>-</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+<br>
+        <div class="table-responsive">
+            <h4 class="section-title">Journals: 2 (SCOPUS: 2) 2023-2024</h4>
+            <table class="table table-bordered  ">
+
+                <thead class="table-dark align-middle">
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Authors</th>
+                        <th>Article Title</th>
+                        <th>Journal Name</th>
+                        <th>ISSN No.</th>
+                        <th>Volume</th>
+                        <th>Issue No.</th>
+                        <th>Page No.s</th>
+                        <th>Month & Year</th>
+                        <th>Indexing</th>
+                        <th>DOI</th>
+
+                        <th>SCOPUS Faculty Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Krishna, S. Rama,<b> Naresh Cherukuri</b>, Y. Dileep Kumar, R. Jayakarthik, B. Nagarajan,
+                            Allam Balaram, and G. Divya Jyothi.</td>
+                        <td>Convolutional Neural Networks for Automated Diagnosis of Diabetic Retinopathy in Fundus
+                            Images.</td>
+                        <td>Journal of Artificial Intelligence and Technology</td>
+                        <td>2766-8649</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>205 to 214</td>
+                        <td>Aug-23</td>
+                        <td>SCOPUS</td>
+                        <td><a href="https://doi.org/10.37965/jait.2023.0264" target="_blank">DOI Link</a></td>
+
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=57223128560"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Dr.A.Greeni , Prof. Ts. Dr. Yousef A.Baker El-Ebiary , <b>G.Venkata Krishna</b> , Dr. G.
+                            Vikram , Kuchipudi Prasanth Kumar , Ravikiran K , Dr B Kiran Bala</td>
+                        <td>BrainLang DL: A Deep Learning Approach to FMRI
+                            for Unveiling Neural Correlates of Language across
+                            Cultures
+                        </td>
+                        <td>International Journal of Advanced Computer Science and Applications</td>
+                        <td>2156-5570</td>
+                        <td>15</td>
+                        <td>6</td>
+                        <td>1124-1133</td>
+                        <td>June-24</td>
+                        <td>SCOPUS</td>
+                        <td><a href="https://dx.doi.org/10.14569/IJACSA.2024.01506114" target="_blank">DOI
+                                Link</a></td>
+
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=59157078700"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+<br>
+        <div class="table-responsive">
+            <h4 class="section-title">Journals: 4 (SCIE: 3, SCOPUS: 1) 2022-2023</h4>
+            <table class="table table-bordered  ">
+                <thead class="table-dark align-middle">
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Authors</th>
+                        <th>Article Title</th>
+                        <th>Journal Name</th>
+                        <th>ISSN No.</th>
+                        <th>Volume</th>
+                        <th>Issue No.</th>
+                        <th>Page No.s</th>
+                        <th>Month & Year</th>
+                        <th>Indexing</th>
+                        <th>DOI</th>
+                        <th>WOS Faculty Profile</th>
+                        <th>SCOPUS Faculty Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>K. Rasool Reddy,<b> Raj Kumar Batchu</b>, Srinivasu Polinati, Durga Prasad Bavirisetti</td>
+                        <td>Design of a medical decision-supporting system for brain tumor identification</td>
+                        <td>Frontiers in Human Neuroscience</td>
+                        <td>1662-5161</td>
+                        <td>17</td>
+                        <td>-</td>
+                        <td>01 to 16</td>
+                        <td>Mar-23</td>
+                        <td>SCIE & SCOPUS</td>
+                        <td><a href="https://doi.org/10.3389/fnhum.2023.1157155" target="_blank">DOI Link</a></td>
+                        <td><a href="https://www.webofscience.com/wos/author/record/HDN-7109-2022" target="_blank">WOS
+                                Profile</a></td>
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=57279627900"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><b>Janakiramaiah Bonam</b>, Sai Sudheer Kondapalli, Narasimha Prasad L V, Krishna Marlapalli
+                        </td>
+                        <td>Lightweight CNN Models for Product Defect Detection</td>
+                        <td>JOURNAL OF SCIENTIFIC & INDUSTRIAL RESEARCH</td>
+                        <td>0022-4456</td>
+                        <td>82</td>
+                        <td>-</td>
+                        <td>418-425</td>
+                        <td>Apr-23</td>
+                        <td>SCIE & SCOPUS</td>
+                        <td><a href="http://op.niscair.res.in/index.php/JSIR/article/view/72390" target="_blank">DOI
+                                Link</a></td>
+                        <td><a href="https://www.webofscience.com/wos/author/record/U-9486-2019" target="_blank">WOS
+                                Profile</a></td>
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=56427961100"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Kalyani G, Sai Sudheer K, <b>Janakiramaiah B</b>, Narendra Kumar Rao B</td>
+                        <td>Hyperparameter Optimization for Transfer Learning-based Disease Detection</td>
+                        <td>JOURNAL OF SCIENTIFIC & INDUSTRIAL RESEARCH</td>
+                        <td>0022-4456</td>
+                        <td>82</td>
+                        <td>-</td>
+                        <td>536-545</td>
+                        <td>May-23</td>
+                        <td>SCIE & SCOPUS</td>
+                        <td><a href="https://doi.org/10.56042/jsir.v82i05.1089" target="_blank">DOI Link</a></td>
+                        <td><a href="https://www.webofscience.com/wos/author/record/U-9486-2019" target="_blank">WOS
+                                Profile</a></td>
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=56427961100"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>4</td>
+                        <td>G. Mahesh Reddy, <b>P. Hema Venkata Ramana</b>, Ponnuru Anusha, etc.</td>
+                        <td>A Survey on Sugarcane Leaf Disease Identification</td>
+                        <td>International Journal on Recent and Innovation Trends in Computing and Communication</td>
+                        <td>2321-8169</td>
+                        <td>11</td>
+                        <td>5</td>
+                        <td>248-254</td>
+                        <td>May-23</td>
+                        <td>SCOPUS</td>
+                        <td><a href="http://dx.doi.org/10.17762/ijritcc.v11i5.6611" target="_blank">DOI Link</a></td>
+                        <td>NA</td>
+                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=58484702800&origin=recordpage"
+                                target="_blank">SCOPUS Profile</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+     <!--footer -->
+     <div class="footer">
+        Quick Links
+      </div>
+      <div class="container mt-4">
+        <div class="row">
+          <!-- Column 1 -->
+          <div class="col-md-2">
+            <div class="column-title">Menu</div>
+            <ul class="list-unstyled">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../pages/Gallery.html">Gallery</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+              <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="col-md-2">
+            <div class="column-title">Academic</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+              <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+              <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+              <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-md-2">
+            <div class="column-title">Governance</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+              <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
+              <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+              <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+              <li><a href="../index.html">PVP Gallery</a></li>
+            </ul>
+          </div>
+          <!-- Column 4 -->
+          <div class="col-md-3">
+            <div class="column-title">Contact</div>
+            <address class="address">
+              <p>P.V.P. Siddhartha Institute Of Technology</p>
+              <p>Kanuru, Vijayawada-520 007</p>
+              <p>Andhra Pradesh, India</p>
+              <p>Tel: 0866-2581699, 0866-2583037</p>
+              <p>0866-2585681, 0866-2585682</p>
+              <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+              <p>Fax: 0866-2581184</p>
+            </address>
+          </div>
+          <!-- Column 5 -->
+          <div class="col-md-3">
+            <div class="column-title">Location</div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+            </iframe>
+          </div>
+        </div>
+      </div>
+      
+
+</body>
+
+
+
+</html>

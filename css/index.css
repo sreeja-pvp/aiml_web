@@ -1,0 +1,154 @@
+body{
+    margin-top: 10px;
+}
+
+.marquee-container {
+    background-color: rgb(88, 152, 209);
+    color: white;
+    margin-top: 10px;
+    padding-top: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+.marquee-container a {             /* marquee tag*/
+    color: white;
+    text-decoration: underline;
+}
+.marquee-container a:hover {        /* marquee tag*/
+    color: yellow;
+}
+
+ /* Carousel height */
+ .carousel-item {
+    height: 450px;
+    width: 100%;
+}
+
+.carousel-item img {
+    
+    width: 100%;
+    height: 100%;
+    object-fit: inherit;
+}
+
+
+
+/* Notification feed styling */
+@keyframes scroll-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  .notification-container {
+    height: 450px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+    border: 1px solid #ccc;
+    position: relative;
+  }
+  
+  .notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    animation: scroll-up 30s linear infinite; /* slower, continuous loop */
+    display: inline-block;
+  }
+  
+  .notification-list li {
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+  }
+  
+  .notification-list li p {
+    margin-top: 10px;
+    color: rgb(20, 80, 145);
+  }
+  
+.iframe-container {
+    width: 100%;
+   /* Adjust the max-width as needed */
+    height: 800px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+  .facultyAchievements .carousel-container {
+      width: 80%;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #F0E491;
+    }
+   .facultyAchievements .carousel-slide {
+  display: flex;
+  transition: transform 1.5s ease-in-out; /* Slower transition */
+}
+    .facultyAchievements .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+    .facultyAchievements .column {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .facultyAchievements .photo-wrapper {
+      background-color: #e0f7fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .facultyAchievements .photo-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .facultyAchievements .message-box {
+      background-color: #dff0d8;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 100%;
+    }
+    .facultyAchievements .message-box h2 {
+      color: #2e8b57;
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-family : Metropolis;
+      font-style : italic;
+      font-weight : 400
+      
+
+    }
+    .facultyAchievements .message-box p {
+      font-size: 18px;
+      color: #333;
+    }
+  

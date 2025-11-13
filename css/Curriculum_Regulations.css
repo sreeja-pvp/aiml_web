@@ -1,0 +1,63 @@
+.regulations-table {
+  max-width: 50%;  /* Set the table width to 50% */ 
+  margin: 5px auto;  /* Center the table and give it top/bottom margin */
+  margin-left: 0;
+  
+}
+thead{
+  background-color: darkblue;
+}
+.headpart h2
+{
+    margin-left: 18%;
+    font-family: headfont;
+    color: white;
+}
+
+.container    vertical-menu  {margin-bottom: 20px;}
+
+
+.well
+{
+ background-color: darkblue;
+ margin-bottom: 0px;
+ height: 18%;
+ font-family: headfont;
+ color: white;
+
+
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+ width: 70%;
+ margin: auto;
+}
+.container-fluid .regulation h2
+{
+display:inline;
+margin-left:40%;
+font-family:headfont;
+}
+.container-fluid .regulation a
+{
+ display:inline;
+}
+@media screen and (max-width:768px)
+{
+
+.headpart h2
+{
+ font-size: 25px;
+ /*margin-left:*/ 
+}
+.container-fluid .regulation h2
+{
+   margin-left: 0px;
+   
+}
+table
+{
+ width:50%;
+}
+}

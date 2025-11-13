@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departmental Achievements - CSE (AI&ML)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/index.css">
+
+  <link rel="stylesheet" href="../css/quickLinks.css">
+
+  <style>
+    body {
+      font-family: Helvetica;
+      font-weight: 500;
+    }
+
+    #Achievements table {
+      margin-bottom: 50px;
+    }
+
+    #Achievements thead {
+      background-color: rgb(24, 68, 107) !important;
+      color: white;
+      text-align: center;
+    }
+
+    #Achievements thead th {
+      background-color: rgb(24, 68, 107) !important;
+      color: white !important;
+      font-size: 16px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    #Achievements td {
+      font-size: large;
+      text-align: center;
+      vertical-align: middle;
+
+    }
+
+    .section-title {
+      font-weight: bold;
+      color: #0056b3;
+      border-bottom: 3px solid #0056b3;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      font-size: large;
+    }
+
+    a {
+      color: #0d6efd;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #0a58ca;
+    }
+
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-left: 2px solid #dee2e6;
+      height: 100%;
+    }
+
+    .main-content {
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 95%;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+  
+    h4 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Image Section -->
+<section id="/images/">
+  <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+</section>
+
+<!-- NavBar Section-->
+<section class="navSection">
+  <nav class="navbar navbar-expand-lg custom-nav">
+      <div class="container-fluid">
+          <!-- Navbar Brand -->
+          <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                  <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                  <!-- Academics -->
+                  <li class="nav-item ml-3 dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Academics
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="dropdown-submenu">
+                              <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                  <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                              </ul>
+                          </li>
+
+
+                          <li class="dropdown-submenu">
+                              <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item"
+                                          href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                  <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                              </ul>
+                          </li>
+                          <li class="dropdown-submenu">
+                              <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item"
+                                          href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                          Year</a></li>
+                                  <li><a class="dropdown-item"
+                                          href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                          Year</a></li>
+                                  <li><a class="dropdown-item" href="#">IV Year</a></li>
+                              </ul>
+                          </li>
+                          <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                          <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                      </ul>
+                  </li>
+
+                  <!-- Faculty -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Faculty
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                          <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                          <li><a class="dropdown-item" href="#">Achievements</a></li>
+                      </ul>
+                  </li>
+
+                  <!-- Research -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Research
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="dropdown-submenu">
+                              <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                  <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                  <li><a class="dropdown-item" href="#">Books</a></li>
+                                  <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a class="dropdown-item" href="#">Projects</a></li>
+                          <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                      </ul>
+                  </li>
+
+                  <!-- Students -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Students
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                          <li class="dropdown-submenu">
+                              <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                              <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="Questionpapers_pvp23.html">PVP23</a></li>
+                                  <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                              </ul>
+                          </li>
+                          <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                          <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                          <li><a class="dropdown-item" href="#">Publications</a></li>
+                          <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+                      
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                      </ul>
+                  </li>
+
+                  <!-- Internships -->
+                  <li class="nav-item ml-3 dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Internships
+                      </a>
+                      <ul class="dropdown-menu">
+
+                          <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+                          
+                          <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+
+                      </ul>
+                  </li>
+                  <!-- Certifications -->
+                  <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                  <!-- Results Analysis-->
+                  <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+                  <!-- Media -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Media
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Facebook</a></li>
+                          <li><a class="dropdown-item" href="#">Instagram</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                  <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+              </ul>
+          </div>
+      </div>
+  </nav>
+</section>
+
+  <div class="container-fluid">
+    <div class="main-content" id="Achievements">
+
+
+      <div class="section-title">
+        <h2>Significant Achievements of Students</h2>
+      </div>
+      <h4>Code Divas Winners - 5th Edition</h4>
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>S. No</th>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Prize</th>
+            <th>Event</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sk. Farhat Fathima</td>
+            <td>22501A4258</td>
+            <td>1st Runners Up (All India)</td>
+            <td>Code Divas - 5th Edition</td>
+            <td>₹45,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>GATE Qualified 2024-2025</h4>
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th>S. No</th>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>GATE Score</th>
+            <th>All India Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>D Yaswanth Kumar</td>
+            <td>22501A4213</td>
+            <td>360</td>
+            <td>20150</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>G. Jaya Sai</td>
+            <td>22501A4216</td>
+            <td>337</td>
+            <td>24113</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Prizes Won in Technical Events (Outside of the Institution)</h4>
+      <table class="table table-bordered">
+
+
+        <thead>
+          <tr>
+            <th>S. No</th>
+            <th>Name of the Student</th>
+            <th>Roll No</th>
+            <th>Event</th>
+            <th>Venue</th>
+            <th>Organised by</th>
+            <th>Prize won</th>
+            <th>Prize Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>K. Amaresh</td>
+            <td>22501A4229</td>
+            <td>Hackathon</td>
+            <td>Siddhartha Academy of Higher Education,<br>Vijayawada</td>
+            <td>Siddhartha Academy of Higher Education</td>
+            <td>Third Prize</td>
+            <td>10000/-</td>
+          </tr>
+          <tr>
+            <td rowspan="5">2.</td>
+            <td>G. Jaya Sai</td>
+            <td>22501A4216</td>
+            <td rowspan="5">NASA International Space Apps Challenge</td>
+            <td rowspan="5">SRM University,<br>Chennai</td>
+            <td rowspan="5">SRM University,<br>Chennai</td>
+            <td rowspan="5">Second Prize</td>
+            <td rowspan="5">6000/-</td>
+          </tr>
+          <tr>
+            <td>B. Sadkik</td>
+            <td>22501A4207</td>
+          </tr>
+          <tr>
+            <td>K. NagaRushi</td>
+            <td>22501A4222</td>
+          </tr>
+          <tr>
+            <td>MD. Nowroz</td>
+            <td>22501A4231</td>
+          </tr>
+          <tr>
+            <td>S.V.N. Manoj</td>
+            <td>22501A4255</td>
+          </tr>
+          <tr>
+            <td rowspan="5">3.</td>
+            <td rowspan="5">K. Amaresh</td>
+            <td rowspan="5">22501A4229</td>
+            <td>Innovators Fusion Hackathon 2K25</td>
+            <td>RVIT,<br>Guntur</td>
+            <td>RV Institute of Technology</td>
+            <td>First Prize</td>
+            <td>5000/-</td>
+          </tr>
+          <tr>
+
+
+
+            <td>Explorer Meet-2K25<br>(Project Idea)</td>
+            <td>SRKIT,<br>Enikepadu,<br>Vijayawada</td>
+            <td>SRK Institute of Technology</td>
+            <td>First Prize</td>
+            <td>2000/-</td>
+          </tr>
+          <tr>
+
+
+            <td>Explorer Meet-2K25<br>(Visionary Expo)</td>
+            <td>SRKIT,<br>Enikepadu,<br>Vijayawada</td>
+            <td>SRK Institute of Technology</td>
+            <td>First Prize</td>
+            <td>2000/-</td>
+          </tr>
+          <tr>
+
+
+            <td>Hackathon 2K24</td>
+            <td>NRI,<br>Agiripalli,<br>Vijayawada</td>
+            <td>NRI Institute of Technology</td>
+            <td>First Prize</td>
+            <td>5000/-</td>
+          </tr>
+          <tr>
+
+
+            <td>Creative Exhibit in Sunrise 2K25</td>
+            <td>NRI,<br>Agiripalli,<br>Vijayawada</td>
+            <td>NRI Institute of Technology</td>
+            <td>Second Prize</td>
+            <td>1000/-</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <h4>Prizes Won in Technical Events (within of the Institution)</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>S. No</th>
+            <th>Name of the Student</th>
+            <th>Roll No</th>
+            <th>Event</th>
+            <th>Venue</th>
+            <th>Organised by</th>
+            <th>Prize Won</th>
+            <th>Prize Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Sk. Farhat Fathima</td>
+            <td>22501A4258</td>
+            <td>Coding Contest</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>First Prize</td>
+            <td>3000/-</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>K. Amaresh</td>
+            <td>22501A4229</td>
+            <td>Model Presentation</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>2000/-</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>T. Hemanth</td>
+            <td>22501A4263</td>
+            <td>Quiz</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>1500/-</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>D. Yaswanth Kumar</td>
+            <td>22501A4213</td>
+            <td>Quiz</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>1500/-</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>A. Varshini</td>
+            <td>23501A4261</td>
+            <td>Paper Presentation</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>1500/-</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>P. Mounika</td>
+            <td>23501A4242</td>
+            <td>Paper Presentation</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>1500/-</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>T. Hemanth</td>
+            <td>22501A4263</td>
+            <td>12-Hour Full Stack Web Development Hackathon</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Second Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>T. Hemanth</td>
+            <td>22501A4263</td>
+            <td>Paper Presentation</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>D. Yaswanth Kumar</td>
+            <td>22501A4213</td>
+            <td>Paper Presentation</td>
+            <td>Sitar-2K25, PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>T. Hemanth</td>
+            <td>22501A4263</td>
+            <td>Web Scraping to AI (One Day Hackathon)</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>D. Yaswanth Kumar</td>
+            <td>22501A4213</td>
+            <td>Web Scraping to AI (One Day Hackathon)</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>M. Yashwanth</td>
+            <td>22501A4233</td>
+            <td>Web Scraping to AI (One Day Hackathon)</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Mohammad Althaf Nawaz</td>
+            <td>22501A4235</td>
+            <td>Web Scraping to AI (One Day Hackathon)</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>N. Venkata Narendra</td>
+            <td>22501A4239</td>
+            <td>Coding Contest</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Sk. Nagoor Vali</td>
+            <td>22501A4260</td>
+            <td>Coding Contest</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Third Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>K. Ramya Pujitha</td>
+            <td>22501A4227</td>
+            <td>12-Hour Full stack web Development Hackathon</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Complementary Prize</td>
+            <td>1000/-</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Akshitha Ponna</td>
+            <td>22501A4201</td>
+            <td>12-Hour Full stack web Development Hackathon</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Complementary Prize</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>18</td>
+            <td>G. Jaya Sai</td>
+            <td>22501A4216</td>
+            <td>12-Hour Full stack web Development Hackathon</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>PVP-SIT, Kanuru</td>
+            <td>Complementary Prize</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Prizes Won in Literary / Cultural Events</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>S. No</th>
+      <th>Name of the Student</th>
+      <th>Roll No</th>
+      <th>Event</th>
+      <th>Venue</th>
+      <th>Organised by</th>
+      <th>Prize Won</th>
+      <th>Prize Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>P. Anjana Manogna</td>
+      <td>22501A4246</td>
+      <td>SITAR-2K25</td>
+      <td>PVPSIT-KANURU</td>
+      <td>Literary and Cultural club</td>
+      <td>Second Prize</td>
+      <td>1500</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Abdul Farzana</td>
+      <td>23501A4201</td>
+      <td rowspan="3">SITAR-2K25</td>
+      <td rowspan="3">PVPSIT-KANURU</td>
+      <td rowspan="3">Literary and Cultural club</td>
+      <td rowspan="3">Third Prize</td>
+      <td rowspan="3">1000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Annepu Vishal Bharadwaj</td>
+      <td>23501A4205</td>
+     
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Gadireddy Harika Sai Darshini</td>
+      <td>23501A4219</td>
+     
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+
+  <!--footer -->
+  <div class="footer">
+    Quick Links
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-md-2">
+        <div class="column-title">Menu</div>
+        <ul class="list-unstyled">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../pages/Gallery.html">Gallery</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+          <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+        </ul>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-md-2">
+        <div class="column-title">Academic</div>
+        <ul class="list-unstyled">
+          <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+          <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+          <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+          <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+        </ul>
+      </div>
+      <!-- Column 3 -->
+      <div class="col-md-2">
+        <div class="column-title">Governance</div>
+        <ul class="list-unstyled">
+          <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+          <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
+          <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+          <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+          <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+          <li><a href="../index.html">PVP Gallery</a></li>
+        </ul>
+      </div>
+      <!-- Column 4 -->
+      <div class="col-md-3">
+        <div class="column-title">Contact</div>
+        <address class="address">
+          <p>P.V.P. Siddhartha Institute Of Technology</p>
+          <p>Kanuru, Vijayawada-520 007</p>
+          <p>Andhra Pradesh, India</p>
+          <p>Tel: 0866-2581699, 0866-2583037</p>
+          <p>0866-2585681, 0866-2585682</p>
+          <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+          <p>Fax: 0866-2581184</p>
+        </address>
+      </div>
+      <!-- Column 5 -->
+      <div class="col-md-3">
+        <div class="column-title">Location</div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

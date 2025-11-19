@@ -1,154 +1,231 @@
-body{
-    margin-top: 10px;
-}
-
 .marquee-container {
-    background-color: rgb(88, 152, 209);
-    color: white;
-    margin-top: 10px;
-    padding-top: 8px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-}
-.marquee-container a {             /* marquee tag*/
-    color: white;
-    text-decoration: underline;
-}
-.marquee-container a:hover {        /* marquee tag*/
-    color: yellow;
+  background-color: rgb(88, 152, 209);
+  color: white;
+  margin-top: 10px;
+  padding-top: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }
 
- /* Carousel height */
- .carousel-item {
-    height: 450px;
-    width: 100%;
+.marquee-container a {
+  /* marquee tag*/
+  color: white;
+  text-decoration: underline;
 }
 
-.carousel-item img {
-    
-    width: 100%;
-    height: 100%;
-    object-fit: inherit;
+.marquee-container a:hover {
+  /* marquee tag*/
+  color: yellow;
+}
+
+/* Carousel height */
+#carouselExampleIndicators .carousel-item {
+  height: 450px;
+  width: 100%;
+}
+
+#carouselExampleIndicators .carousel-item img {
+
+  width: 100%;
+  height: 100%;
+  object-fit: inherit;
 }
 
 
 
 /* Notification feed styling */
 @keyframes scroll-up {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+  0% {
+    transform: translateY(100%);
   }
-  
-  .notification-container {
-    height: 450px;
-    overflow: hidden;
-    background-color: #f8f9fa;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    margin-top: 28px;
-    border: 1px solid #ccc;
-    position: relative;
+
+  100% {
+    transform: translateY(-100%);
   }
-  
-  .notification-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    animation: scroll-up 30s linear infinite; /* slower, continuous loop */
-    display: inline-block;
-  }
-  
-  .notification-list li {
-    padding: 10px;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-  }
-  
-  .notification-list li p {
-    margin-top: 10px;
-    color: rgb(20, 80, 145);
-  }
-  
+}
+
+.notification-container {
+  height: 450px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: scroll-up 30s linear infinite;
+  /* slower, continuous loop */
+  display: inline-block;
+}
+
+.notification-list li {
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+.notification-list li p {
+  margin-top: 10px;
+  color: rgb(20, 80, 145);
+}
+
 .iframe-container {
-    width: 100%;
-   /* Adjust the max-width as needed */
-    height: 800px;
-    overflow: hidden;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%;
+  /* Adjust the max-width as needed */
+  height: 800px;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
 }
 
 .iframe-container iframe {
-    width: 100%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* General styling for the achievement section */
+#achievements-section {
+  /* Significantly reduced height for a small section */
+  min-height: 350px;
+ background-color: antiquewhite;
+ margin: 10px 10px 10px 10px;
+  /* Base styling for partitions */
+  .partition {
+    max-height: 350px;
+    /* Reduced height to match the section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+
+    /* 🛑 Spacing between columns (Kept your requested 5px margins) */
+    margin-left: 20px;
+    margin-right: 20px;
+
+    /* 🟢 ADDED: Internal padding to keep content away from the edges */
+    padding: 5px;
+    width: 45%;
+
+  }
+
+  /* Partition 1: Faculty Achievements with Gradient Background */
+  #faculty-partition {
+
+
+    color: rgb(53, 49, 49);
+    border: 8px outset #c0c0c0;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 0 0 12px rgba(0, 0, 0, 0.35);
+    background-color: white;
+
+  }
+
+  #faculty-partition h2, #student-partition h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #44b4b0;
+  }
+
+
+  /* Partition 2: Student Achievements with Gradient Background */
+  #student-partition {
+     background-color: white;
+    color: #333;
+    border: 7px outset rgba(20, 19, 19, 0.925);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 0 0 12px rgba(0, 0, 0, 0.35);
+
+  }
+
+  /* Custom size for the achievement photos in the carousel */
+  .achievement-photo {
+    width: 200px;
+    /* Further reduced size for compactness */
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid rgba(175, 175, 180, 0.178);
+    margin-bottom: 5px;
+  }
+
+
+  /* Styling for the carousel content */
+  #facultyCarousel .carousel-item .row,
+  #studentCarousel .carousel-item .row {
+    padding: 10px;
+    /* Minimal padding */
     height: 100%;
-    border: none;
-    border-radius: 10px;
-}
 
-  .facultyAchievements .carousel-container {
-      width: 80%;
-      margin: 50px auto;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      background-color: #F0E491;
-    }
-   .facultyAchievements .carousel-slide {
-  display: flex;
-  transition: transform 1.5s ease-in-out; /* Slower transition */
-}
-    .facultyAchievements .carousel-item {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-    }
-    .facultyAchievements .column {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .facultyAchievements .photo-wrapper {
-      background-color: #e0f7fa;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .facultyAchievements .photo-wrapper img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    .facultyAchievements .message-box {
-      background-color: #dff0d8;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 100%;
-    }
-    .facultyAchievements .message-box h2 {
-      color: #2e8b57;
-      font-size: 28px;
-      margin-bottom: 15px;
-      font-family : Metropolis;
-      font-style : italic;
-      font-weight : 400
-      
+  }
 
-    }
-    .facultyAchievements .message-box p {
-      font-size: 18px;
-      color: #333;
-    }
-  
+  /* Smaller font sizes for details to fit the compact design */
+  .achievement-details h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #1b4c82;
+  }
+
+  .achievement-details p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    color: #122482;
+  }
+
+  .achievement-details .person-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600 italic;
+    font-size: 1.2rem;
+  }
+
+
+  /* Ensure controls are visible on both backgrounds (remains the same) */
+  #facultyCarousel .carousel-control-prev-icon,
+  #facultyCarousel .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    width: 0.75rem;
+    /* Make controls smaller */
+    height: 0.75rem;
+  }
+
+  #studentCarousel .carousel-control-prev-icon,
+  #studentCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    width: 0.75rem;
+    /* Make controls smaller */
+    height: 0.75rem;
+  }
+
+  .achievement-content-wrapper h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #8e4b1c;
+    /* elegant brown-gold tone */
+  }
+
+  .achievement-content-wrapper p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #222;
+    line-height: 1.5;
+  }

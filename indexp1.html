@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /*
+         * Define a fixed width and height for the images.
+         * object-fit: cover ensures the image covers the container
+         * while maintaining its aspect ratio, cropping if necessary.
+         */
+        .fixed-size-img {
+            width: 200px; /* Example fixed width */
+            height: 250px; /* Example fixed height */
+            object-fit: cover; /* Ensures the image fills the area */
+        }
+
+        /*
+         * Custom style to vertically center the content inside the card
+         * and ensure the column containing the image fills its height.
+         */
+        .card-row {
+            height: 100%;
+            align-items: center; /* Vertically centers content within the row */
+            background-image: url('./images/bg3.jpg');
+        }
+    </style>
+</head>
+
+<body >
+    <div class="container-fluid p-5" style="background-image: url('./images/bg1.jpg');"> 
+        <div class="row justify-content-center">
+            
+            <div class="col-12 col-lg-5 mx-2">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card mb-3"> 
+                                <div class="row g-0 card-row"> 
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                        <img src="./images/people/Deepa.jpg" class="img-fluid rounded-start fixed-size-img" alt="Mrs. T.Deepa">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Congratulations to Mrs. T.Deepa</h5>
+                                            <p class="card-text text-black">for publishing her research journal in the
+                                                <b>Engineering, Technology & Applied Science Research (ETASR) Journal.</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div class="card mb-3">
+                                <div class="row g-0 card-row">
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                        <img src="./images/people/VenkataKrishna.jpg" class="img-fluid rounded-start fixed-size-img" alt="Mr. VenkataKrishna">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Congratulations to Mrs. T.Deepa</h5>
+                                            <p class="card-text text-black">for publishing her research journal in the
+                                                <b>Engineering, Technology & Applied Science Research (ETASR) Journal.</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card mb-3">
+                                <div class="row g-0 card-row">
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                        <img src="placeholder.jpg" class="img-fluid rounded-start fixed-size-img" alt="Slide 3 Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Slide 3 Title (Carousel 1)</h5>
+                                            <p class="card-text text-black">Content for the third slide.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="col-12 col-lg-5 mx-2">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                             <div class="card mb-3">
+                                <div class="row g-0 card-row">
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                         <img src="./images/people/Deepa.jpg" class="img-fluid rounded-start fixed-size-img" alt="Mrs. T.Deepa">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Congratulations to Mrs. T.Deepa (Carousel 2)</h5>
+                                            <p class="card-text text-black">for publishing her research journal in the
+                                                <b>Engineering, Technology & Applied Science Research (ETASR) Journal.</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="carousel-item ">
+                            <div class="card mb-3">
+                                <div class="row g-0 card-row">
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                        <img src="./images/people/VenkataKrishna.jpg" class="img-fluid rounded-start fixed-size-img" alt="Mr. VenkataKrishna">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Congratulations to Mr. VenkataKrishna (Carousel 2)</h5>
+                                            <p class="card-text text-black">for publishing his research journal in the
+                                                <b>Engineering, Technology & Applied Science Research (ETASR) Journal.</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card mb-3">
+                                <div class="row g-0 card-row">
+                                    <div class="col-md-4 d-flex justify-content-center">
+                                        <img src="placeholder.jpg" class="img-fluid rounded-start fixed-size-img" alt="Slide 3 Image">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title fst-italic text-black">Slide 3 Title (Carousel 2)</h5>
+                                            <p class="card-text text-black">Content for the third slide.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

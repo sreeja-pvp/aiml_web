@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result Analysis - PVPSIT AI&amp;ML</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root { --navy:#0b2a4a; --blue:#1560a8; --gold:#f0a500; --green:#16a34a; --bg:#f1f5f9; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg); color:#1e293b; }
+
+    
+
+    /* HERO */
+    .hero {
+      background:linear-gradient(135deg,#0b2a4a 0%,#1560a8 55%,#0b3566 100%);
+      padding:52px 20px 64px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .hero::before,.hero::after { content:''; position:absolute; border-radius:50%; opacity:.06; background:var(--gold); }
+    .hero::before { width:320px; height:320px; top:-80px; right:-60px; }
+    .hero::after  { width:220px; height:220px; bottom:-60px; left:-40px; }
+    .hero h1 {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:clamp(1.8rem,4vw,3rem); font-weight:700; color:#fff;
+      letter-spacing:1.5px; position:relative; z-index:1;
+    }
+    .hero h1 span { color:var(--gold); }
+    .hero p { color:rgba(255,255,255,.65); font-size:.95rem; margin-top:8px; position:relative; z-index:1; }
+    .hero-line { width:60px; height:4px; background:var(--gold); border-radius:2px; margin:14px auto 0; position:relative; z-index:1; }
+
+    /* STAT STRIP */
+    .stat-strip {
+      display:flex; justify-content:center; flex-wrap:wrap;
+      gap:16px; padding:0 20px; margin-top:-30px; position:relative; z-index:10;
+    }
+    .stat-box {
+      background:#fff; border-radius:14px; padding:16px 28px; text-align:center;
+      box-shadow:0 6px 24px rgba(11,42,74,.12); min-width:140px;
+      border-bottom:4px solid var(--gold);
+    }
+    .stat-box:nth-child(2) { border-bottom-color:var(--blue); }
+    .stat-box:nth-child(3) { border-bottom-color:var(--green); }
+    .stat-box .num { font-family:'Space Grotesk',sans-serif; font-size:1.85rem; font-weight:700; color:var(--navy); }
+    .stat-box .lbl { font-size:.72rem; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
+
+    /* MAIN */
+    .main { max-width:960px; margin:44px auto 60px; padding:0 18px; }
+
+    /* YEAR SECTION */
+    .year-section { margin-bottom:28px; }
+    .year-header {
+      display:flex; align-items:center; gap:14px;
+      background:var(--navy); color:#fff;
+      border-radius:14px 14px 0 0; padding:14px 22px;
+    }
+    .year-header .yr-icon {
+      width:42px; height:42px; background:var(--gold); border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:var(--navy); flex-shrink:0;
+    }
+    .year-header h2 { font-family:'Space Grotesk',sans-serif; font-size:1.25rem; font-weight:700; letter-spacing:.5px; }
+    .year-header .yr-badge {
+      margin-left:auto; background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      padding:3px 12px; border-radius:20px;
+      font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
+    }
+
+    /* CARDS GRID */
+    .cards-grid {
+      background:#fff; border-radius:0 0 14px 14px;
+      padding:20px; box-shadow:0 4px 20px rgba(11,42,74,.08);
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:16px;
+    }
+
+    /* RESULT CARD */
+    .rcard {
+      border-radius:13px; padding:18px 20px;
+      position:relative; overflow:hidden;
+      transition:transform .22s, box-shadow .22s;
+      cursor:pointer;
+    }
+    .rcard:hover { transform:translateY(-5px); box-shadow:0 14px 32px rgba(0,0,0,.16); }
+
+    .rcard.theme-teal   { background:linear-gradient(135deg,#e0f7f0,#c6f0e2); border:1px solid #a7e9cf; }
+    .rcard.theme-blue   { background:linear-gradient(135deg,#dbeafe,#bfdbfe); border:1px solid #93c5fd; }
+    .rcard.theme-amber  { background:linear-gradient(135deg,#fff7e0,#fde68a); border:1px solid #fbbf24; }
+    .rcard.theme-slate  { background:linear-gradient(135deg,#f1f5f9,#e2e8f0); border:1px solid #cbd5e1; }
+    .rcard.theme-purple { background:linear-gradient(135deg,#ede9fe,#ddd6fe); border:1px solid #c4b5fd; }
+    .rcard.theme-rose   { background:linear-gradient(135deg,#ffe4e6,#fecdd3); border:1px solid #fda4af; }
+
+    .rcard .rc-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .rcard .rc-year-label {
+      font-weight:700; font-size:.82rem; color:#475569;
+      background:rgba(255,255,255,.6); padding:3px 10px; border-radius:20px;
+    }
+    .rcard .rc-sem {
+      font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.78rem;
+      padding:3px 10px; border-radius:20px; background:rgba(255,255,255,.8);
+    }
+    .rcard.theme-teal   .rc-sem { color:#065f46; }
+    .rcard.theme-blue   .rc-sem { color:#1e40af; }
+    .rcard.theme-amber  .rc-sem { color:#92400e; }
+    .rcard.theme-purple .rc-sem { color:#5b21b6; }
+    .rcard.theme-rose   .rc-sem { color:#9f1239; }
+    .rcard.theme-slate  .rc-sem { color:#475569; }
+
+    .rcard .rc-pass { font-family:'Space Grotesk',sans-serif; font-size:2.4rem; font-weight:800; line-height:1; }
+    .rcard.theme-teal   .rc-pass { color:#065f46; }
+    .rcard.theme-blue   .rc-pass { color:#1e3a8a; }
+    .rcard.theme-amber  .rc-pass { color:#78350f; }
+    .rcard.theme-purple .rc-pass { color:#4c1d95; }
+    .rcard.theme-rose   .rc-pass { color:#881337; }
+    .rcard.theme-slate  .rc-pass { color:#334155; }
+
+    .rcard .rc-label {
+      font-size:.72rem; color:#64748b; font-weight:600;
+      text-transform:uppercase; letter-spacing:.5px; margin-top:2px;
+    }
+    .rcard .donut-wrap { position:absolute; right:14px; bottom:12px; width:52px; height:52px; opacity:.3; }
+    .rcard .donut-wrap svg { width:100%; height:100%; }
+
+    .rcard.pending {
+      background:repeating-linear-gradient(-45deg,#f8fafc,#f8fafc 8px,#f1f5f9 8px,#f1f5f9 16px);
+      border:1.5px dashed #cbd5e1;
+    }
+    .rcard.pending .rc-pass { font-size:1.4rem; color:#94a3b8; }
+
+    /* click hint */
+    .rcard .click-hint {
+      position:absolute; bottom:9px; left:50%; transform:translateX(-50%);
+      font-size:.65rem; color:rgba(0,0,0,.3); font-weight:600;
+      letter-spacing:.4px; text-transform:uppercase; white-space:nowrap;
+      opacity:0; transition:opacity .2s; pointer-events:none;
+    }
+    .rcard:hover .click-hint { opacity:1; }
+
+    /* DONUT SVG (small card) */
+    .ring-svg { transform:rotate(-90deg); }
+    .ring-track { fill:none; stroke:rgba(0,0,0,.1); stroke-width:6; }
+    .ring-fill  { fill:none; stroke-width:6; stroke-linecap:round; }
+
+    /* MODAL OVERLAY */
+    .modal-overlay {
+      display:none; position:fixed; inset:0; z-index:9999;
+      background:rgba(11,42,74,.6); backdrop-filter:blur(7px);
+      align-items:center; justify-content:center; padding:20px;
+    }
+    .modal-overlay.open { display:flex; }
+
+    .modal-box {
+      background:#fff; border-radius:22px; width:100%; max-width:500px;
+      box-shadow:0 32px 90px rgba(0,0,0,.32);
+      animation:popIn .28s cubic-bezier(.34,1.56,.64,1);
+      overflow:hidden; position:relative;
+    }
+    @keyframes popIn {
+      from { opacity:0; transform:scale(.8) translateY(24px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+
+    /* modal color bar at top */
+    .modal-colorbar { height:6px; width:100%; }
+
+    .modal-header {
+      padding:22px 24px 16px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .modal-header .mh-left h3 {
+      font-family:'Space Grotesk',sans-serif;
+      font-size:1.45rem; font-weight:700; color:var(--navy);
+    }
+    .modal-header .mh-left .mh-sub { font-size:.8rem; color:#64748b; margin-top:3px; font-weight:500; }
+    .modal-close {
+      width:34px; height:34px; border-radius:50%; border:none;
+      background:#f1f5f9; color:#64748b; font-size:1rem;
+      cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+      transition:background .18s, color .18s;
+    }
+    .modal-close:hover { background:var(--navy); color:#fff; }
+
+    .modal-body { padding:0 24px 24px; }
+
+    /* big donut row */
+    .modal-donut-row { display:flex; align-items:center; gap:24px; margin-bottom:18px; }
+    .modal-donut { position:relative; width:110px; height:110px; flex-shrink:0; }
+    .modal-donut svg { width:100%; height:100%; transform:rotate(-90deg); }
+    .md-track { fill:none; stroke:#e2e8f0; stroke-width:9; }
+    .md-fill  { fill:none; stroke-width:9; stroke-linecap:round; transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1); }
+    .modal-donut .md-label {
+      position:absolute; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; pointer-events:none;
+    }
+    .modal-donut .md-label .md-pct { font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:800; line-height:1; }
+    .modal-donut .md-label .md-sub { font-size:.6rem; color:#94a3b8; font-weight:600; text-transform:uppercase; margin-top:2px; }
+
+    .modal-info-list { flex:1; }
+    .mi-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f5f9; }
+    .mi-row:last-child { border:none; }
+    .mi-key { font-size:.75rem; color:#94a3b8; font-weight:600; text-transform:uppercase; letter-spacing:.4px; }
+    .mi-val { font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--navy); font-size:.9rem; }
+
+    /* grade banner */
+    .grade-banner {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 18px; border-radius:12px; margin-top:4px;
+      font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.92rem;
+    }
+    .grade-banner.outstanding { background:#d1fae5; color:#065f46; }
+    .grade-banner.excellent   { background:#dbeafe; color:#1e40af; }
+    .grade-banner.good        { background:#fef9c3; color:#854d0e; }
+    .grade-banner.pending-g   { background:#f1f5f9; color:#94a3b8; }
+
+    /* FOOTER */
+    .site-footer { background:var(--navy); color:#fff; padding:32px 20px 14px; }
+    .footer-inner {
+      max-width:960px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      gap:24px; padding-bottom:22px;
+    }
+    .site-footer h5 {
+      font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:700;
+      color:var(--gold); text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px;
+    }
+    .site-footer ul { list-style:none; padding:0; }
+    .site-footer ul li a { color:rgba(255,255,255,.68); text-decoration:none; font-size:.82rem; line-height:1.9; transition:color .18s; }
+    .site-footer ul li a:hover { color:var(--gold); }
+    .contact-text { font-size:.8rem; color:rgba(255,255,255,.68); line-height:1.8; }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,.1); padding-top:12px;
+      text-align:center; font-size:.73rem; color:rgba(255,255,255,.35);
+      max-width:960px; margin:0 auto;
+    }
+
+
+  </style>
+   <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="topnav">
+  <a class="brand" href="https://www.pvpsiddhartha.ac.in/">
+    <img src="https://www.pvpsiddhartha.ac.in/aiml_web/images/AIML_Logo.png" alt="Logo"/>
+   
+  </a>
+  <!-- Image Section -->
+   
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" href="AcademicCalendars.html">Academic Calendar</a>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                               <li class="dropdown-submenu">
+                                 <a class="dropdown-item dropdown-toggle" href="#">BOS</a>
+                                    <ul class="dropdown-menu">
+                                     <li><a class="dropdown-item" href="BOS.html">Members</a></li>
+                                     <li><a class="dropdown-item" href="BOSMinutes.html">Minutes of Meeting</a></li>
+
+                                     </ul>
+                                 </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#">StudentList</a>
+                                  <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../pdfs/studentlist/IYear.pdf">I Year</a></li>
+                                    <li><a class="dropdown-item" href="../pdfs/studentlist/IIYear.pdf">II Year</a></li>
+                                    <li><a class="dropdown-item" href="../pdfs/studentlist/IIIYear.pdf">III Year</a></li>
+                                  </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+                             
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="Internship_pvp23.html">PVP23</a></li>
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="https://pvpsitclubs.github.io/ClubsPage/">Clubs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/company/pvpsit-aiml-datascience/?viewAsMember=true" target="_blank">
+                        <img src="../images/Linkedin-Logo1.png" width="25" alt="LinkedIn" /></a>  
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1><i class="fas fa-chart-line me-2" style="color:var(--gold)"></i>Result <span>Analysis</span></h1>
+  <p>Department of Artificial Intelligence &amp; Machine Learning &mdash; PVPSIT</p>
+  <div class="hero-line"></div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-box"><div class="num" id="sAvg">-</div><div class="lbl">Avg Pass %</div></div>
+  <div class="stat-box"><div class="num" id="sBest">-</div><div class="lbl">Best Pass %</div></div>
+  <div class="stat-box"><div class="num" id="sTotal">-</div><div class="lbl">Semesters</div></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main" id="mainContent"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-colorbar" id="mColorBar"></div>
+    <div class="modal-header">
+      <div class="mh-left">
+        <h3 id="mTitle">-</h3>
+        <div class="mh-sub" id="mSub">-</div>
+      </div>
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-donut-row">
+        <div class="modal-donut">
+          <svg viewBox="0 0 100 100">
+            <circle class="md-track" cx="50" cy="50" r="40"/>
+            <circle class="md-fill" id="mDonutFill" cx="50" cy="50" r="40"
+              stroke="#16a34a" stroke-dasharray="251.33" stroke-dashoffset="251.33"/>
+          </svg>
+          <div class="md-label">
+            <span class="md-pct" id="mPct">-</span>
+            <span class="md-sub">Pass %</span>
+          </div>
+        </div>
+        <div class="modal-info-list">
+          <div class="mi-row"><span class="mi-key">Academic Year</span><span class="mi-val" id="mYear">-</span></div>
+          <div class="mi-row"><span class="mi-key">Year</span><span class="mi-val" id="mYrLabel">-</span></div>
+          <div class="mi-row"><span class="mi-key">Semester</span><span class="mi-val" id="mSem">-</span></div>
+          <div class="mi-row"><span class="mi-key">Status</span><span class="mi-val" id="mStatus">-</span></div>
+        </div>
+      </div>
+      <div class="grade-banner" id="mGrade"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+        <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+        <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+        <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <div class="contact-text">
+        P.V.P. Siddhartha Institute Of Technology<br/>
+        Kanuru, Vijayawada-520 007<br/>
+        Andhra Pradesh, India<br/>
+        Tel: 0866-2581699, 0866-2583037<br/>
+        Email: principal@pvpsiddhartha.ac.in<br/>
+        Fax: 0866-2581184
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 PVPSIT &mdash; Department of AI &amp; ML. All rights reserved.</div>
+</footer>
+
+<script>
+var resultData = [
+  {
+    year: "2025-2026",
+    entries: [
+      { label:"II Year",  sem:"Sem-I",  pass:"98.63" },
+      { label:"II Year",  sem:"Sem-II", pass:null    },
+      { label:"III Year", sem:"Sem-I",  pass:"94.28" },
+      { label:"III Year", sem:"Sem-II", pass:null    },
+      { label:"IV Year",  sem:"Sem-I",  pass:"97.14" },
+      { label:"IV Year",  sem:"Sem-II", pass:null    }
+    ]
+  },
+  {
+    year: "2024-2025",
+    entries: [
+      { label:"II Year",  sem:"Sem-I",  pass:"95.71" },
+      { label:"II Year",  sem:"Sem-II", pass:"92.86" },
+      { label:"III Year", sem:"Sem-I",  pass:"91.43" },
+      { label:"III Year", sem:"Sem-II", pass:"100"   }
+    ]
+  },
+  {
+    year: "2023-2024",
+    entries: [
+      { label:"II Year", sem:"Sem-I",  pass:"87.32" },
+      { label:"II Year", sem:"Sem-II", pass:"92.96" }
+    ]
+  }
+];
+
+var themes = ["theme-teal","theme-blue","theme-amber","theme-purple","theme-rose","theme-blue"];
+var ringColors = {
+  "theme-teal":  "#16a34a",
+  "theme-blue":  "#2563eb",
+  "theme-amber": "#d97706",
+  "theme-purple":"#7c3aed",
+  "theme-rose":  "#e11d48",
+  "theme-slate": "#94a3b8"
+};
+var barColors = {
+  "theme-teal":  "#a7e9cf",
+  "theme-blue":  "#93c5fd",
+  "theme-amber": "#fbbf24",
+  "theme-purple":"#c4b5fd",
+  "theme-rose":  "#fda4af",
+  "theme-slate": "#cbd5e1"
+};
+
+function donutSVG(pct, color) {
+  var r = 20;
+  var circ = parseFloat((2 * Math.PI * r).toFixed(3));
+  var offset = parseFloat((circ * (1 - pct / 100)).toFixed(3));
+  return '<svg class="ring-svg" viewBox="0 0 48 48">' +
+    '<circle class="ring-track" cx="24" cy="24" r="' + r + '"/>' +
+    '<circle class="ring-fill" cx="24" cy="24" r="' + r + '"' +
+    ' stroke="' + color + '"' +
+    ' stroke-dasharray="' + circ + '"' +
+    ' stroke-dashoffset="' + circ + '"' +
+    ' data-offset="' + offset + '"' +
+    '/></svg>';
+}
+
+var allVals = [];
+var totalSems = 0;
+var mainEl = document.getElementById("mainContent");
+
+resultData.forEach(function(group) {
+  var sec = document.createElement("div");
+  sec.className = "year-section";
+
+  var gridId = "g" + group.year.replace(/[^a-z0-9]/gi, "_");
+  sec.innerHTML =
+    '<div class="year-header">' +
+      '<div class="yr-icon"><i class="fas fa-calendar-alt"></i></div>' +
+      '<h2>' + group.year + '</h2>' +
+      '<span class="yr-badge">Academic Year</span>' +
+    '</div>' +
+    '<div class="cards-grid" id="' + gridId + '"></div>';
+  mainEl.appendChild(sec);
+
+  var grid = document.getElementById(gridId);
+  var ti = 0;
+
+  group.entries.forEach(function(e) {
+    totalSems++;
+    var isPending = !e.pass;
+    var theme = isPending ? "theme-slate" : themes[ti++ % themes.length];
+    var pct = e.pass ? parseFloat(e.pass) : 0;
+    if (e.pass) allVals.push(pct);
+
+    var card = document.createElement("div");
+    card.className = "rcard " + theme + (isPending ? " pending" : "");
+
+    var inner =
+      '<div class="rc-top">' +
+        '<span class="rc-year-label">' + e.label + '</span>' +
+        '<span class="rc-sem">' + e.sem + '</span>' +
+      '</div>' +
+      '<div class="rc-pass">' + (isPending ? "&#8212;" : e.pass + "%") + '</div>' +
+      '<div class="rc-label">' + (isPending ? "Result Awaited" : "Pass Percentage") + '</div>';
+
+    if (!isPending) {
+      inner += '<div class="donut-wrap">' + donutSVG(pct, ringColors[theme]) + '</div>';
+    }
+
+    inner += '<div class="click-hint"><i class="fas fa-expand-alt" style="margin-right:4px"></i>Click for details</div>';
+    card.innerHTML = inner;
+
+    // store data
+    card.setAttribute("data-year",  group.year);
+    card.setAttribute("data-label", e.label);
+    card.setAttribute("data-sem",   e.sem);
+    card.setAttribute("data-pass",  e.pass || "");
+    card.setAttribute("data-theme", theme);
+    card.setAttribute("data-color", ringColors[theme] || "#94a3b8");
+    card.setAttribute("data-bar",   barColors[theme] || "#cbd5e1");
+
+    card.addEventListener("click", function() {
+      openModal(this);
+    });
+
+    grid.appendChild(card);
+  });
+});
+
+// Stats
+if (allVals.length) {
+  var avg = (allVals.reduce(function(a,b){ return a+b; }, 0) / allVals.length).toFixed(1);
+  var best = Math.max.apply(null, allVals);
+  document.getElementById("sAvg").textContent  = avg + "%";
+  document.getElementById("sBest").textContent = (best % 1 === 0 ? best : best.toFixed(2)) + "%";
+  document.getElementById("sTotal").textContent = totalSems;
+}
+
+// Animate small donuts
+requestAnimationFrame(function() {
+  setTimeout(function() {
+    var fills = document.querySelectorAll(".ring-fill");
+    fills.forEach(function(el) {
+      el.style.transition = "stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1)";
+      el.style.strokeDashoffset = el.getAttribute("data-offset");
+    });
+  }, 400);
+});
+
+// ---- MODAL ----
+var overlay    = document.getElementById("modalOverlay");
+var mColorBar  = document.getElementById("mColorBar");
+var mTitle     = document.getElementById("mTitle");
+var mSub       = document.getElementById("mSub");
+var mYear      = document.getElementById("mYear");
+var mYrLabel   = document.getElementById("mYrLabel");
+var mSem       = document.getElementById("mSem");
+var mStatus    = document.getElementById("mStatus");
+var mPct       = document.getElementById("mPct");
+var mGrade     = document.getElementById("mGrade");
+var mFill      = document.getElementById("mDonutFill");
+
+function getGrade(pct) {
+  if (pct >= 98) return { cls:"outstanding", icon:"&#127942;", text:"Outstanding Performance" };
+  if (pct >= 94) return { cls:"excellent",   icon:"&#11088;",  text:"Excellent Performance"   };
+  return              { cls:"good",          icon:"&#9989;",   text:"Good Performance"         };
+}
+
+function openModal(card) {
+  var passStr  = card.getAttribute("data-pass");
+  var isPending = !passStr;
+  var pct      = isPending ? 0 : parseFloat(passStr);
+  var color    = card.getAttribute("data-color");
+  var bar      = card.getAttribute("data-bar");
+  var circ     = 251.33;
+
+  mColorBar.style.background = bar;
+  mTitle.textContent          = card.getAttribute("data-label") + " \u2014 " + card.getAttribute("data-sem");
+  mSub.textContent            = "Academic Year " + card.getAttribute("data-year");
+  mYear.textContent           = card.getAttribute("data-year");
+  mYrLabel.textContent        = card.getAttribute("data-label");
+  mSem.textContent            = card.getAttribute("data-sem");
+  mPct.textContent            = isPending ? "\u2014" : passStr + "%";
+  mPct.style.color            = isPending ? "#94a3b8" : color;
+
+  mStatus.innerHTML = isPending
+    ? '<span style="color:#94a3b8">\u23f3 Awaited</span>'
+    : '<span style="color:#16a34a">\u2714 Declared</span>';
+
+  mFill.setAttribute("stroke", color);
+  mFill.style.transition = "none";
+  mFill.style.strokeDashoffset = circ;
+
+  if (isPending) {
+    mGrade.className = "grade-banner pending-g";
+    mGrade.innerHTML = "\u23f3 Result not yet declared";
+  } else {
+    var g = getGrade(pct);
+    mGrade.className = "grade-banner " + g.cls;
+    mGrade.innerHTML = g.icon + " " + g.text;
+  }
+
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  // animate donut after open
+  requestAnimationFrame(function() {
+    setTimeout(function() {
+      var offset = isPending ? circ : parseFloat((circ * (1 - pct / 100)).toFixed(3));
+      mFill.style.transition = "stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)";
+      mFill.style.strokeDashoffset = offset;
+    }, 60);
+  });
+}
+
+function closeModal() {
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeModal);
+overlay.addEventListener("click", function(e) { if (e.target === overlay) closeModal(); });
+document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeModal(); });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background: linear-gradient(135deg, #4a90e2, #5dade2);
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.5);
+        }
+
+        .carousel-indicators button {
+            background: linear-gradient(to right, #4a90e2, #87ceeb) !important;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-10">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-center text-white text-5xl font-extrabold mb-12 uppercase tracking-widest relative">
+            <span class="drop-shadow-[0_0_20px_rgba(135,206,250,0.5)]">Upcoming Technology Events</span>
+            <div class="absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full shadow-lg"></div>
+        </h1>
+
+        <div id="carouselContainer" class="text-center text-blue-200 text-2xl py-16 font-bold uppercase tracking-widest">
+          <script src="events_js_file.js"> </script>
+    <script src="app_js_file.js"></script>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

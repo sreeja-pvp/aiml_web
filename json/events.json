@@ -1,0 +1,125 @@
+{
+            "events": [
+                {
+                    "name": "AI & Machine Learning Summit 2026",
+                    "date": "January 15-19, 2026",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+                            "topic": "Introduction to Neural Networks"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=300&fit=crop",
+                            "topic": "Natural Language Processing"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+                            "topic": "Computer Vision Technologies"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop",
+                            "topic": "Reinforcement Learning"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
+                            "topic": "AI Ethics and Future"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop",
+                            "name": "Dr. Sarah Chen",
+                            "designation": "Chief AI Scientist",
+                            "company": "TechVision Labs"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop",
+                            "name": "Prof. Michael Rodriguez",
+                            "designation": "Director of AI Research",
+                            "company": "Stanford University"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cloud Computing & DevOps Conference",
+                    "date": "February 5-9, 2026",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop",
+                            "topic": "Cloud Architecture Design"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop",
+                            "topic": "Kubernetes Orchestration"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+                            "topic": "CI/CD Pipelines"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
+                            "topic": "Cloud Security Practices"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=300&fit=crop",
+                            "topic": "Serverless Computing"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+                            "name": "James Patterson",
+                            "designation": "VP of Cloud Engineering",
+                            "company": "Amazon Web Services"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop",
+                            "name": "Emma Thompson",
+                            "designation": "Senior DevOps Architect",
+                            "company": "Microsoft Azure"
+                        }
+                    ]
+                },
+                {
+                    "name": "Blockchain & Web3 Innovation Week",
+                    "date": "March 10-14, 2026",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+                            "topic": "Blockchain Fundamentals"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=400&h=300&fit=crop",
+                            "topic": "Smart Contracts & DApps"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=400&h=300&fit=crop",
+                            "topic": "NFTs and Metaverse"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=300&fit=crop",
+                            "topic": "DeFi Protocols"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=400&h=300&fit=crop",
+                            "topic": "Blockchain Security"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop",
+                            "name": "David Kim",
+                            "designation": "Blockchain Lead Developer",
+                            "company": "Ethereum Foundation"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=200&h=200&fit=crop",
+                            "name": "Lisa Anderson",
+                            "designation": "Chief Technology Officer",
+                            "company": "Coinbase"
+                        }
+                    ]
+                }
+            ]
+      
+}

@@ -95,137 +95,25 @@
   border-radius: 10px;
 }
 
-/* General styling for the achievement section */
-#achievements-section {
-  /* Significantly reduced height for a small section */
-  min-height: 350px;
- background-color: antiquewhite;
- margin: 10px 10px 10px 10px;
-  /* Base styling for partitions */
-  .partition {
-    max-height: 350px;
-    /* Reduced height to match the section */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Center content vertically */
+/*
+         * Define a fixed width and height for the images.
+         * object-fit: cover ensures the image covers the container
+         * while maintaining its aspect ratio, cropping if necessary.
+         */
+        .fixed-size-img {
+            width: 200px; /* Example fixed width */
+            height: 250px; /* Example fixed height */
+            object-fit: cover; /* Ensures the image fills the area */
+        }
 
-    /* 🛑 Spacing between columns (Kept your requested 5px margins) */
-    margin-left: 20px;
-    margin-right: 20px;
+        /*
+         * Custom style to vertically center the content inside the card
+         * and ensure the column containing the image fills its height.
+         */
+        .card-row {
+            height: 100%;
+            align-items: center; /* Vertically centers content within the row */
+            background-image: url('./images/bg3.jpg');
+        }
 
-    /* 🟢 ADDED: Internal padding to keep content away from the edges */
-    padding: 5px;
-    width: 45%;
-
-  }
-
-  /* Partition 1: Faculty Achievements with Gradient Background */
-  #faculty-partition {
-
-
-    color: rgb(53, 49, 49);
-    border: 8px outset #c0c0c0;
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 0 0 12px rgba(0, 0, 0, 0.35);
-    background-color: white;
-
-  }
-
-  #faculty-partition h2, #student-partition h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    color: #44b4b0;
-  }
-
-
-  /* Partition 2: Student Achievements with Gradient Background */
-  #student-partition {
-     background-color: white;
-    color: #333;
-    border: 7px outset rgba(20, 19, 19, 0.925);
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4), 0 0 12px rgba(0, 0, 0, 0.35);
-
-  }
-
-  /* Custom size for the achievement photos in the carousel */
-  .achievement-photo {
-    width: 200px;
-    /* Further reduced size for compactness */
-    height: 250px;
-    object-fit: cover;
-    border: 5px solid rgba(175, 175, 180, 0.178);
-    margin-bottom: 5px;
-  }
-
-
-  /* Styling for the carousel content */
-  #facultyCarousel .carousel-item .row,
-  #studentCarousel .carousel-item .row {
-    padding: 10px;
-    /* Minimal padding */
-    height: 100%;
-
-  }
-
-  /* Smaller font sizes for details to fit the compact design */
-  .achievement-details h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: #1b4c82;
-  }
-
-  .achievement-details p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 1.0rem;
-    line-height: 1.6;
-    color: #122482;
-  }
-
-  .achievement-details .person-name {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600 italic;
-    font-size: 1.2rem;
-  }
-
-
-  /* Ensure controls are visible on both backgrounds (remains the same) */
-  #facultyCarousel .carousel-control-prev-icon,
-  #facultyCarousel .carousel-control-next-icon {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 5px;
-    width: 0.75rem;
-    /* Make controls smaller */
-    height: 0.75rem;
-  }
-
-  #studentCarousel .carousel-control-prev-icon,
-  #studentCarousel .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    width: 0.75rem;
-    /* Make controls smaller */
-    height: 0.75rem;
-  }
-
-  .achievement-content-wrapper h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: #8e4b1c;
-    /* elegant brown-gold tone */
-  }
-
-  .achievement-content-wrapper p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #222;
-    line-height: 1.5;
-  }
+       

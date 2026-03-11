@@ -1,0 +1,39 @@
+[
+   {
+    "eventName": "GenrativeAI with Large Language Models(LLM)",
+    "date": "4th–6th January 2026",
+    "description": "Empowering Students with Future AI Skills: 5-Day Hands-on Workshop on Generative AI, LLMs, RAG ",
+    "speaker": {
+      "name": "Mr.Rupesh Prasad ",
+      "designation": "Consultant – Data Science",
+      "company": "Dell Technologies",
+      "image": "images/events/2025-2026/RupeshGenAI.jpeg"
+    },
+    "sessions": [
+      {  "topic": "Introduced the fundamentals of LLMs, including their evolution, tokenization, embeddings, and basics of prompt engineering.", "image": "images/events/2025-2026/GenAI1.jpeg" },
+      {  "topic": "Explained the Transformer Decoder architecture with focus on embeddings, masked self-attention, and Add & Norm layers for context-aware generation.", "image": "images/events/2025-2026/GenAI2.jpeg" },
+      {  "topic": "Covered decoder internals such as multi-head attention and FFN, along with an introduction to RAG to address LLM knowledge limitations.", "image": "images/events/2025-2026/GenAI3.jpeg" },
+      {  "topic": "Discussed complete RAG pipelines, vector databases, re-ranking, and evaluation methods to improve accuracy and reduce hallucinations.", "image": "images/events/2025-2026/GenAI4.jpeg" },
+      {  "topic": "Hands-on hackathon where participants applied LLM and RAG concepts to build and demonstrate real-world solutions.", "image": "images/events/2025-2026/GenAI5.jpeg" }
+    ]
+  },
+  {
+    "eventName": "Industry-Ready Skills Advancement Program",
+    "date": "1st–6th December 2025",
+    "description": "A six-day industry-focused program aimed at <br>enhancing students' professional, leadership, and employability skills.",
+    "speaker": {
+      "name": "Dr. Roshan Nisar",
+      "designation": "Founder & CEO of The Leader, <br>State First Ranker, Gold Medalist",
+      "company": "The Leader",
+      "image": "images/events/2025-2026/RoshanNisar.jpeg"
+    },
+    "sessions": [
+      { "day": "Day 1", "topic": "Industry Orientation & Career Readiness", "image": "images/events/2025-2026/industry1.jpg" },
+      { "day": "Day 2", "topic": "Professional Communication Skills", "image": "images/events/2025-2026/industry1OD.jpeg" },
+      { "day": "Day 3", "topic": "Leadership & Team Building", "image": "images/events/2025-2026/industry2.jpg" },
+      { "day": "Day 4", "topic": "Corporate Ethics & Work Culture", "image": "images/events/2025-2026/industry3.jpeg" },
+      { "day": "Day 5", "topic": "Placement Strategies & Interviews", "image": "images/events/2025-2026/industry4.jpeg" }
+    ]
+  }
+ 
+]

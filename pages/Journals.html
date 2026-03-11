@@ -1,555 +1,749 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journals</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Research Publications</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+        <style>
+            :root {
+                --cream: #f5f0e8;
+                --cream-dark: #2151a4;
+                --cream-mid: #eeebe5;
+                --parchment: #7569a676;
+                --ink: #2151a4;
+                --ink-mid: #2151a4;
+                --ink-light: #2151a4;
+                --gold: #2151a4;
+                --gold-light: #4050c5;
+                --gold-pale: #e8d8a8;
+                --rust: #8b3a2a;
+                --teal: #2a6b6b;
+                --border: rgba(116, 58, 154, 0.22);
+                --shadow: rgba(44, 36, 22, 0.10);
+            }
 
-    <!-- Bootstrap 5.3 CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+            body {
+                background-color: var(--cream);
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239a7c3a' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                color: var(--ink);
+                font-family: 'DM Sans', sans-serif;
+                min-height: 100vh;
+            }
 
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/index.css">
+            /* HEADER */
+            header {
+                background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mid) 100%);
+                color: var(--cream);
+                padding: 2.8rem 2rem 2.2rem;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
 
-    <link rel="stylesheet" href="../css/quickLinks.css">
+            header::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.015) 20px, rgba(255, 255, 255, 0.015) 21px);
+            }
 
-    <style>
-        #journals thead {
-            background-color: rgb(24, 68, 107) !important;
-            color: white;
-        }
+            .header-inner {
+                position: relative;
+                z-index: 1;
+            }
 
-        #journals thead th {
-            background-color: rgb(24, 68, 107) !important;
-            color: white !important;
-            font-size: 16px;
-        }
+            .institution-label {
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: var(--gold-pale);
+                margin-bottom: 0.6rem;
+            }
 
-        #journals td {
-            font-size: 16px;
+            header h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.2;
+            }
 
-        }
+            header p {
+                color: rgba(245, 240, 232, 0.6);
+                font-size: 0.85rem;
+                margin-top: 0.4rem;
+                font-style: italic;
+            }
 
-        #journals .section-title {
+            .header-rule {
+                width: 100px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+                margin: 1.2rem auto 0;
+            }
 
-            font-weight: bold;
-           
-            
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
+            /* STATS */
+            .stats-bar {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                background: var(--ink-mid);
+            }
 
-        }
+            .stat {
+                text-align: center;
+                padding: 0.9rem 2.2rem;
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
 
-        #journals .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            
-        }
+            .stat:last-child {
+                border-right: none;
+            }
 
+            .stat .num {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.5rem;
+                color: var(--gold-pale);
+                line-height: 1;
+            }
 
+            .stat .lbl {
+                font-size: 0.65rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: rgba(245, 240, 232, 0.5);
+                margin-top: 0.2rem;
+            }
 
-        #journals a {
-            color: #0d6efd;
-            text-decoration: underline;
-        }
+            /* YEAR TABS */
+            .year-tabs-wrap {
+                max-width: 1400px;
+                margin: 1.8rem auto 0;
+                padding: 0 1.5rem;
+            }
 
-        #journals a:hover {
-            color: #0a58ca;
-        }
-    </style>
-</head>
+            .year-tabs {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                border-bottom: 2px solid var(--parchment);
+            }
 
-<body>
-    <!-- Image Section -->
-    <section id="/images/">
-        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
-    </section>
+            .year-tab {
+                padding: 0.55rem 1.4rem;
+                font-size: 0.82rem;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                color: var(--ink-light);
+                border: 1px solid transparent;
+                border-bottom: none;
+                border-radius: 6px 6px 0 0;
+                cursor: pointer;
+                background: transparent;
+                transition: all 0.18s;
+                position: relative;
+                bottom: -2px;
+                font-family: 'DM Sans', sans-serif;
+            }
 
-    <!-- NavBar Section-->
-    <section class="navSection">
-        <nav class="navbar navbar-expand-lg custom-nav">
-            <div class="container-fluid">
-                <!-- Navbar Brand -->
-                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
-                        <!-- Academics -->
-                        <li class="nav-item ml-3 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Academics
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
-                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+            .year-tab:hover {
+                background: var(--parchment);
+                color: var(--ink);
+            }
 
-                                    </ul>
-                                </li>
+            .year-tab.active {
+                background: var(--cream);
+                border-color: var(--parchment);
+                border-bottom-color: var(--cream);
+                color: var(--gold);
+            }
 
+            .count-pill {
+                display: inline-block;
+                background: var(--gold-pale);
+                color: var(--gold);
+                border-radius: 20px;
+                font-size: 0.65rem;
+                font-weight: 700;
+                padding: 0.05em 0.5em;
+                margin-left: 6px;
+            }
 
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
-                                        <li><a class="dropdown-item" href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
-                                                Year</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
-                                                Year</a></li>
-                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
-                                    </ul>
-                                </li>
-                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
-                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+            .year-tab.active .count-pill {
+                background: var(--gold);
+                color: #fff;
+            }
 
-                            </ul>
-                        </li>
+            /* CONTROLS */
+            .controls-row {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.65rem;
+                max-width: 1400px;
+                margin: 1.2rem auto 1rem;
+                padding: 0 1.5rem;
+            }
 
-                        <!-- Faculty -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Faculty
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
-                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
-                                <li><a class="dropdown-item" href="#">Achievements</a></li>
-                            </ul>
-                        </li>
+            .search-wrap {
+                position: relative;
+                flex: 1 1 220px;
+            }
 
-                        <!-- Research -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Research
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
-                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
-                                        <li><a class="dropdown-item" href="#">Books</a></li>
-                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
-                                    </ul>
-                                </li>
+            .search-wrap i {
+                position: absolute;
+                left: 0.8rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--ink-light);
+                font-size: 0.8rem;
+                pointer-events: none;
+            }
 
-                                <li><a class="dropdown-item" href="#">Projects</a></li>
-                                <li><a class="dropdown-item" href="#">Patents</a></li>
+            .search-wrap input {
+                width: 100%;
+                padding: 0.5rem 1rem 0.5rem 2.2rem;
+                background: #fff;
+                border: 1px solid var(--parchment);
+                border-radius: 6px;
+                color: var(--ink);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.82rem;
+                outline: none;
+                transition: border-color 0.18s, box-shadow 0.18s;
+            }
 
-                            </ul>
-                        </li>
+            .search-wrap input:focus {
+                border-color: var(--gold);
+                box-shadow: 0 0 0 3px rgba(154, 124, 58, 0.1);
+            }
 
-                        <!-- Students -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Students
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html"> PVP23 </a></li>
-                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
-                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
-                                <li><a class="dropdown-item" href="#">Publications</a></li>
-                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
-                            
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
-                            </ul>
-                        </li>
+            .search-wrap input::placeholder {
+                color: var(--ink-light);
+            }
 
-                        <!-- Internships -->
-                        <li class="nav-item ml-3 dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Internships
-                            </a>
-                            <ul class="dropdown-menu">
+            .filter-select {
+                padding: 0.5rem 2rem 0.5rem 0.8rem;
+                background: #fff;
+                border: 1px solid var(--parchment);
+                border-radius: 6px;
+                color: var(--ink);
+                font-family: 'DM Sans', sans-serif;
+                font-size: 0.82rem;
+                outline: none;
+                cursor: pointer;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a6a52'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 0.65rem center;
+                transition: border-color 0.18s;
+            }
 
-                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+            .filter-select:focus {
+                border-color: var(--gold);
+            }
 
-                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+            .result-count {
+                margin-left: auto;
+                font-size: 0.75rem;
+                color: var(--ink-light);
+                font-style: italic;
+            }
 
-                            </ul>
-                        </li>
-                        <!-- Certifications -->
-                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
-                        <!-- Results Analysis-->
-                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+            /* TABLE */
+            .table-outer {
+                max-width: 1400px;
+                margin: 0 auto 3rem;
+                padding: 0 1.5rem;
+            }
 
-                        <!-- Media -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Media
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Facebook</a></li>
-                                <li><a class="dropdown-item" href="#">Instagram</a></li>
-                            </ul>
-                        </li>
+            .table-card {
+                background: #fff;
+                border: 1px solid var(--parchment);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 24px var(--shadow), 0 1px 4px rgba(0, 0, 0, 0.06);
+            }
 
-                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+            .table-responsive {
+                overflow-x: auto;
+            }
 
-                    </ul>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.81rem;
+            }
+
+            thead tr {
+                background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mid) 100%);
+            }
+
+            thead th {
+                padding: 0.9rem 0.85rem;
+                font-weight: 600;
+                font-size: 0.67rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--gold-pale);
+                white-space: nowrap;
+                cursor: pointer;
+                user-select: none;
+                transition: color 0.15s;
+            }
+
+            thead th:hover {
+                color: #fff;
+            }
+
+            thead th .sort-icon {
+                margin-left: 4px;
+                opacity: 0.4;
+                font-size: 0.62rem;
+            }
+
+            thead th.sorted .sort-icon {
+                opacity: 1;
+            }
+
+            tbody tr {
+                border-bottom: 1px solid var(--cream-dark);
+                transition: background 0.15s;
+            }
+
+            tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            tbody tr:hover {
+                background: var(--cream);
+            }
+
+            td {
+                padding: 0.85rem 0.85rem;
+                vertical-align: top;
+                color: var(--ink-mid);
+                line-height: 1.55;
+            }
+
+            td.td-sl {
+                color: var(--gold);
+                font-weight: 700;
+                text-align: center;
+                min-width: 44px;
+                font-family: 'Playfair Display', serif;
+                font-size: 0.95rem;
+            }
+
+            td.td-authors {
+                min-width: 180px;
+                max-width: 220px;
+            }
+
+            td.td-title {
+                min-width: 230px;
+                max-width: 300px;
+                font-weight: 500;
+                color: var(--ink);
+            }
+
+            td.td-journal {
+                min-width: 170px;
+                color: var(--ink-light);
+                font-style: italic;
+            }
+
+            td.td-issn,
+            td.td-vol,
+            td.td-issue,
+            td.td-pages {
+                white-space: nowrap;
+                text-align: center;
+                color: var(--ink-light);
+            }
+
+            td.td-date {
+                white-space: nowrap;
+            }
+
+            .badge-index {
+                display: inline-block;
+                padding: 0.2em 0.6em;
+                border-radius: 4px;
+                font-size: 0.68rem;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                background: rgba(42, 107, 107, 0.1);
+                color: var(--teal);
+                border: 1px solid rgba(42, 107, 107, 0.25);
+            }
+
+            .link-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                padding: 0.26em 0.65em;
+                border-radius: 5px;
+                font-size: 0.71rem;
+                font-weight: 500;
+                text-decoration: none;
+                white-space: nowrap;
+                transition: all 0.16s;
+                margin: 2px 0;
+            }
+
+            .link-doi {
+                color: var(--rust);
+                background: rgba(139, 58, 42, 0.07);
+                border: 1px solid rgba(139, 58, 42, 0.2);
+            }
+
+            .link-doi:hover {
+                background: rgba(139, 58, 42, 0.15);
+                border-color: var(--rust);
+                color: var(--rust);
+            }
+
+            .link-scopus {
+                color: var(--teal);
+                background: rgba(42, 107, 107, 0.07);
+                border: 1px solid rgba(42, 107, 107, 0.2);
+            }
+
+            .link-scopus:hover {
+                background: rgba(42, 107, 107, 0.15);
+                border-color: var(--teal);
+                color: var(--teal);
+            }
+
+            .authors-text {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .authors-text.expanded {
+                display: block;
+                -webkit-line-clamp: unset;
+            }
+
+            .expand-hint {
+                font-size: 0.67rem;
+                color: var(--gold);
+                cursor: pointer;
+                display: inline-block;
+                margin-top: 3px;
+            }
+
+            .expand-hint:hover {
+                text-decoration: underline;
+            }
+
+            .no-results {
+                text-align: center;
+                padding: 3.5rem 1rem;
+                color: var(--ink-light);
+                font-size: 0.88rem;
+            }
+
+            .no-results i {
+                font-size: 2rem;
+                display: block;
+                margin-bottom: 0.75rem;
+                opacity: 0.3;
+                color: var(--gold);
+            }
+
+            footer {
+                text-align: center;
+                padding: 1.4rem;
+                color: var(--ink-light);
+                font-size: 0.73rem;
+                border-top: 1px solid var(--parchment);
+                background: var(--cream-dark);
+            }
+
+            @media (max-width: 576px) {
+                .stat {
+                    padding: 0.75rem 1.2rem;
+                }
+
+                .controls-row {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .result-count {
+                    margin-left: 0;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header-inner">
+                <div class="institution-label">Academic Research Repository</div>
+                <h1>Research Publications</h1>
+                <p style="color: #fff;">journal articles — Faculty</p>
+                <div class="header-rule"></div>
+            </div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="num" id="statTotal">—</div>
+                <div class="lbl">Total Papers</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="statYears">—</div>
+                <div class="lbl">Academic Years</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="statScopus">—</div>
+                <div class="lbl">Scopus Indexed</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="statAuthors">—</div>
+                <div class="lbl">Unique Authors</div>
+            </div>
+        </div>
+
+        <div class="year-tabs-wrap">
+            <div class="year-tabs" id="yearTabs"></div>
+        </div>
+
+        <div class="controls-row">
+            <div class="search-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search title, author, journal, ISSN…" />
+            </div>
+            <select class="filter-select" id="filterIndexing">
+                <option value="">All Indexing</option>
+                <option value="Scopus">Scopus</option>
+                <option value="WoS">WoS</option>
+            </select>
+            <span class="result-count" id="resultCount"></span>
+        </div>
+
+        <div class="table-outer">
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table id="pubTable">
+                        <thead>
+                            <tr>
+                                <th>Sl.No</th>
+                                <th data-col="authors">Authors <span class="sort-icon">⇅</span></th>
+                                <th data-col="title">Article Title <span class="sort-icon">⇅</span></th>
+                                <th data-col="journal">Journal Name <span class="sort-icon">⇅</span></th>
+                                <th data-col="issn">ISSN No.</th>
+                                <th data-col="volume">Volume</th>
+                                <th data-col="issue">Issue No.</th>
+                                <th data-col="pages">Page Nos.</th>
+                                <th data-col="monthYear">Month &amp; Year <span class="sort-icon">⇅</span></th>
+                                <th data-col="indexing">Indexing</th>
+                                <th>Paper Link</th>
+                                <th>Scopus Profile</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                    <div class="no-results d-none" id="noResults">
+                        <i class="fas fa-folder-open"></i>
+                        No publications match your current filters.
+                    </div>
                 </div>
             </div>
-        </nav>
-    </section>
-
-
-
-    <!-- Journals -->
-
-    <div class="container mt-4" id="journals">
-
-
-        <div class="table-responsive">
-            <h4 class="section-title">Journals: 1 (SCOPUS: 1) 2024-2025</h4>
-            <table class="table table-bordered  ">
-
-                <thead class="table-dark align-middle">
-                    <tr>
-                        <th>Sl.No</th>
-                        <th>Authors</th>
-                        <th>Article Title</th>
-                        <th>Journal Name</th>
-                        <th>ISSN No.</th>
-                        <th>Volume</th>
-                        <th>Issue No.</th>
-                        <th>Page No.s</th>
-                        <th>Month & Year</th>
-                        <th>Indexing</th>
-                        <th>DOI</th>
-
-                        <th>SCOPUS Faculty Profile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>M. Kiran Mayee, R. Deepthi Crestose Rebekah, <b>Deepa.T</b>, G. Divya Zion and Lokesh. K
-                        </td>
-                        <td>Detection of Depression in Social Media Posts
-                            using Emotional Intensity Analysis
-                        </td>
-                        <td>Engineering, Technology & Applied Science Research</td>
-                        <td>1792-8036</td>
-                        <td>14</td>
-                        <td>5</td>
-                        <td>16207-16211</td>
-                        <td>OCT-2024</td>
-                        <td>SCOPUS</td>
-                        <td><a href="https://doi.org/10.48084/etasr.7461" target="_blank">DOI Link</a></td>
-
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=58443763100"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
-                    <!--<tr>
-                        <td>2</td>
-                        <td>Kottnana Janakiram, Guntupalli Ganga Prasad ,<b>Mugada Sri Lakshmi Vani</b></td>
-                        <td>Machine Learning Techniques for  Robust Security in Wireless   Sensor Networks
-                        </td>
-                        <td>International Journal for Research
-                            in Applied Science & Engineering
-                            Technology (IJRASET)
-                        </td>
-                        <td>2321-9653</td>
-                        <td>12</td>
-                        <td>XII</td>
-                        <td>1959-1964</td>
-                        <td>Dec-24</td>
-                        <td>UGE CARE</td>
-                        <td><a href="https://doi.org/10.22214/ijraset.2024.66134" target="_blank">DOI
-                                Link</a></td>
-                       
-                        <td>-</td>
-                    </tr> -->
-                </tbody>
-            </table>
         </div>
 
-<br>
-        <div class="table-responsive">
-            <h4 class="section-title">Journals: 2 (SCOPUS: 2) 2023-2024</h4>
-            <table class="table table-bordered  ">
+        <footer>
+            &copy; 2025 Research Publications Registry &nbsp;·&nbsp; Data accurate as of October 2025
+        </footer>
 
-                <thead class="table-dark align-middle">
-                    <tr>
-                        <th>Sl.No</th>
-                        <th>Authors</th>
-                        <th>Article Title</th>
-                        <th>Journal Name</th>
-                        <th>ISSN No.</th>
-                        <th>Volume</th>
-                        <th>Issue No.</th>
-                        <th>Page No.s</th>
-                        <th>Month & Year</th>
-                        <th>Indexing</th>
-                        <th>DOI</th>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const facultyPrograms_2025_26 = [
+                {
+                    authors: "PARUCHURI JAYASRI",
+                    title: "Machine Learning in Image Processing Driving Innovation in Visual Data Analysis",
+                    journal: "Journal of Theoretical and Applied Information Technology",
+                    issn: "1992-8645",
+                    volume: "103",
+                    issue: "19",
+                    pages: "8202-8211",
+                    monthYear: "October 2025",
+                    indexing: "Scopus",
+                    paperLink: "https://www.jatit.org/volumes/Vol103No19/32Vol103No19.pdf",
+                    scopusLink: "https://tinyurl.com/jayasri1"
+                },
+                {
+                    authors: "Pamidimukkala Sai Geetha",
+                    title: "Brain Tumor Detection from MRI Images Using Window Aware Hierarchical Auto-Associative Polynomial Network",
+                    journal: "Biomedical Materials and Devices",
+                    issn: "2731-4812",
+                    volume: "",
+                    issue: "",
+                    pages: "",
+                    monthYear: "October 2025",
+                    indexing: "Scopus",
+                    paperLink: "https://doi.org/10.1007/s44174-025-00558-0",
+                    scopusLink: "https://www.scopus.com/authid/detail.uri?authorId=60151139100"
+                }
+            ];
 
-                        <th>SCOPUS Faculty Profile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Krishna, S. Rama,<b> Naresh Cherukuri</b>, Y. Dileep Kumar, R. Jayakarthik, B. Nagarajan,
-                            Allam Balaram, and G. Divya Jyothi.</td>
-                        <td>Convolutional Neural Networks for Automated Diagnosis of Diabetic Retinopathy in Fundus
-                            Images.</td>
-                        <td>Journal of Artificial Intelligence and Technology</td>
-                        <td>2766-8649</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>205 to 214</td>
-                        <td>Aug-23</td>
-                        <td>SCOPUS</td>
-                        <td><a href="https://doi.org/10.37965/jait.2023.0264" target="_blank">DOI Link</a></td>
+            const facultyPrograms_2024_25 = [
+                {
+                    authors: "M. Kiran Mayee, R. Deepthi Crestose Rebekah, Deepa T, G. Divya Zion, Lokesh K",
+                    title: "Detection of Depression in Social Media Posts using Emotional Intensity Analysis",
+                    journal: "Engineering, Technology & Applied Science Research",
+                    issn: "1792-8036",
+                    volume: "14",
+                    issue: "5",
+                    pages: "16207-16211",
+                    monthYear: "October 2024",
+                    indexing: "Scopus",
+                    paperLink: "https://etasr.com/index.php/ETASR/article/view/7461",
+                    scopusLink: "https://www.scopus.com/authid/detail.uri?authorId=58443763100"
+                }
+            ];
 
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=57223128560"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Dr.A.Greeni , Prof. Ts. Dr. Yousef A.Baker El-Ebiary , <b>G.Venkata Krishna</b> , Dr. G.
-                            Vikram , Kuchipudi Prasanth Kumar , Ravikiran K , Dr B Kiran Bala</td>
-                        <td>BrainLang DL: A Deep Learning Approach to FMRI
-                            for Unveiling Neural Correlates of Language across
-                            Cultures
-                        </td>
-                        <td>International Journal of Advanced Computer Science and Applications</td>
-                        <td>2156-5570</td>
-                        <td>15</td>
-                        <td>6</td>
-                        <td>1124-1133</td>
-                        <td>June-24</td>
-                        <td>SCOPUS</td>
-                        <td><a href="https://dx.doi.org/10.14569/IJACSA.2024.01506114" target="_blank">DOI
-                                Link</a></td>
+            const academicYearData = {
+                "2025-2026": facultyPrograms_2025_26,
+                "2024-2025": facultyPrograms_2024_25
+            };
 
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=59157078700"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
+            // STATE
+            let activeYear = Object.keys(academicYearData)[0];
+            let sortCol = null, sortDir = 1;
 
+            // HELPERS
+            function val(v) { return v && String(v).trim() ? String(v).trim() : '—'; }
 
+            function linkBtn(url, label, type) {
+                if (!url || url.trim() === '') return '<span style="color:#bbb;font-size:0.75rem;">N/A</span>';
+                const icon = type === 'doi' ? 'external-link-alt' : 'user-circle';
+                return `<a href="${url}" target="_blank" rel="noopener" class="link-btn link-${type}"><i class="fas fa-${icon}"></i>${label}</a>`;
+            }
 
+            // STATS
+            function updateStats() {
+                const all = Object.values(academicYearData).flat();
+                const authors = new Set(all.map(p => p.authors.split(/[,;]/)[0].trim().toUpperCase()));
+                document.getElementById('statTotal').textContent = all.length;
+                document.getElementById('statYears').textContent = Object.keys(academicYearData).length;
+                document.getElementById('statScopus').textContent = all.filter(p => p.indexing === 'Scopus').length;
+                document.getElementById('statAuthors').textContent = authors.size;
+            }
 
+            // YEAR TABS
+            function buildTabs() {
+                const container = document.getElementById('yearTabs');
+                container.innerHTML = '';
+                Object.keys(academicYearData).forEach(year => {
+                    const btn = document.createElement('button');
+                    btn.className = 'year-tab' + (year === activeYear ? ' active' : '');
+                    btn.innerHTML = `${year} <span class="count-pill">${academicYearData[year].length}</span>`;
+                    btn.addEventListener('click', () => { activeYear = year; buildTabs(); render(); });
+                    container.appendChild(btn);
+                });
+            }
 
-                </tbody>
-            </table>
-        </div>
-<br>
-        <div class="table-responsive">
-            <h4 class="section-title">Journals: 4 (SCIE: 3, SCOPUS: 1) 2022-2023</h4>
-            <table class="table table-bordered  ">
-                <thead class="table-dark align-middle">
-                    <tr>
-                        <th>Sl.No</th>
-                        <th>Authors</th>
-                        <th>Article Title</th>
-                        <th>Journal Name</th>
-                        <th>ISSN No.</th>
-                        <th>Volume</th>
-                        <th>Issue No.</th>
-                        <th>Page No.s</th>
-                        <th>Month & Year</th>
-                        <th>Indexing</th>
-                        <th>DOI</th>
-                        <th>WOS Faculty Profile</th>
-                        <th>SCOPUS Faculty Profile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>K. Rasool Reddy,<b> Raj Kumar Batchu</b>, Srinivasu Polinati, Durga Prasad Bavirisetti</td>
-                        <td>Design of a medical decision-supporting system for brain tumor identification</td>
-                        <td>Frontiers in Human Neuroscience</td>
-                        <td>1662-5161</td>
-                        <td>17</td>
-                        <td>-</td>
-                        <td>01 to 16</td>
-                        <td>Mar-23</td>
-                        <td>SCIE & SCOPUS</td>
-                        <td><a href="https://doi.org/10.3389/fnhum.2023.1157155" target="_blank">DOI Link</a></td>
-                        <td><a href="https://www.webofscience.com/wos/author/record/HDN-7109-2022" target="_blank">WOS
-                                Profile</a></td>
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=57279627900"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><b>Janakiramaiah Bonam</b>, Sai Sudheer Kondapalli, Narasimha Prasad L V, Krishna Marlapalli
-                        </td>
-                        <td>Lightweight CNN Models for Product Defect Detection</td>
-                        <td>JOURNAL OF SCIENTIFIC & INDUSTRIAL RESEARCH</td>
-                        <td>0022-4456</td>
-                        <td>82</td>
-                        <td>-</td>
-                        <td>418-425</td>
-                        <td>Apr-23</td>
-                        <td>SCIE & SCOPUS</td>
-                        <td><a href="http://op.niscair.res.in/index.php/JSIR/article/view/72390" target="_blank">DOI
-                                Link</a></td>
-                        <td><a href="https://www.webofscience.com/wos/author/record/U-9486-2019" target="_blank">WOS
-                                Profile</a></td>
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=56427961100"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Kalyani G, Sai Sudheer K, <b>Janakiramaiah B</b>, Narendra Kumar Rao B</td>
-                        <td>Hyperparameter Optimization for Transfer Learning-based Disease Detection</td>
-                        <td>JOURNAL OF SCIENTIFIC & INDUSTRIAL RESEARCH</td>
-                        <td>0022-4456</td>
-                        <td>82</td>
-                        <td>-</td>
-                        <td>536-545</td>
-                        <td>May-23</td>
-                        <td>SCIE & SCOPUS</td>
-                        <td><a href="https://doi.org/10.56042/jsir.v82i05.1089" target="_blank">DOI Link</a></td>
-                        <td><a href="https://www.webofscience.com/wos/author/record/U-9486-2019" target="_blank">WOS
-                                Profile</a></td>
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=56427961100"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr>
-                    <!-- <tr>
-                        <td>4</td>
-                        <td>G. Mahesh Reddy, <b>P. Hema Venkata Ramana</b>, Ponnuru Anusha, etc.</td>
-                        <td>A Survey on Sugarcane Leaf Disease Identification</td>
-                        <td>International Journal on Recent and Innovation Trends in Computing and Communication</td>
-                        <td>2321-8169</td>
-                        <td>11</td>
-                        <td>5</td>
-                        <td>248-254</td>
-                        <td>May-23</td>
-                        <td>SCOPUS</td>
-                        <td><a href="http://dx.doi.org/10.17762/ijritcc.v11i5.6611" target="_blank">DOI Link</a></td>
-                        <td>NA</td>
-                        <td><a href="https://www.scopus.com/authid/detail.uri?authorId=58484702800&origin=recordpage"
-                                target="_blank">SCOPUS Profile</a></td>
-                    </tr> -->
-                </tbody>
-            </table>
-        </div>
-    </div>
+            // RENDER
+            function render() {
+                const search = document.getElementById('searchInput').value.toLowerCase();
+                const idxFilt = document.getElementById('filterIndexing').value;
 
+                let data = [...(academicYearData[activeYear] || [])];
+                if (sortCol) {
+                    data.sort((a, b) => String(a[sortCol] || '').localeCompare(String(b[sortCol] || '')) * sortDir);
+                }
 
+                const tbody = document.getElementById('tableBody');
+                tbody.innerHTML = '';
+                let visible = 0;
 
+                data.forEach((p, i) => {
+                    const searchable = [p.authors, p.title, p.journal, p.issn, p.monthYear].join(' ').toLowerCase();
+                    if (search && !searchable.includes(search)) return;
+                    if (idxFilt && p.indexing !== idxFilt) return;
+                    visible++;
 
-     <!--footer -->
-     <div class="footer">
-        Quick Links
-      </div>
-      <div class="container mt-4">
-        <div class="row">
-          <!-- Column 1 -->
-          <div class="col-md-2">
-            <div class="column-title">Menu</div>
-            <ul class="list-unstyled">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="../pages/Gallery.html">Gallery</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
-              <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
-            </ul>
-          </div>
-          <!-- Column 2 -->
-          <div class="col-md-2">
-            <div class="column-title">Academic</div>
-            <ul class="list-unstyled">
-              <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
-              <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
-              <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
-              <li><a href="../pdfs/mous.pdf">MoU's</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
-            </ul>
-          </div>
-          <!-- Column 3 -->
-          <div class="col-md-2">
-            <div class="column-title">Governance</div>
-            <ul class="list-unstyled">
-              <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
-              <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
-              <li><a href="../pdfs/ugc.pdf">UGC</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
-              <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
-              <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
-              <li><a href="../index.html">PVP Gallery</a></li>
-            </ul>
-          </div>
-          <!-- Column 4 -->
-          <div class="col-md-3">
-            <div class="column-title">Contact</div>
-            <address class="address">
-              <p>P.V.P. Siddhartha Institute Of Technology</p>
-              <p>Kanuru, Vijayawada-520 007</p>
-              <p>Andhra Pradesh, India</p>
-              <p>Tel: 0866-2581699, 0866-2583037</p>
-              <p>0866-2585681, 0866-2585682</p>
-              <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
-              <p>Fax: 0866-2581184</p>
-            </address>
-          </div>
-          <!-- Column 5 -->
-          <div class="col-md-3">
-            <div class="column-title">Location</div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-    
-            </iframe>
-          </div>
-        </div>
-      </div>
-      
+                    const uid = `auth-${activeYear.replace(/\W/g, '')}-${i}`;
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+      <td class="td-sl">${visible}</td>
+      <td class="td-authors">
+        <div class="authors-text" id="${uid}">${p.authors}</div>
+        <span class="expand-hint" data-target="${uid}"></span>
+      </td>
+      <td class="td-title">${p.title}</td>
+      <td class="td-journal">${val(p.journal)}</td>
+      <td class="td-issn">${val(p.issn)}</td>
+      <td class="td-vol">${val(p.volume)}</td>
+      <td class="td-issue">${val(p.issue)}</td>
+      <td class="td-pages">${val(p.pages)}</td>
+      <td class="td-date">${val(p.monthYear)}</td>
+      <td><span class="badge-index">${val(p.indexing)}</span></td>
+      <td>${linkBtn(p.paperLink, 'Paper', 'doi')}</td>
+      <td>${linkBtn(p.scopusLink, 'Profile', 'scopus')}</td>
+    `;
 
-</body>
+                    tr.querySelector('.expand-hint').addEventListener('click', function () {
+                        const el = document.getElementById(this.dataset.target);
+                        el.classList.toggle('expanded');
+                        this.textContent = el.classList.contains('expanded') ? '− show less' : '+ show more';
+                    });
 
+                    tbody.appendChild(tr);
+                });
 
+                const total = (academicYearData[activeYear] || []).length;
+                document.getElementById('resultCount').textContent = `Showing ${visible} of ${total} record${total !== 1 ? 's' : ''}`;
+                document.getElementById('noResults').classList.toggle('d-none', visible > 0);
+            }
+
+            // SORTABLE HEADERS
+            document.querySelectorAll('thead th[data-col]').forEach(th => {
+                th.addEventListener('click', () => {
+                    const col = th.dataset.col;
+                    sortDir = (sortCol === col) ? sortDir * -1 : 1;
+                    sortCol = col;
+                    document.querySelectorAll('thead th').forEach(t => {
+                        t.classList.remove('sorted');
+                        const si = t.querySelector('.sort-icon');
+                        if (si) si.textContent = '⇅';
+                    });
+                    th.classList.add('sorted');
+                    const si = th.querySelector('.sort-icon');
+                    if (si) si.textContent = sortDir === 1 ? '↑' : '↓';
+                    render();
+                });
+            });
+
+            document.getElementById('searchInput').addEventListener('input', render);
+            document.getElementById('filterIndexing').addEventListener('change', render);
+
+            // INIT
+            updateStats();
+            buildTabs();
+            render();
+        </script>
+    </body>
 
 </html>

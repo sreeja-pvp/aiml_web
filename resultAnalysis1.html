@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Result Analysis with Filters</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn.active {
+            background-color: #1e293b !important;
+            color: white !important;
+            border-color: #1e293b !important;
+        }
+
+        .year-card {
+            transition: all 0.3s ease;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 10px;
+            background-color: #e2e8f0;
+        }
+
+        /* Animation for filtering */
+        .hidden-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .visible-card {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Force text visibility */
+        .nav-link,
+        .navbar-brand {
+            color: #e7d4d4 !important;
+        }
+
+        /* Fix for Submenus (Syllabus, Regulations, etc.) */
+        @media (min-width: 992px) {
+            .dropdown-menu li:hover>.dropdown-menu {
+                display: block;
+                top: 0;
+                left: 100%;
+                margin-top: -1px;
+            }
+        }
+
+        /* Ensure navbar stays on top of content */
+        .navSection {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <link rel="stylesheet" href="./css/quickLinks.css">
+</head>
+
+<body>
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg" style="background-color: #18446b !important;">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Academic Calendar</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP23_IIB.Tech-AC-2024-25.pdf">II
+                                                Year</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/Academic_Calendars/PVP20_IIIB.Tech-AC-2024-25.pdf">III
+                                                Year</a></li>
+                                        <li><a class="dropdown-item" href="#">IV Year</a></li>
+                                    </ul>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li><a class="dropdown-item" href="../pages/BOS.html">BOS</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html"> PVP23 </a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+    <div class="container py-10 max-w-5xl">
+        <header class="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+                <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight">Result Analysis</h1>
+                <p class="text-slate-500">Department Performance Dashboard</p>
+            </div>
+
+            <div class="mt-6 md:mt-0 flex flex-wrap gap-2 justify-center">
+                <button class="filter-btn btn btn-outline-secondary btn-sm active px-4 rounded-pill"
+                    onclick="filterData('all', this)">All Years</button>
+                <button class="filter-btn btn btn-outline-secondary btn-sm px-4 rounded-pill"
+                    onclick="filterData('2025-26', this)">2025-26</button>
+                <button class="filter-btn btn btn-outline-secondary btn-sm px-4 rounded-pill"
+                    onclick="filterData('2024-25', this)">2024-25</button>
+                <button class="filter-btn btn btn-outline-secondary btn-sm px-4 rounded-pill"
+                    onclick="filterData('2023-24', this)">2023-24</button>
+            </div>
+        </header>
+
+        <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-[10px] font-bold uppercase">Avg Pass %</p>
+                <h2 id="stat-avg" class="text-2xl font-black text-blue-600">96.04%</h2>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-[10px] font-bold uppercase">Distinctions</p>
+                <h2 id="stat-dist" class="text-2xl font-black text-emerald-600">6</h2>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <p class="text-slate-500 text-[10px] font-bold uppercase">Backlogs</p>
+                <h2 class="text-2xl font-black text-slate-800">0</h2>
+            </div>
+            <div class="bg-slate-800 p-4 rounded-xl shadow-sm text-white">
+                <p class="text-slate-400 text-[10px] font-bold uppercase">Max Score</p>
+                <h2 id="stat-max" class="text-2xl font-black">100%</h2>
+            </div>
+        </div>-->
+
+        <div id="results-container" class="space-y-8">
+
+            <div class="year-card visible-card" data-year="2025-26">
+                <h3 class="text-lg font-bold text-slate-700 mb-4 flex items-center">
+                    Academic Year 2025 - 2026
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <p class="text-xs font-bold text-slate-400 uppercase">II Year (Sem-I)</p>
+                        <h4 class="text-2xl font-black text-slate-800 mt-1">98.55%</h4>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 98.55%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <p class="text-xs font-bold text-slate-400 uppercase">III Year (Sem-I)</p>
+                        <h4 class="text-2xl font-black text-slate-800 mt-1">95.71%</h4>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 95.71%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <p class="text-xs font-bold text-slate-400 uppercase">IV Year (Sem-I)</p>
+                        <h4 class="text-2xl font-black text-slate-800 mt-1">97.10%</h4>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 97.10%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-card visible-card" data-year="2024-25">
+                <h3 class="text-lg font-bold text-slate-700 mb-4 flex items-center">
+                    Academic Year 2024 - 2025
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-emerald-500">
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-3">II Year Performance</p>
+                        <div class="flex justify-between items-end">
+                            <div><span class="text-xs text-slate-500">Sem I</span>
+                                <p class="font-bold">97.1%</p>
+                            </div>
+                            <div class="text-right"><span class="text-xs text-emerald-600 font-bold">Sem II</span>
+                                <p class="text-2xl font-black text-emerald-600">100%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-emerald-500">
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-3">III Year Performance</p>
+                        <div class="flex justify-between items-end">
+                            <div><span class="text-xs text-slate-500">Sem I</span>
+                                <p class="font-bold">91.43%</p>
+                            </div>
+                            <div class="text-right"><span class="text-xs text-emerald-600 font-bold">Sem II</span>
+                                <p class="text-2xl font-black text-emerald-600">100%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-card visible-card" data-year="2023-24">
+                <h3 class="text-lg font-bold text-slate-700 mb-4 flex items-center">
+
+                    Academic Year 2023 - 2024
+                </h3>
+                <div class="bg-white p-5 rounded-xl shadow-sm max-w-md">
+                    <p class="text-xs font-bold text-slate-400 uppercase mb-4">II Year Breakdown</p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-xs">Sem I</span><span
+                                    class="text-sm font-bold text-amber-600">86.96%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 86.96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-xs">Sem II</span><span
+                                    class="text-sm font-bold text-blue-600">95.65%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 95.65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function filterData(year, btn) {
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.year-card');
+            cards.forEach(card => {
+                if (year === 'all' || card.getAttribute('data-year') === year) {
+                    card.classList.remove('hidden-card');
+                    card.classList.add('visible-card');
+                } else {
+                    card.classList.remove('visible-card');
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            updateStats(year);
+        }
+
+        function updateStats(year) {
+            // Mock logic to update top stats based on filter
+            const stats = {
+                'all': { avg: '96.04%', max: '100%', dist: '6' },
+                '2025-26': { avg: '97.12%', max: '98.55%', dist: '3' },
+                '2024-25': { avg: '97.13%', max: '100%', dist: '2' },
+                '2023-24': { avg: '91.31%', max: '95.65%', dist: '1' }
+            };
+
+            const current = stats[year];
+            document.getElementById('stat-avg').innerText = current.avg;
+            document.getElementById('stat-max').innerText = current.max;
+            document.getElementById('stat-dist').innerText = current.dist;
+        }
+    </script>
+</body>
+
+</html>

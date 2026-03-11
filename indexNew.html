@@ -139,8 +139,28 @@
             }
         }
 
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .announcement-list {
+            animation: scrollUp 15s linear infinite;
+        }
+
+
+
         /* --- END Carousel CSS --- */
     </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  
 </head>
 
 <body class="bg-gray-50 font-sans">
@@ -340,162 +360,111 @@
                 </button>
             </div>
         </section>
-        <!-- 🟨 Faculty Achievements & Announcements Section -->
-        <section id="faculty-achievements-announcements" class="py-4 px-4">
-            <div class="container mx-auto">
-                <h2 class="text-2xl font-extrabold text-center text-indigo-900 mb-4 tracking-wide">
-                    👩‍🏫 Faculty Achievements & 📢 Announcements
-                </h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- 🟨 Faculty, Student Achievements & Announcements -->
+        <section id="achievements-announcements" class="py-6 px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                    <!-- 🧑‍🏫 Faculty Achievements Carousel -->
-                    <div
-                        class="rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-[#ffa77f] to-[#ffcc8f] text-gray-900">
-                        <h3 class="text-lg font-bold text-indigo-900 py-2 text-center bg-white/30">
-                            🏆 Faculty Achievements
-                        </h3>
+                <div
+                    class="bg-gradient-to-l from-indigo-100 rounded-lg shadow-md border border-indigo-100 flex flex-col justify-between p-4">
 
-                        <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel"
-                            data-bs-interval="4000">
-                            <div class="carousel-inner">
+                    <h3 class="text-3xl font-bold text-center pt-8 text-indigo-800">
+                        🎓 Student Achievement Highlights
+                    </h3>
 
-                                <!-- Faculty 1 -->
-                                <div class="carousel-item active">
-                                    <div
-                                        class="flex flex-col md:flex-row items-center justify-center h-[200px] md:h-[180px] px-3 py-2 w-full">
-                                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=180&h=180&fit=crop&q=80"
-                                            alt="Faculty Photo"
-                                            class="w-[40%] md:w-[35%] h-full object-cover rounded-l-xl border-r-4 border-indigo-700">
-                                        <div class="flex flex-col justify-center p-3 w-[60%] md:w-[65%]">
-                                            <h4 class="text-base font-bold text-indigo-900 mb-1">Dr. S. Meena</h4>
-                                            <p class="text-xs text-gray-800 mb-1 italic">Published in: <strong>AICTE
-                                                    Journal of Innovative Teaching</strong></p>
-                                            <p
-                                                class="bg-white/50 p-2 rounded-lg border-l-4 border-indigo-700 text-gray-900 text-xs leading-tight">
-                                                🎉 National Award for Innovative Teaching Practices!
-                                            </p>
-                                        </div>
+                    <div id="studentAchievementCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#studentAchievementCarousel" data-bs-slide-to="0"
+                                class="active"></button>
+                            <button type="button" data-bs-target="#studentAchievementCarousel"
+                                data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#studentAchievementCarousel"
+                                data-bs-slide-to="2"></button>
+                        </div>
+
+                        <div class="carousel-inner">
+
+                            <!-- Student 1 -->
+                            <div class="carousel-item active">
+                                <div class="achievement-card">
+                                    <div class="photo-container">
+                                        <img src="https://picsum.photos/id/1005/200/200" alt="Student 1"
+                                            class="faculty-photo">
                                     </div>
-                                </div>
-
-                                <!-- Faculty 2 -->
-                                <div class="carousel-item">
-                                    <div
-                                        class="flex flex-col md:flex-row items-center justify-center h-[200px] md:h-[180px] px-3 py-2 w-full">
-                                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=180&h=180&fit=crop&q=80"
-                                            alt="Faculty Photo"
-                                            class="w-[40%] md:w-[35%] h-full object-cover rounded-l-xl border-r-4 border-indigo-700">
-                                        <div class="flex flex-col justify-center p-3 w-[60%] md:w-[65%]">
-                                            <h4 class="text-base font-bold text-indigo-900 mb-1">Prof. K. Rajesh</h4>
-                                            <p class="text-xs text-gray-800 mb-1 italic">Published in: <strong>IEEE
-                                                    Transactions on ML</strong></p>
-                                            <p
-                                                class="bg-white/50 p-2 rounded-lg border-l-4 border-indigo-700 text-gray-900 text-xs leading-tight">
-                                                🚀 Published cutting-edge AI research in IEEE Journal!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Faculty 3 -->
-                                <div class="carousel-item">
-                                    <div
-                                        class="flex flex-col md:flex-row items-center justify-center h-[200px] md:h-[180px] px-3 py-2 w-full">
-                                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=180&h=180&fit=crop&q=80"
-                                            alt="Faculty Photo"
-                                            class="w-[40%] md:w-[35%] h-full object-cover rounded-l-xl border-r-4 border-indigo-700">
-                                        <div class="flex flex-col justify-center p-3 w-[60%] md:w-[65%]">
-                                            <h4 class="text-base font-bold text-indigo-900 mb-1">Dr. P. Latha</h4>
-                                            <p class="text-xs text-gray-800 mb-1 italic">Published in: <strong>Journal
-                                                    of Smart Agriculture</strong></p>
-                                            <p
-                                                class="bg-white/50 p-2 rounded-lg border-l-4 border-indigo-700 text-gray-900 text-xs leading-tight">
-                                                🌾 Research on AI-based Crop Yield Prediction!
-                                            </p>
-                                        </div>
+                                    <div class="data-container">
+                                        <p class="text-lg text-gray-500 mb-1">Final Year – CSE (AI & ML)</p>
+                                        <h3 class="text-3xl font-bold text-indigo-600 mb-3">Kavita Reddy</h3>
+                                        <p class="text-gray-700 text-base italic mb-4">
+                                            Placed in <b>TCS Digital</b> with a package of <b>₹10 LPA</b>.
+                                        </p>
+                                        <span
+                                            class="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
+                                            Placement Excellence
+                                        </span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#facultyCarousel"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon bg-indigo-700 rounded-full p-1"
-                                    aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#facultyCarousel"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon bg-indigo-700 rounded-full p-1"
-                                    aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
+                            <!-- Student 2 -->
+                            <div class="carousel-item">
+                                <div class="achievement-card">
+                                    <div class="photo-container">
+                                        <img src="https://picsum.photos/id/1012/200/200" alt="Student 2"
+                                            class="faculty-photo">
+                                    </div>
+                                    <div class="data-container">
+                                        <p class="text-lg text-gray-500 mb-1">III Year – CSE</p>
+                                        <h3 class="text-3xl font-bold text-indigo-600 mb-3">Arjun Nair</h3>
+                                        <p class="text-gray-700 text-base italic mb-4">
+                                            Winner of <b>National Level Hackathon</b> on AI-based Smart Systems.
+                                        </p>
+                                        <span
+                                            class="inline-block bg-yellow-100 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">
+                                            Hackathon Winner
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <!-- 📢 Announcements (Vertical Scroll) -->
-                    <div
-                        class="rounded-xl shadow-md overflow-hidden bg-gradient-to-br from-[#ffa77f] to-[#ffcc8f] text-gray-900 relative">
-                        <h3 class="text-xxl font-bold text-indigo-900 py-2 text-center bg-white/30">
-                            📢 Announcements
-                        </h3>
+                            <!-- Student 3 -->
+                            <div class="carousel-item">
+                                <div class="achievement-card">
+                                    <div class="photo-container">
+                                        <img src="https://picsum.photos/id/1027/200/200" alt="Student 3"
+                                            class="faculty-photo">
+                                    </div>
+                                    <div class="data-container">
+                                        <p class="text-lg text-gray-500 mb-1">IV Year – CSE</p>
+                                        <h3 class="text-3xl font-bold text-indigo-600 mb-3">Deepa Varma</h3>
+                                        <p class="text-gray-700 text-base italic mb-4">
+                                            Published a research paper in an <b>International IEEE Conference</b>.
+                                        </p>
+                                        <span
+                                            class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                                            Research Publication
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="overflow-hidden h-[200px] md:h-[280px] p-3">
-                            <ul class="announcement-list font-medium text-xl leading-tight">
-
-                                <li class="pb-1">
-                                    🏫 <strong>Campus Drive:</strong> CTS & Capgemini interviews next week.
-                                    <hr class="border-t border-[#0033cc] opacity-100 my-1">
-                                </li>
-
-                                <li class="pb-1">
-                                    🧾 <strong>Resume Update:</strong> Upload resume with photo on Superset.
-                                    <hr class="border-t border-[#0033cc] opacity-100 my-1">
-                                </li>
-
-                                <li class="pb-1">
-                                    📚 <strong>Training:</strong> Attendance mandatory for trainees.
-                                    <hr class="border-t border-[#0033cc] opacity-100 my-1">
-                                </li>
-
-                                <li class="pb-1">
-                                    🎓 <strong>INAE CEEE:</strong> G. Venkata Krishna selected for IIT KGP.
-                                    <hr class="border-t border-[#0033cc] opacity-100 my-1">
-                                </li>
-
-                                <li>
-                                    📜 <strong>Certificates:</strong> Verify before submission.
-                                </li>
-
-                            </ul>
                         </div>
 
-
-
-
-                        <!-- Scroll Animation -->
-                        <style>
-                            @keyframes scrollUp {
-                                0% {
-                                    transform: translateY(100%);
-                                }
-
-                                100% {
-                                    transform: translateY(-100%);
-                                }
-                            }
-
-                            .announcement-list {
-                                display: flex;
-                                flex-direction: column;
-                                animation: scrollUp 15s linear infinite;
-                            }
-                        </style>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#studentAchievementCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-indigo-700 rounded-full p-3"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#studentAchievementCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-indigo-700 rounded-full p-3"></span>
+                        </button>
                     </div>
                 </div>
+
             </div>
         </section>
+
+
 
 
 
@@ -842,8 +811,13 @@
                                         <div class="data-container">
                                             <p class="text-lg text-gray-500 mb-1">Assistant Professor</p>
                                             <h3 class="text-3xl font-bold text-blue-600 mb-3">Mrs. T.Deepa</h3>
-                                            <p class="text-gray-700 text-base italic mb-4">Your publication, <b>“Detection of Depression in Social Media Posts using Emotional Intensity Analysis”, has been published in Engineering, Technology & Applied Science Research — October 2024</b>. A commendable academic achievement reflecting impactful research — well done! ✨ Wishing you continued success in your research journey.</p>
-                                            
+                                            <p class="text-gray-700 text-base italic mb-4">Your publication,
+                                                <b>“Detection of Depression in Social Media Posts using Emotional
+                                                    Intensity Analysis”, has been published in Engineering, Technology &
+                                                    Applied Science Research — October 2024</b>. A commendable academic
+                                                achievement reflecting impactful research — well done! ✨ Wishing you
+                                                continued success in your research journey.</p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1059,6 +1033,235 @@
                 </div>
             </div>
         </section>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Carousel</title>
+      <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background: linear-gradient(135deg, #4a90e2, #5dade2);
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.5);
+        }
+
+        .carousel-indicators button {
+            background: linear-gradient(to right, #4a90e2, #87ceeb) !important;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-10">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-center text-white text-5xl font-extrabold mb-12 uppercase tracking-widest relative">
+            <span class="drop-shadow-[0_0_20px_rgba(135,206,250,0.5)]">Upcoming Technology Events</span>
+            <div class="absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full shadow-lg"></div>
+        </h1>
+
+        <div id="carouselContainer" class="text-center text-blue-200 text-2xl py-16 font-bold uppercase tracking-widest">
+            Loading events...
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const eventsData = {
+            "events": [
+                {
+                    "name": "Five-day Workshop on Generative AI with LLMs",
+                    "date": "September 3-8, 2025",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
+                            "topic": "Day 1 - Introduction to Generative AI"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=300&fit=crop",
+                            "topic": "Day 2 - Large Language Models Fundamentals"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+                            "topic": "Day 3 - Fine-tuning and Prompt Engineering"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop",
+                            "topic": "Day 4 - Building AI Applications"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
+                            "topic": "Day 5 - 12 Hours Hackathon on AI"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop",
+                            "name": "Dr. A. Ramesh",
+                            "designation": "Workshop Coordinator",
+                            "company": "PVPSIT - Department of CSE (AI&ML)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Industry Ready Skills Advancement Program",
+                    "date": "December 6, 2025",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop",
+                            "topic": "Workshop Inauguration and Overview"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop",
+                            "topic": "Technical Skills Development Session"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+                            "topic": "Hands-on Training Workshop"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
+                            "topic": "Industry Expert Interaction"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=300&fit=crop",
+                            "topic": "Certificate Distribution Ceremony"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+                            "name": "Industry Expert",
+                            "designation": "Guest Speaker",
+                            "company": "PVPSIT - CSE Department"
+                        }
+                    ]
+                },
+                {
+                    "name": "Technical Workshops & Certification Programs",
+                    "date": "2025 Academic Year",
+                    "days": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+                            "topic": "Workshop Series Introduction"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1622630998477-20aa696ecb05?w=400&h=300&fit=crop",
+                            "topic": "Technical Training Sessions"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=400&h=300&fit=crop",
+                            "topic": "Practical Implementation Labs"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&h=300&fit=crop",
+                            "topic": "Project Development Phase"
+                        },
+                        {
+                            "image": "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=400&h=300&fit=crop",
+                            "topic": "Certification and Awards Ceremony"
+                        }
+                    ],
+                    "speakers": [
+                        {
+                            "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop",
+                            "name": "Faculty Coordinator",
+                            "designation": "Program Lead",
+                            "company": "PVPSIT - Department of CSE"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        function loadEvents(data) {
+            const container = document.getElementById('carouselContainer');
+            
+            if (!data || !data.events || data.events.length === 0) {
+                container.innerHTML = '<div class="text-center text-white bg-red-600 bg-opacity-90 p-8 rounded-2xl mx-8 font-semibold">No events data available</div>';
+                return;
+            }
+
+            let carouselHTML = `
+                <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        ${data.events.map((_, i) => `
+                            <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="${i}" ${i === 0 ? 'class="active"' : ''}></button>
+                        `).join('')}
+                    </div>
+                    <div class="carousel-inner">
+            `;
+
+            data.events.forEach((event, index) => {
+                carouselHTML += `
+                    <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                        <div class="bg-white bg-opacity-95 rounded-3xl p-10 shadow-2xl mb-8 backdrop-blur-md border border-blue-200">
+                            <div class="text-center mb-8 pb-6 border-b-4 border-blue-500">
+                                <h2 class="text-3xl font-extrabold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent mb-2 uppercase tracking-wide">
+                                    ${event.name}
+                                </h2>
+                                <p class="text-lg text-blue-600 font-bold uppercase tracking-widest">${event.date}</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 rounded-2xl p-8 mb-8 shadow-xl">
+                                <h3 class="text-2xl font-extrabold text-blue-200 mb-6 text-center uppercase tracking-widest drop-shadow-lg">
+                                    Featured Speaker
+                                </h3>
+                                ${event.speakers.map(speaker => `
+                                    <div class="flex items-center gap-5 p-5 bg-white bg-opacity-20 rounded-xl shadow-lg backdrop-blur-md border border-blue-300 border-opacity-30 hover:bg-opacity-25 hover:translate-x-2 transition-all duration-300">
+                                        <img src="${speaker.image}" alt="${speaker.name}" class="w-20 h-20 rounded-full object-cover border-4 border-blue-500 shadow-[0_0_20px_rgba(74,144,226,0.6)] hover:shadow-[0_0_30px_rgba(135,206,250,0.8)] transition-all duration-300">
+                                        <div>
+                                            <h5 class="text-lg font-extrabold text-white uppercase tracking-wider mb-1">${speaker.name}</h5>
+                                            <p class="text-base text-blue-200 font-semibold">${speaker.designation} | ${speaker.company}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                ${event.days.map(day => `
+                                    <div class="text-center p-4 relative group">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-300 opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-400"></div>
+                                        <img src="${day.image}" alt="Day Image" class="w-full h-40 object-cover rounded-2xl mb-4 shadow-lg border-4 border-transparent group-hover:border-blue-500 group-hover:shadow-[0_15px_40px_rgba(74,144,226,0.5)] transition-all duration-400 relative z-10">
+                                        <p class="text-sm font-bold text-blue-900 min-h-[45px] flex items-center justify-center uppercase tracking-wide relative z-10">${day.topic}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            carouselHTML += `
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            `;
+
+            container.innerHTML = carouselHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                loadEvents(eventsData);
+            } catch (error) {
+                console.error('Error loading events:', error);
+                document.getElementById('carouselContainer').innerHTML = 
+                    '<div class="text-center text-white bg-red-600 bg-opacity-90 p-8 rounded-2xl mx-8 font-semibold">Error loading events: ' + error.message + '</div>';
+            }
+        });
+    </script>
 
         <section id="events-section" class="py-20 bg-yellow-50">
             <div class="container mx-auto px-4">

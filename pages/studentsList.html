@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Analysis</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <link rel="stylesheet" href="../css/quickLinks.css">
+
+    <style>
+        body {
+            /* background: linear-gradient(135deg, #7393B3 0%, #89CFF0 100%);*/
+            min-height: 100vh;
+            font-family: "Helvetica", Arial, sans-serif;
+            padding: 40px 0;
+        }
+
+        .container {
+            margin-top: 3rem;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .table-responsive {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .table {
+            background: linear-gradient(135deg, #7393B3 0%, #89CFF0 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 18px 15px;
+            border: 2px solid white;
+            font-weight: 600;
+        }
+
+        .table thead th {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table th {
+            background: linear-gradient(135deg, #7393B3 0%, #89CFF0 100%);
+            color: white;
+        }
+
+        .table td {
+            background: linear-gradient(135deg, #89CFF0 0%, #a8dff5 100%);
+            color: #001f3f;
+            font-weight: 600;
+        }
+
+        .table .year-header {
+            background: linear-gradient(135deg, #7393B3 0%, #89CFF0 100%) !important;
+            color: white !important;
+            width: 150px;
+            font-size: 1.1rem;
+            padding: 18px 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .table th[rowspan="2"],
+        .table th[rowspan="4"],
+        .table th[rowspan="6"] {
+            background: linear-gradient(135deg, #89CFF0 0%, #a8dff5 100%) !important;
+            color: #001f3f !important;
+            font-weight: 700;
+        }
+
+        .table td i {
+            font-style: normal;
+            font-weight: 700;
+            color: #001f3f;
+            font-size: 1.15rem;
+        }
+
+        .table a {
+            font-weight: 600;
+            color: #e74c3c;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .table a:hover {
+            text-decoration: underline;
+            color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .table a i {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .table tbody tr:hover {
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Special styling for percentage cells */
+        .table td:last-child {
+            font-weight: 700;
+            background: linear-gradient(135deg, #89CFF0 0%, #b8e0f6 100%);
+        }
+
+        @media (max-width: 768px) {
+
+            .table th,
+            .table td {
+                font-size: 0.9rem;
+                padding: 12px 8px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .table-responsive {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image Section -->
+    <section id="/images/">
+        <img src="../images/AIML_Logo.png" alt="Header Image" class="img-fluid">
+    </section>
+
+    <!-- NavBar Section-->
+    <section class="navSection">
+        <nav class="navbar navbar-expand-lg custom-nav">
+
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand text-black" href="https://www.pvpsiddhartha.ac.in/">PVPSIT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="././pages/about.html">About</a></li>-->
+                        <!-- Academics -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Syllabus</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="syllabus_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="syllabus_pvp20.html">PVP20</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Regulations</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_20.pdf">PVP20</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="../pdfs/regulations/academic_regulations_pvp23.pdf">PVP23</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" href="AcademicCalendars.html">Academic Calendar</a>
+                                </li>
+                                <!--<li><a class="dropdown-item" href="#">PO's PEO's PSO's</a></li>-->
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">BOS</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="BOS.html">Members</a></li>
+                                        <li><a class="dropdown-item" href="BOSMinutes.html">Minutes of Meeting</a></li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Faculty -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Faculty
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TeachingStaff.html">Teaching Staff</a></li>
+                                <li><a class="dropdown-item" href="NonTeachingStaff.html">Non-Teaching Staff</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="FDP.html">Certifications/FDPs</a></li>
+                                <li><a class="dropdown-item" href="#">Achievements</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Research -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Publications</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Journals.html">Journals</a></li>
+                                        <li><a class="dropdown-item" href="Conferences.html">Conferences</a></li>
+                                        <li><a class="dropdown-item" href="#">Books</a></li>
+                                        <li><a class="dropdown-item" href="BookChapters.html">Book Chapters</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Projects</a></li>
+                                <li><a class="dropdown-item" href="#">Patents</a></li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Students -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Students
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Student List</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html">I Year</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">II Year</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">III Year</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="TimeTable.html">TimeTables</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Question Papers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="Questionpapers_pvp23.html">PVP23</a></li>
+                                        <li><a class="dropdown-item" href="QuestionPapers_pvp20.html">PVP20</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="MentoringList.html">Mentoring List</a></li>
+                                <li><a class="dropdown-item" href="StudentsAchievements.html">Achievements</a></li>
+                                <li><a class="dropdown-item" href="#">Publications</a></li>
+                                <li><a class="dropdown-item" href="#">Projects/Chapters</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Higher Studies</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Internships -->
+                        <li class="nav-item ml-3 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Internships
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" href="internship_pvp23.html">PVP23</a></li>
+                                <li><a class="dropdown-item" href="internship_pvp20.html">PVP20</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Certifications -->
+                        <li class="nav-item"><a class="nav-link" href="Certifications.html">Certifications</a></li>
+                        <!-- Results Analysis-->
+                        <li class="nav-item"><a class="nav-link" href="ResultAnalysis.html">ResultAnalysis</a></li>
+
+                        <!-- Media 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mediaDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Media
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Facebook</a></li>
+                                <li><a class="dropdown-item" href="#">Instagram</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item"><a class="nav-link" href="Gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://pvpsitclubs.github.io/ClubsPage/">Clubs</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://www.linkedin.com/company/pvpsit-aiml-datascience/?viewAsMember=true"
+                                target="_blank">
+                                <img src="../images/Linkedin-Logo1.png" width="25" alt="LinkedIn" />
+                            </a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <div>
+        <h2 class="text-center fw-bold  mb-4" style="color:  #140d6d;">
+            Department of CSE (Artificial Intelligence & Machine Learning)
+            <br>
+            <div class="fs-8  mt-4" style="color:#b34d12;">Student List</div>
+        </h2>
+    </div>
+    <div class="table-responsive">
+        <table id="facultyTable" class="table table-hover table-striped table-bordered align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Academic Year</th>
+                    <th>Student List</th>
+                </tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+        </table>
+    </div>
+    <script>
+        const facultyPDFs = [
+            { year: "I-Year", file: "2024-25-CSM-I-YEAR.pdf" },
+            { year: "II-Year", file: "2024_25facultylist.pdf" },
+            { year: "III-Year", file: "2023_24facultylist.pdf" }
+        ];
+
+        const table = document.getElementById("studentTable");
+
+        facultyPDFs.forEach(row => {
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+    <td style="color: black;">${row.year}</td>
+    <td>
+      <a href="../pdfs/studentlist/${row.file}" target="_blank" class="pdf-link">
+  <img src="../images/PDF_file_icon.svg" width="24" title="View Faculty List">
+</a>
+
+    </td>
+  `;
+
+            table.appendChild(tr);
+        });
+
+
+    </script>
+    <div class="footer">
+        Quick Links
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-4">
+                <div class="column-title">Menu</div>
+                <ul class="list-unstyled">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/Gallery.html">Gallery</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_home.html">Department</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/department_tp.html">Placements</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/aboutus.html">About</a></li>
+                    <li><a href="https://www.pvpsiddhartha.ac.in/contact.html">Contact</a></li>
+                    <li><a href="https://pvpsit.pvpsiddhartha.ac.in/index.sit?service=STAFF_LOGIN">Login</a></li>
+                </ul>
+            </div>
+            <!-- Column 2 
+          <div class="col-md-2">
+            <div class="column-title">Academic</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac.html">NAAC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/audit.html">Audit Statements</a></li>
+              <li><a href="../pdfs/servicerules.pdf">Service Rules</a></li>
+              <li><a href="../pdfs/code of conduct.pdf">Code of Conduct</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/naac/doc/cv.jpg">Core Values</a></li>
+              <li><a href="../pdfs/mous.pdf">MoU's</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/accminutes.html">Academic Council Minutes</a></li>
+            </ul>
+          </div>
+           Column 3 
+          <div class="col-md-2">
+            <div class="column-title">Governance</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.pvpsiddhartha.ac.in/gb_minutes.html">Governing-Body Minutes</a></li>
+              <li><a href="../pdfs/JNTUK AUTONOMOUS SATUS CONFERMENT TO PVPSIT LETTER.pdf">Autonomous Status</a></li>
+              <li><a href="../pdfs/ugc.pdf">UGC</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/aicteapprovals.html">AICTE Approvals</a></li>
+              <li><a href="https://www.pvpsiddhartha.ac.in/feedbackreports.html">Feedback Reports</a></li>
+              <li><a href="../pdfs/student_council.pdf">Student Council</a></li>
+              <li><a href="../index.html">PVP Gallery</a></li>
+            </ul>
+          </div> -->
+            <!-- Column 4 -->
+            <div class="col-md-4">
+                <div class="column-title">Contact</div>
+                <address class="address">
+                    <p>P.V.P. Siddhartha Institute Of Technology</p>
+                    <p>Kanuru, Vijayawada-520 007</p>
+                    <p>Andhra Pradesh, India</p>
+                    <p>Tel: 0866-2581699, 0866-2583037</p>
+                    <p>0866-2585681, 0866-2585682</p>
+                    <p>Email: <a href="mailto:principal@pvpsiddhartha.ac.in">principal@pvpsiddhartha.ac.in</a></p>
+                    <p>Fax: 0866-2581184</p>
+                </address>
+            </div>
+            <!-- Column 5 -->
+            <div class="col-md-4">
+                <div class="column-title">Location</div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1477.5755701352762!2d80.6937307918935!3d16.489628803428683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb15c517ccab%3A0xdfb750019250eb16!2sPVP%20Siddhartha%20Engineering%20College%20Rd%2C%20Vijayawada%2C%20Andhra%20Pradesh%20520007!5e0!3m2!1sen!2sin!4v1733372616130!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

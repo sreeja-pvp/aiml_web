@@ -133,6 +133,23 @@
                 margin-top: 0.2rem;
             }
 
+            .stats-bar {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                background: var(--cream-dark);
+            }
+
+            .stat {
+                text-align: center;
+                padding: 0.9rem 2rem;
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .stat:last-child {
+                border-right: none;
+            }
+
             /* CONTROLS */
             .controls-row {
                 display: flex;
@@ -633,7 +650,7 @@
                 <div class="header-inner">
                     <div class="institution-label">Academic Research Repository</div>
                     <h1>Research Publications</h1>
-                    <p style="color: #fff; font-size: larger;">Conferences — Faculty</p>
+                    <p style="color: #fff; font-size: larger;">Journal Articles — Faculty</p>
                     <div class="header-rule"></div>
                 </div>
             </header>
@@ -650,6 +667,18 @@
                 <div class="stat">
                     <div class="num" id="statScopus">—</div>
                     <div class="lbl">Scopus Indexed</div>
+
+                </div>
+
+
+                <div class="stat">
+                    <div class="num" id="statWos">—</div>
+                    <div class="lbl">WoS Indexed</div>
+                </div>
+
+                <div class="stat">
+                    <div class="num" id="statIndexed">—</div>
+                    <div class="lbl">Total Indexed</div>
                 </div>
                 <div class="stat">
                     <div class="num" id="statAuthors">—</div>
@@ -668,7 +697,7 @@
                 <select class="filter-select" id="filterIndexing">
                     <option value="">All Indexing</option>
                     <option value="Scopus">Scopus</option>
-                    <option value="WoS">WoS</option>
+                    <option value="woS">WoS</option>
                 </select>
                 <span class="result-count" id="resultCount"></span>
             </div>
@@ -682,9 +711,9 @@
                                     <th>Sl.No</th>
                                     <th data-col="authors">Authors <span class="sort-icon">⇅</span></th>
                                     <th data-col="title">Article Title <span class="sort-icon">⇅</span></th>
-                                    <th data-col="journal">Conference Name <span class="sort-icon">⇅</span></th>
-
-
+                                    <th data-col="journal">Journal Name <span class="sort-icon">⇅</span></th>
+                                    <th data-col="issn">ISSN No.</th>
+                                    <th data-col="volume">Volume</th>
                                     <th data-col="issue">Issue No.</th>
                                     <th data-col="pages">Page Nos.</th>
                                     <th data-col="monthYear">Month &amp; Year <span class="sort-icon">⇅</span></th>
@@ -773,7 +802,7 @@
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-        <script src="../js/conference.js"></script>
+        <script src="../js/journals.js"></script>
     </body>
 
 </html>

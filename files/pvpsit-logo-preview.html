@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PVPSIT CSE(AI&ML) Logo Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { background: #1a1a2e; font-family: 'Nunito', sans-serif; margin: 0; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+  h2 { color: #FCD34D; font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px; opacity: 0.85; }
+  .logo-box { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); width: 100%; max-width: 900px; }
+  .logo-box svg { width: 100%; height: auto; display: block; }
+  .info { margin-top: 28px; color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; line-height: 1.8; }
+  .btn-row { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; justify-content: center; }
+  .btn { padding: 11px 28px; border-radius: 30px; border: none; cursor: pointer; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; transition: all 0.25s; }
+  .btn-primary { background: linear-gradient(135deg,#1547C0,#3B82F6); color: white; box-shadow: 0 4px 16px rgba(21,71,192,0.4); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(21,71,192,0.5); }
+  .btn-gold { background: linear-gradient(135deg,#C8960C,#F5C842); color: #0D2B6B; box-shadow: 0 4px 16px rgba(200,150,12,0.4); }
+  .btn-gold:hover { transform: translateY(-2px); }
+
+  /* Dark preview */
+  .preview-dark { background: #0D2B6B; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); width: 100%; max-width: 900px; margin-top: 32px; }
+  .section-label { color: rgba(255,255,255,0.35); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; margin: 32px 0 14px; }
+</style>
+</head>
+<body>
+
+<h2>✦ PVPSIT · CSE (AI &amp; ML) · College Header Logo</h2>
+
+<div class="logo-box">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 140">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C8DCF0"/>
+      <stop offset="100%" style="stop-color:#B8CDE4"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D2B6B"/>
+      <stop offset="100%" style="stop-color:#1547C0"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C8960C"/>
+      <stop offset="50%" style="stop-color:#F5C842"/>
+      <stop offset="100%" style="stop-color:#C8960C"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="rgba(13,43,107,0.25)"/>
+    </filter>
+    <filter id="textShadow">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="140" fill="url(#bgGrad)"/>
+
+  <!-- Top/Bottom border -->
+  <rect x="0" y="0"   width="900" height="5"  fill="url(#shieldGrad)"/>
+  <rect x="0" y="135" width="900" height="5"  fill="url(#shieldGrad)"/>
+  <rect x="0" y="5"   width="900" height="2"  fill="url(#goldGrad)" opacity="0.7"/>
+  <rect x="0" y="133" width="900" height="2"  fill="url(#goldGrad)" opacity="0.7"/>
+
+  <!-- ── SHIELD EMBLEM ── -->
+  <circle cx="70" cy="70" r="57" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.65"/>
+  <circle cx="70" cy="70" r="53" fill="rgba(13,43,107,0.07)" stroke="rgba(13,43,107,0.15)" stroke-width="1"/>
+
+  <!-- Shield -->
+  <path d="M70 18 L106 32 L106 72 Q106 98 70 116 Q34 98 34 72 L34 32 Z" fill="url(#shieldGrad)" filter="url(#shadow)"/>
+  <path d="M70 24 L100 36 L100 72 Q100 94 70 110 Q40 94 40 72 L40 36 Z" fill="none" stroke="url(#goldGrad)" stroke-width="1.8" opacity="0.85"/>
+  <path d="M70 24 L100 36 L40 36 Z" fill="rgba(245,200,66,0.2)"/>
+
+  <!-- Neural network inside shield -->
+  <g transform="translate(70,65)">
+    <circle cx="-16" cy="-8"  r="4.5" fill="#F5C842" opacity="0.9"/>
+    <circle cx="0"   cy="-18" r="4.5" fill="#F5C842" opacity="0.9"/>
+    <circle cx="16"  cy="-8"  r="4.5" fill="#F5C842" opacity="0.9"/>
+    <circle cx="-16" cy="8"   r="4.5" fill="#7DD3FC" opacity="0.9"/>
+    <circle cx="0"   cy="18"  r="4.5" fill="#7DD3FC" opacity="0.9"/>
+    <circle cx="16"  cy="8"   r="4.5" fill="#7DD3FC" opacity="0.9"/>
+    <circle cx="0"   cy="0"   r="6"   fill="white"   opacity="0.95"/>
+    <circle cx="0"   cy="0"   r="3"   fill="#F5C842"/>
+    <line x1="-16" y1="-8"  x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="0"   y1="-18" x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="16"  y1="-8"  x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="-16" y1="8"   x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="0"   y1="18"  x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="16"  y1="8"   x2="0" y2="0"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+    <line x1="-16" y1="-8"  x2="0"  y2="-18" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    <line x1="0"   y1="-18" x2="16" y2="-8"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    <line x1="-16" y1="8"   x2="0"  y2="18"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    <line x1="0"   y1="18"  x2="16" y2="8"   stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    <line x1="-16" y1="-8"  x2="-16" y2="8"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    <line x1="16"  y1="-8"  x2="16"  y2="8"  stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+  </g>
+  <text x="70" y="107" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-weight="700" fill="url(#goldGrad)" letter-spacing="1">ESTD. 1997</text>
+
+  <!-- ── DIVIDERS ── -->
+  <line x1="148" y1="18" x2="148" y2="122" stroke="url(#goldGrad)" stroke-width="2" opacity="0.65"/>
+  <line x1="442" y1="18" x2="442" y2="122" stroke="url(#goldGrad)" stroke-width="2" opacity="0.65"/>
+
+  <!-- ── COLLEGE NAME ── -->
+  <text x="172" y="62" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#0D2B6B" filter="url(#textShadow)" letter-spacing="2">PVPSIT</text>
+  <rect x="172" y="68" width="210" height="3" rx="1.5" fill="url(#goldGrad)"/>
+  <text x="172" y="86" font-family="'Trebuchet MS', Arial, sans-serif" font-size="9.5" font-weight="600" fill="#1547C0" letter-spacing="1.2">PRASAD V. POTLURI SIDDHARTHA INSTITUTE OF TECHNOLOGY</text>
+  <text x="172" y="100" font-family="'Trebuchet MS', Arial, sans-serif" font-size="8.5" font-weight="500" fill="#3B5EA6" letter-spacing="0.8">KANURU, VIJAYAWADA – 520007, ANDHRA PRADESH</text>
+  <text x="172" y="114" font-family="'Trebuchet MS', Arial, sans-serif" font-size="8" font-weight="400" fill="#4A6FA5" letter-spacing="0.6" font-style="italic">Affiliated to JNTU Kakinada · NAAC A+ Accredited</text>
+
+  <!-- ── DEPARTMENT ── -->
+  <text x="462" y="38" font-family="'Trebuchet MS', Arial, sans-serif" font-size="11" font-weight="600" fill="#1547C0" letter-spacing="3">DEPARTMENT OF</text>
+  <text x="462" y="60" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#0D2B6B" letter-spacing="1.5">COMPUTER SCIENCE &amp; ENGINEERING</text>
+
+  <!-- AI&ML pill -->
+  <rect x="459" y="68" width="418" height="36" rx="7" fill="url(#shieldGrad)" opacity="0.93" filter="url(#shadow)"/>
+  <!-- pill circuit deco -->
+  <circle cx="476" cy="82" r="2.5" fill="rgba(245,200,66,0.7)"/>
+  <circle cx="488" cy="91" r="2"   fill="rgba(245,200,66,0.5)"/>
+  <circle cx="863" cy="82" r="2.5" fill="rgba(125,211,252,0.7)"/>
+  <circle cx="851" cy="91" r="2"   fill="rgba(125,211,252,0.5)"/>
+  <line x1="476" y1="82" x2="488" y2="91" stroke="rgba(245,200,66,0.35)" stroke-width="1"/>
+  <line x1="851" y1="91" x2="863" y2="82" stroke="rgba(125,211,252,0.35)" stroke-width="1"/>
+  <!-- Mini neural icon inside pill -->
+  <g transform="translate(502, 86)">
+    <circle cx="-7" cy="-5" r="2.2" fill="#F5C842" opacity="0.85"/>
+    <circle cx="0"  cy="-9" r="2.2" fill="#F5C842" opacity="0.85"/>
+    <circle cx="7"  cy="-5" r="2.2" fill="#7DD3FC" opacity="0.85"/>
+    <circle cx="-7" cy="3"  r="2.2" fill="#7DD3FC" opacity="0.85"/>
+    <circle cx="0"  cy="7"  r="2.2" fill="#F5C842" opacity="0.85"/>
+    <circle cx="7"  cy="3"  r="2.2" fill="#F5C842" opacity="0.85"/>
+    <circle cx="0"  cy="-1" r="2.8" fill="white"   opacity="0.9"/>
+    <line x1="-7" y1="-5" x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+    <line x1="0"  y1="-9" x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+    <line x1="7"  y1="-5" x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+    <line x1="-7" y1="3"  x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+    <line x1="0"  y1="7"  x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+    <line x1="7"  y1="3"  x2="0" y2="-1" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+  </g>
+
+  <text x="678" y="91" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#FFFFFF" letter-spacing="2">(ARTIFICIAL INTELLIGENCE &amp; MACHINE LEARNING)</text>
+
+  <!-- Motto -->
+  <text x="670" y="120" text-anchor="middle" font-family="'Trebuchet MS', Arial, sans-serif" font-size="9" font-weight="500" fill="#2D4A8A" letter-spacing="1.5" font-style="italic">Innovate · Integrate · Inspire</text>
+</svg>
+</div>
+
+<p class="section-label">How to use this logo</p>
+<p class="info">
+  Download the SVG file below and use it as your header image.<br>
+  It is fully scalable — works perfectly at any resolution without losing quality.
+</p>
+
+<div class="btn-row">
+  <button class="btn btn-primary" onclick="downloadSVG()">⬇ Download SVG</button>
+  <button class="btn btn-gold" onclick="downloadPNG()">⬇ Export as PNG (via browser)</button>
+</div>
+
+<p class="section-label">On dark background</p>
+<div class="preview-dark" style="padding:20px;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 140" style="width:100%;height:auto;display:block;">
+    <!-- Same SVG but on dark bg for reference -->
+    <defs>
+      <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0D2B6B"/>
+        <stop offset="100%" style="stop-color:#1A3D8F"/>
+      </linearGradient>
+      <linearGradient id="sg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#1A3D8F"/>
+        <stop offset="100%" style="stop-color:#2563EB"/>
+      </linearGradient>
+      <linearGradient id="gg2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#C8960C"/>
+        <stop offset="50%" style="stop-color:#F5C842"/>
+        <stop offset="100%" style="stop-color:#C8960C"/>
+      </linearGradient>
+      <filter id="sh2"><feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.4)"/></filter>
+    </defs>
+    <rect width="900" height="140" fill="url(#bg2)"/>
+    <rect x="0" y="0"   width="900" height="5"  fill="#F5C842"/>
+    <rect x="0" y="135" width="900" height="5"  fill="#F5C842"/>
+    <rect x="0" y="5"   width="900" height="2"  fill="rgba(255,255,255,0.2)"/>
+
+    <circle cx="70" cy="70" r="57" fill="none" stroke="url(#gg2)" stroke-width="2.5" opacity="0.7"/>
+    <path d="M70 18 L106 32 L106 72 Q106 98 70 116 Q34 98 34 72 L34 32 Z" fill="url(#sg2)" filter="url(#sh2)"/>
+    <path d="M70 24 L100 36 L100 72 Q100 94 70 110 Q40 94 40 72 L40 36 Z" fill="none" stroke="url(#gg2)" stroke-width="1.8" opacity="0.9"/>
+    <g transform="translate(70,65)">
+      <circle cx="-16" cy="-8"  r="4.5" fill="#F5C842" opacity="0.9"/>
+      <circle cx="0"   cy="-18" r="4.5" fill="#F5C842" opacity="0.9"/>
+      <circle cx="16"  cy="-8"  r="4.5" fill="#F5C842" opacity="0.9"/>
+      <circle cx="-16" cy="8"   r="4.5" fill="#7DD3FC" opacity="0.9"/>
+      <circle cx="0"   cy="18"  r="4.5" fill="#7DD3FC" opacity="0.9"/>
+      <circle cx="16"  cy="8"   r="4.5" fill="#7DD3FC" opacity="0.9"/>
+      <circle cx="0"   cy="0"   r="6"   fill="white"   opacity="0.95"/>
+      <circle cx="0"   cy="0"   r="3"   fill="#F5C842"/>
+      <line x1="-16" y1="-8"  x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+      <line x1="0"  y1="-18"  x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+      <line x1="16" y1="-8"   x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+      <line x1="-16" y1="8"   x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+      <line x1="0"  y1="18"   x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+      <line x1="16" y1="8"    x2="0" y2="0"  stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+    </g>
+    <text x="70" y="107" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" font-weight="700" fill="url(#gg2)" letter-spacing="1">ESTD. 1997</text>
+
+    <line x1="148" y1="18" x2="148" y2="122" stroke="url(#gg2)" stroke-width="2" opacity="0.7"/>
+    <line x1="442" y1="18" x2="442" y2="122" stroke="url(#gg2)" stroke-width="2" opacity="0.7"/>
+
+    <text x="172" y="62" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" fill="#FFFFFF" letter-spacing="2">PVPSIT</text>
+    <rect x="172" y="68" width="210" height="3" rx="1.5" fill="url(#gg2)"/>
+    <text x="172" y="86" font-family="'Trebuchet MS',Arial,sans-serif" font-size="9.5" font-weight="600" fill="#93C5FD" letter-spacing="1.2">PRASAD V. POTLURI SIDDHARTHA INSTITUTE OF TECHNOLOGY</text>
+    <text x="172" y="100" font-family="'Trebuchet MS',Arial,sans-serif" font-size="8.5" font-weight="500" fill="#7EB8E0" letter-spacing="0.8">KANURU, VIJAYAWADA – 520007, ANDHRA PRADESH</text>
+    <text x="172" y="114" font-family="'Trebuchet MS',Arial,sans-serif" font-size="8" fill="#6BA3CC" letter-spacing="0.6" font-style="italic">Affiliated to JNTU Kakinada · NAAC A+ Accredited</text>
+
+    <text x="462" y="38" font-family="'Trebuchet MS',Arial,sans-serif" font-size="11" font-weight="600" fill="#93C5FD" letter-spacing="3">DEPARTMENT OF</text>
+    <text x="462" y="60" font-family="Georgia,'Times New Roman',serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">COMPUTER SCIENCE &amp; ENGINEERING</text>
+    <rect x="459" y="68" width="418" height="36" rx="7" fill="#F5C842" filter="url(#sh2)"/>
+    <text x="678" y="91" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" font-weight="700" fill="#0D2B6B" letter-spacing="2">(ARTIFICIAL INTELLIGENCE &amp; MACHINE LEARNING)</text>
+    <text x="670" y="120" text-anchor="middle" font-family="'Trebuchet MS',Arial,sans-serif" font-size="9" font-weight="500" fill="#93C5FD" letter-spacing="1.5" font-style="italic">Innovate · Integrate · Inspire</text>
+  </svg>
+</div>
+
+<p style="color:rgba(255,255,255,0.25);font-size:11px;margin-top:32px;">PVPSIT · CSE (AI &amp; ML) Department · Header Logo</p>
+
+<script>
+function downloadSVG() {
+  const svgEl = document.querySelector('.logo-box svg');
+  const serializer = new XMLSerializer();
+  const svgStr = serializer.serializeToString(svgEl);
+  const blob = new Blob([svgStr], {type: 'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'PVPSIT_CSE_AIML_Logo.svg';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function downloadPNG() {
+  const svgEl = document.querySelector('.logo-box svg');
+  const serializer = new XMLSerializer();
+  const svgStr = serializer.serializeToString(svgEl);
+  const canvas = document.createElement('canvas');
+  canvas.width = 1800; canvas.height = 280;
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  const blob = new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0, 1800, 280);
+    canvas.toBlob(function(b) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'PVPSIT_CSE_AIML_Logo.png';
+      a.click();
+    }, 'image/png');
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+}
+</script>
+</body>
+</html>

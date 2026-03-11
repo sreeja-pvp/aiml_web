@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Department Events – Carousel View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f5f7fb;
+      font-family: "Inter", sans-serif;
+    }
+
+    .event-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .speaker-card {
+      background: #eef3ff;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .speaker-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0d6efd;
+    }
+
+    .day-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      height: 100%;
+    }
+
+    .day-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="container my-5">
+  <h2 class="text-center fw-bold mb-4">📘 Department Events</h2>
+
+  <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" id="carouselContent"></div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const eventsData = [
+    {
+      eventName: "Industry-Ready Skills Advancement Program",
+      date: "1st–6th December 2025",
+      description: "A six-day industry-focused program aimed at enhancing students' professional, leadership, and employability skills through expert guidance and real-world insights.",
+      speaker: {
+        name: "Dr. Roshan Nisar",
+        designation: "Founder & CEO of The Leader, State First Ranker, Gold Medalist",
+        company: "The Leader",
+        image: "RoshanNisar.jpeg"
+      },
+      sessions: [
+        { day: "Day 1", topic: "Industry Orientation & Career Readiness", image: "industry1.jpg" },
+        { day: "Day 2", topic: "Professional Communication Skills", image: "industry1OD.jpeg" },
+        { day: "Day 3", topic: "Leadership & Team Building", image: "industry12.jpg" },
+        { day: "Day 4", topic: "Corporate Ethics & Work Culture", image: "industry3.jpeg" },
+        { day: "Day 5", topic: "Placement Strategies & Interviews", image: "industry4.jpeg" }
+      ]
+    }
+  ];
+
+  const carousel = document.getElementById("carouselContent");
+
+  eventsData.forEach((event, index) => {
+    const slide = document.createElement("div");
+    slide.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+
+    slide.innerHTML = `
+      <div class="event-card">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-4 text-center">
+            <div class="speaker-card">
+              <img src="${event.speaker.image}" class="speaker-img mb-2" />
+              <h6 class="fw-bold">${event.speaker.name}</h6>
+              <p class="mb-0 small">${event.speaker.designation}</p>
+              <p class="small text-muted">${event.speaker.company}</p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h4 class="fw-bold">${event.eventName}</h4>
+            <p class="text-muted mb-1">${event.date}</p>
+            <p class="small text-secondary">${event.description}</p>
+          </div>
+        </div>
+        </div>
+
+        <div class="row g-3 justify-content-center">
+          ${event.sessions.map(s => `
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="day-card text-center">
+                <img src="${s.image}" class="day-img mb-2" />
+                <span class="badge bg-primary">${s.day}</span>
+                <p class="small fw-semibold mt-1">${s.topic}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+      </div>
+    `;
+
+    carousel.appendChild(slide);
+  });
+</script>
+
+</body>
+</html>
